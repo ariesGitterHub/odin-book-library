@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
+
 
 :root {
     /* --life-jacket: #f26627; */
@@ -13,10 +15,16 @@
 
 body {
     background: var(--dk-sea);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     /* align-items: center; */
     justify-content: center;
+    font-family: "Teachers", sans-serif;
+    font-optical-sizing: auto;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-style: normal;
     margin: auto;
 }
 header {
@@ -130,6 +138,7 @@ footer {
 }
 
 footer p {
+    color: var(--candle);
     font-size: 1.25rem;
     text-align: center;
 }
