@@ -82,8 +82,8 @@ button-container {
 }
 
 .menu-btn {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2.75rem;
+    width: 2.75rem;
     background-color: var(--life-jacket);
     /* border: 1rem solid var(--life-jacket); */
     border: .15rem solid var(--white);
