@@ -9,7 +9,8 @@
     --candle: #f9a26c;
     --white: #efeeee;
     --sea: #9bd7d1;
-    --dk-sea: #325d79;
+    /* --dk-sea: #325d79; */
+    --dk-sea: #1f3848;
     --dark: #292D32;
 }
 
@@ -28,7 +29,7 @@ body {
     margin: auto;
 }
 header {
-    border: .25rem dashed var(--white);
+    /* border: .25rem dashed var(--white); */
     margin: 1rem;
     padding: 1rem;
 }
@@ -74,16 +75,20 @@ title-container h1 {
 } */
 
 button-container {
+    max-width: 900px;
+    align-self: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
     justify-content: center;
     align-items: center;
-    gap: .25rem;
+    place-items: center;
+    gap: .2rem;
+    margin: auto;
 }
 
 .menu-btn {
-    height: 2.75rem;
-    width: 2.75rem;
+    height: 3.5rem;
+    width: 3.5rem;
     background-color: var(--life-jacket);
     /* border: 1rem solid var(--life-jacket); */
     border: .15rem solid var(--white);
@@ -111,25 +116,39 @@ button-container {
     border-radius: 1rem;
 } */
 
-book-container {
-    border: .25rem dashed var(--white);
+/* book-container {
     display: grid;
-    grid-template-rows: repeat(auto-fit, minmax(300px, 3fr));
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    grid-template-rows: repeat(auto-fill, minmax(300px, 3fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+    place-items: center;
+    gap: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+} */
+
+book-container {
+    /* border: .25rem dashed var(--white); */
+    display: flex;
+flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
     gap: 1rem;
     margin: 1rem;
     padding: 1rem;
 }
 
 book-card {
-    height: auto;
+    height: 300px;
+    width: 200px;
     /* width: auto; */
     border: 1rem solid var(--sea);
+    margin: 1rem;
     padding: 1rem;
 }
 
 footer {
-    border: .25rem dashed var(--white);
+    /* border: .25rem dashed var(--white); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,9 +162,9 @@ footer p {
     text-align: center;
 }
 
-@media (width >= 1080px) {
+/* @media (width >= 1080px) {
 body {
     width: 65vw;
 
 }
-}
+} */
