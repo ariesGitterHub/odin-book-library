@@ -29,9 +29,10 @@ body {
     margin: auto;
 }
 header {
-    /* border: .25rem dashed var(--white); */
+    border-bottom: .25rem dashed var(--white);
+
     margin: 1rem;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 title-container {
@@ -82,8 +83,9 @@ button-container {
     justify-content: center;
     align-items: center;
     place-items: center;
-    gap: .2rem;
+    /* gap: .2rem; */
     margin: auto;
+
 }
 
 .menu-btn {
@@ -97,6 +99,7 @@ button-container {
     justify-content: center;
     align-items: center; */
     justify-self: center;
+    margin: .2rem;
 }
 
 .top-btn {
@@ -142,9 +145,22 @@ book-card {
     height: 300px;
     width: 200px;
     /* width: auto; */
-    border: 1rem solid var(--sea);
+    background: var(--dark);
+    border: .25rem double var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 1rem;
     padding: 1rem;
+}
+
+book-card img {
+    height: 280px;
+}
+
+.toggle-book-cover {
+    /* display: none; */
 }
 
 footer {
