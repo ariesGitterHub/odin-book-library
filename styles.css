@@ -120,6 +120,7 @@ book-card {
     /* height: 300px; */
     width: 250px;
     border: .5rem double var(--white);
+    border-radius: .5rem;;
     display: grid;
     grid-template-areas:
     "book-card-nav-top"
@@ -215,10 +216,25 @@ book-card-nav-bot .bk-btns {
     margin-bottom: 1rem;
 }
 
-.bk-btns:hover {
+#btn-info:hover, #btn-edit:hover, #btn-xout:hover {
     background: var(--dk-sea);
-    /* border: .15rem solid var(--dk-sea); */
 }
+
+.tog-not-read {
+    display: flex;
+}
+
+.tog-not-fave {
+    display: flex;
+}
+
+/* .tog-read {
+    display: none;
+}
+
+.tog-fave {
+    display: none;
+} */
 
 footer {
     /* border: .25rem dashed var(--white); */

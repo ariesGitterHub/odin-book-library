@@ -29,6 +29,7 @@ function addBookToLibrary() {
   // do stuff here
 }
 
+// BOOK COVER VS BOOK INFO MODE
 
 btnInfo = document.querySelector("#btn-info");
 btnXout = document.querySelector("#btn-xout");
@@ -59,3 +60,49 @@ function hideInfo() {
 }
 
 
+// OTHER BOOK CARD BTNS
+
+
+
+btnRead = document.querySelector("#btn-read");
+btnFave = document.querySelector("#btn-fave");
+
+togNotRead = document.querySelector(".tog-not-read");
+togRead = document.querySelector(".tog-read");
+togNotFave = document.querySelector(".tog-not-fave");
+togFave = document.querySelector(".tog-fave");
+
+// I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
+togRead.style.display = "none";
+togFave.style.display = "none";
+
+
+
+btnRead.addEventListener("click", toggleRead);
+btnFave.addEventListener("click", toggleFave);
+
+function toggleRead() {
+    console.log("TTTT");
+    if ((togRead.style.display === "none")) {
+      togNotRead.style.display = "none";
+      togRead.style.display = "flex";
+      btnRead.style.background = "var(--dk-sea)"
+    } else {
+      togNotRead.style.display = "flex";
+      togRead.style.display = "none";
+    btnRead.style.background = "var(--life-jacket)";
+    }
+}
+
+function toggleFave() {
+    console.log("BBBB");
+    if (togFave.style.display === "none") {
+        togNotFave.style.display = "none";
+        togFave.style.display = "flex";
+        btnFave.style.background = "var(--dk-sea)";
+    } else {
+        togNotFave.style.display = "flex";
+        togFave.style.display = "none";
+        btnFave.style.background = "var(--life-jacket)";    
+    }
+}
