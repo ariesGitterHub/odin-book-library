@@ -7,7 +7,8 @@
     /* --life-jacket: #f26627; */
     --life-jacket: #994c29;
     --candle: #f9a26c;
-    --white: #efeeee;
+    /* --white: #efeeee; */
+    --white: #e9e1de;
     --sea: #9bd7d1;
     /* --dk-sea: #325d79; */
     --dk-sea: #1f3848;
@@ -18,9 +19,9 @@ body {
     background: var(--dk-sea);
     color: var(--white);
     display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
     font-family: "Teachers", sans-serif;
     font-optical-sizing: auto;
     font-size: 1.25rem;
@@ -30,8 +31,6 @@ body {
 }
 
 header {
-    /* border: .2rem dashed var(--white); */
-    /* min-width: 300px; */
     margin: .5rem;
     padding: .5rem;
 }
@@ -42,14 +41,10 @@ title-container {
 }
 
 img-and-txt {
-    /* background: var(--life-jacket); */
-    /* border: .15rem solid var(--white); */
-    /* border-radius: 50px; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
     margin-bottom: .5rem;
-    /* padding: 1rem; */
 }
 
 title-container img {
@@ -62,29 +57,18 @@ title-container h1 {
     font-family: "Platypi", 'Times New Roman', Times, serif;
     font-size:2rem;
     font-weight: 500;
-    font-style: normal;
+    /* font-style: normal; */
     padding-left: .25rem;
 }
-
-
-/* .title-btn {
-    width: fit-content;
-    background: var(--life-jacket);
-        border: .15rem solid var(--white);
-        border-radius: 1rem;
-    display: flex;
-    padding: .25rem;
-} */
 
 button-ctrl-container {
     max-width: 900px;
     align-self: center;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-    justify-content: center;
-    align-items: center;
-    place-items: center;
-    /* gap: .2rem; */
+        grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+        justify-content: center;
+        align-items: center;
+        place-items: center;
     margin: auto;
 }
 
@@ -92,42 +76,46 @@ button-ctrl-container {
     height: 3.15rem;
     width: 3.15rem;
     background-color: var(--life-jacket);
-    /* border: 1rem solid var(--life-jacket); */
     border: .15rem solid var(--white);
     border-radius: 100%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     justify-self: center;
     margin: .2rem;
 }
 
+.menu-btn img{
+    height: 1.8rem;
+}
+
 .menu-btn:hover {
     background: var(--dk-sea);
-    /* border: .15rem solid var(--sea); */
 }
+
 main-content-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
     margin: 1rem;
     padding: 1rem;
 }
 
 book-card {
-    /* height: 300px; */
     width: 250px;
     border: .5rem double var(--white);
     border-radius: .5rem;;
     display: grid;
-    grid-template-areas:
-    "book-card-nav-top"
-    "book-card-content"
-    "book-card-nav-bot";
+        grid-template-areas:
+        "book-card-nav-top"
+        "book-card-content"
+        "book-card-nav-bot";
     margin: 1rem 1rem 0 1rem;
 }
+
+book-card:hover{
+ background: var(--dark);
+}
+
 
 
 book-card-content {
@@ -137,8 +125,8 @@ book-card-content {
 book-card-cover {
     height: 300px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
 }
 
 book-card-cover img{
@@ -148,48 +136,45 @@ book-card-cover img{
 book-card-info {
     height: 300px;
     display: none;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
     margin: 0;
+    padding: .5rem;
 }
 
 book-card-info p {
-    font-size: 1rem;
+    font-size: .95rem;
 }
 
 .bk-title {
-    font-size: 1.5rem;
+    font-size: 1.45rem;
     font-weight: 600;
     margin-bottom: .5rem;
 }
 
 .bk-author {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 500;
 }
 
 book-card-nav-top, book-card-nav-bot {
-    background: var(--dk-sea);
+    background: transparent;
 }
 
 book-card-nav-top {
     grid-area: book-card-nav-top;
-    /* height: 3rem; */
-    /* width: 300px; */
-    align-self: start;
-    display: none;
-    justify-content: space-between;
+        align-self: start;
+        display: none;
+        justify-content: space-between;
 }
 
 book-card-nav-bot {
     grid-area: book-card-nav-bot;
-    /* height: 3rem; */
-    /* width: 300px; */
     align-self: end;
     display: flex;
-    justify-content: space-evenly;
+        justify-content: space-evenly;
 }
 
 .bk-btns {
@@ -199,9 +184,8 @@ book-card-nav-bot {
     border: .15rem solid var(--white);
     border-radius: 50%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-
+        justify-content: center;
+        align-items: center;
 }
 
 .bk-btns img {
@@ -209,7 +193,7 @@ book-card-nav-bot {
 }
 
 book-card-nav-top .bk-btns {
-    margin: 1rem .5rem 0 .5rem;
+    margin: 1rem 1rem 0 1rem;
 }
 
 book-card-nav-bot .bk-btns {
@@ -228,19 +212,10 @@ book-card-nav-bot .bk-btns {
     display: flex;
 }
 
-/* .tog-read {
-    display: none;
-}
-
-.tog-fave {
-    display: none;
-} */
-
 footer {
-    /* border: .25rem dashed var(--white); */
     display: flex;
-    justify-content: center;
-    align-items: center;
+        justify-content: center;
+        align-items: center;
     margin: 1rem;
     padding: 1rem;
 }
