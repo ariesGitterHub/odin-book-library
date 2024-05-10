@@ -209,7 +209,7 @@ book-card-nav-bot {
 }
 
 book-card-nav-top .bk-btns {
-    margin: .5rem .5rem 0 .5rem;
+    margin: 1rem .5rem 0 .5rem;
 }
 
 book-card-nav-bot .bk-btns {
@@ -247,7 +247,7 @@ footer {
 
 footer p {
     color: var(--candle);
-    font-size: 1.25rem;
+    font-size: 1rem;
     text-align: center;
 }
 
