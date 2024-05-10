@@ -16,36 +16,97 @@
             <h1>MyReadList</h1>
         </img-and-txt>
     </title-container>
-    <button-container>
+    <button-ctrl-container>
         <button class="menu-btn"><img src="./assets/btn-add-icon.svg" alt="Add icon"></button>
         <button class="menu-btn"><img src="./assets/btn-stats-icon.svg" alt="This library's statistics icon"></button>
         <button class="menu-btn"><img src="./assets/btn-sort-icon.svg" alt="Sort books icon"></button>
         <button class="menu-btn"><img src="./assets/btn-search-icon.svg" alt="Search icon"></button>
-    </button-container>
-    <!-- <search-bar-container>
-    <search-bar>
-        <input class="search" type="text">
-    </search-bar>
-</search-bar-container> -->
+    </button-ctrl-container>
+
 </header>
 
- <book-container>
-    <book-card>
-        <book-cover class="toggle-book-cover" >
-            <img src="./assets/book-theHobbit.jpg" alt="Book cover for the Hobbit">   
-        </book-cover>
+ <main-content-container>
+
+<!-- <book-card>
+    <book-card-content>
+        <book-card-cover>
+            <img src="./assets/book-theHobbit.jpg" alt="">
+        </book-card-cover>        
+    </book-card-content>
+    <book-card-nav-bot>
+        <button class="bk-cover-btns" id="btn-read">
+            <img src="./assets/card-read.svg" alt="">
+        </button>
+        <button class="bk-cover-btns" id="btn-love">
+            <img src="./assets/card-love.svg" alt="">
+        </button>
+        <button class="bk-cover-btns" id="btn-info">
+            <img src="./assets/card-info.svg" alt="">
+        </button>
+    </book-card-nav-bot>
 </book-card>
-    <book-card>        
-        <book-cover class="toggle-book-cover" >
-            <img src="./assets/book-theGreatestKnight.jpg" alt="Book cover for the Hobbit">   
-        </book-cover></book-card>
-    <book-card>Third Book</book-card>
-    <book-card>Fourth Book</book-card>
-    <book-card>Fifth Book</book-card>
-    <book-card>Sixth Book</book-card>
-</book-container>   
+
+<book-card>
+    <book-card-nav-top>
+        <button class="bk-cover-btns" id="btn-edit">
+            <img src="./assets/card-edit.svg" alt="">
+        </button>
+        <button class="bk-cover-btns" id="btn-x">
+            <img src="./assets/card-x.svg" alt="">
+        </button>
+    </book-card-nav-top>
+    <book-card-content>
+        <book-card-info>
+            <p class="bk-title">The Hobbit</p> 
+            <p class="bk-author">J.R.R. Tolkien</p>
+            <p class="bk-type">Fiction</p>
+            <p class="bk-pages">256 pages</p>
+        </book-card-info>        
+    </book-card-content>
+</book-card> -->
+
+
+<book-card>
+    <book-card-content>
+
+        <book-card-nav-top>
+            <button class="bk-btns" id="btn-edit">
+                <img src="./assets/card-edit.svg" alt="">
+            </button>
+            <button class="bk-btns" id="btn-xout">
+                <img src="./assets/card-x.svg" alt="">
+            </button>
+        </book-card-nav-top>
+        
+        <book-card-info>
+            <p class="bk-title">The Hobbit</p> 
+            <p class="bk-author">J.R.R. Tolkien</p>
+            <p class="bk-type">Fiction</p>
+            <p class="bk-pages">256 pages</p>
+        </book-card-info> 
+
+        <book-card-cover>
+            <img src="./assets/book-theHobbit.jpg" alt="">
+        </book-card-cover>  
+
+        <book-card-nav-bot>
+            <button class="bk-btns" id="btn-read">
+                <img src="./assets/card-not-read.svg" alt="">
+            </button>
+            <button class="bk-btns" id="btn-love">
+                <img src="./assets/card-not-fave.svg" alt="">
+            </button>
+            <button class="bk-btns" id="btn-info">
+                <img src="./assets/card-info.svg" alt="">
+            </button>
+        </book-card-nav-bot>
+
+    </book-card-content>
+</book-card>
+
+</main-content-container>   
 <footer>
     <p>Mad Muffin Man Design Studio, Copyright 2024</p>
 </footer>
 </body>
-</html>
+</html> 

@@ -28,11 +28,12 @@ body {
     font-style: normal;
     margin: auto;
 }
-header {
-    border-bottom: .25rem dashed var(--white);
 
-    margin: 1rem;
-    padding: 2rem;
+header {
+    /* border: .2rem dashed var(--white); */
+    /* min-width: 300px; */
+    margin: .5rem;
+    padding: .5rem;
 }
 
 title-container {
@@ -47,19 +48,19 @@ img-and-txt {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin-bottom: .5rem;
     /* padding: 1rem; */
 }
 
 title-container img {
-    height: 5rem;
+    height: 3.5rem;
 }
 
 title-container h1 {
     align-self: center;
     color: var(--white);
     font-family: "Platypi", 'Times New Roman', Times, serif;
-    font-size:2.25rem;
+    font-size:2rem;
     font-weight: 500;
     font-style: normal;
     padding-left: .25rem;
@@ -75,7 +76,7 @@ title-container h1 {
     padding: .25rem;
 } */
 
-button-container {
+button-ctrl-container {
     max-width: 900px;
     align-self: center;
     display: grid;
@@ -85,12 +86,11 @@ button-container {
     place-items: center;
     /* gap: .2rem; */
     margin: auto;
-
 }
 
 .menu-btn {
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3.15rem;
+    width: 3.15rem;
     background-color: var(--life-jacket);
     /* border: 1rem solid var(--life-jacket); */
     border: .15rem solid var(--white);
@@ -102,65 +102,122 @@ button-container {
     margin: .2rem;
 }
 
-.top-btn {
-    justify-self: center;
+.menu-btn:hover {
+    background: var(--dk-sea);
+    /* border: .15rem solid var(--sea); */
 }
-
-/* search-bar-container {
-    border-radius: 1rem;
+main-content-container {
     display: flex;
-    justify-content: center;
-    padding: 1rem;
-}
-
-.search {
-    width: auto;
-    border: .5rem solid var(--life-jacket);
-    border-radius: 1rem;
-} */
-
-/* book-container {
-    display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(300px, 3fr));
-    grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
-    place-items: center;
-    gap: 1rem;
-    margin: 1rem;
-    padding: 1rem;
-} */
-
-book-container {
-    /* border: .25rem dashed var(--white); */
-    display: flex;
-flex-wrap: wrap;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     gap: 1rem;
     margin: 1rem;
     padding: 1rem;
 }
 
 book-card {
+    /* height: 300px; */
+    width: 250px;
+    border: .5rem double var(--white);
+    display: grid;
+    grid-template-areas:
+    "book-card-nav-top"
+    "book-card-content"
+    "book-card-nav-bot";
+    margin: 1rem 1rem 0 1rem;
+}
+
+
+book-card-content {
+    grid-area: book-card-content;
+}
+
+book-card-cover {
     height: 300px;
-    width: 200px;
-    /* width: auto; */
-    background: var(--dark);
-    border: .25rem double var(--white);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
-    padding: 1rem;
 }
 
-book-card img {
-    height: 280px;
+book-card-cover img{
+    height: 260px;
 }
 
-.toggle-book-cover {
-    /* display: none; */
+book-card-info {
+    height: 300px;
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: 0;
+}
+
+book-card-info p {
+    font-size: 1rem;
+}
+
+.bk-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: .5rem;
+}
+
+.bk-author {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+book-card-nav-top, book-card-nav-bot {
+    background: var(--dk-sea);
+}
+
+book-card-nav-top {
+    grid-area: book-card-nav-top;
+    /* height: 3rem; */
+    /* width: 300px; */
+    align-self: start;
+    display: none;
+    justify-content: space-between;
+}
+
+book-card-nav-bot {
+    grid-area: book-card-nav-bot;
+    /* height: 3rem; */
+    /* width: 300px; */
+    align-self: end;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.bk-btns {
+    height: 2.5rem;
+    width: 2.5rem;
+    background: var(--life-jacket);
+    border: .15rem solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.bk-btns img {
+    height: 1.5rem;
+}
+
+book-card-nav-top .bk-btns {
+    margin: .5rem .5rem 0 .5rem;
+}
+
+book-card-nav-bot .bk-btns {
+    margin-bottom: 1rem;
+}
+
+.bk-btns:hover {
+    background: var(--dk-sea);
+    /* border: .15rem solid var(--dk-sea); */
 }
 
 footer {
