@@ -141,11 +141,11 @@ book-card-info {
         justify-content: start;
         align-items: center;
     margin: 0;
-    padding: .5rem;
+    /* padding: .5rem; */
 }
 
 book-card-info p {
-    font-size: .95rem;
+    font-size: .9rem;
 }
 
 .bk-title {
@@ -200,7 +200,7 @@ book-card-nav-bot .bk-btns {
     margin-bottom: 1rem;
 }
 
-#btn-info:hover, #btn-edit:hover, #btn-xout:hover {
+.btn-info:hover, .btn-edit:hover, .btn-xout:hover {
     background: var(--dk-sea);
 }
 
