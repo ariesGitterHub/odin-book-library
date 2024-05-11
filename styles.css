@@ -136,12 +136,13 @@ book-card-cover img{
 book-card-info {
     height: 300px;
     display: none;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         flex-direction: column;
         justify-content: start;
-        align-items: center;
+        /* align-items: center; */
     margin: 0;
     /* padding: .5rem; */
+    text-align: center;
 }
 
 book-card-info p {
