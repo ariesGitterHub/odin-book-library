@@ -13,6 +13,8 @@
     /* --dk-sea: #325d79; */
     --dk-sea: #1f3848;
     --dark: #292D32;
+
+    --cover-info-size: 270px;
 }
 
 body {
@@ -102,7 +104,9 @@ main-content-container {
 
 book-card {
     width: 250px;
-    border: .15rem solid var(--white);
+    border: .15rem solid;
+    /* border-color: var(--candle); */
+        border-color: var(--white);
     border-radius: 1rem;;
     display: grid;
         grid-template-areas:
@@ -123,18 +127,20 @@ book-card-content {
 }
 
 book-card-cover {
-    height: 300px;
+    height: var(--cover-info-size);
     display: flex;
         justify-content: center;
         align-items: center;
+            margin: 0;
+    padding: .5rem;
 }
 
 book-card-cover img{
-    height: 250px;
+    height: calc(var(--cover-info-size) - 30px);
 }
 
 book-card-info {
-    height: 300px;
+    height: var(--cover-info-size);
     display: none;
         /* flex-wrap: wrap; */
         flex-direction: column;
