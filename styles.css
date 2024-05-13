@@ -59,8 +59,8 @@ left: 0;
 
 .modal-toggle, #modal-add {
     display: none;
-    /* height: auto;
-    width: auto; */
+    height: auto;
+    width: auto;
     background: var(--dark);
 
     color: var(--white);
@@ -75,7 +75,7 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: .25rem;
+
 }
 
 
@@ -91,7 +91,7 @@ align-items: center;
 
 .btn-x-out-modal {
 align-self: center;
-margin-top: 1rem;
+/* margin-top: .25rem; */
 }
 
 form-header h3 {
@@ -143,7 +143,7 @@ input[type="radio"] {
 }
 
 .label-radio {
- padding: 0 .25rem 0 .25rem;
+ padding: 0 .2rem 0 .2rem;
 
 }
 
@@ -218,8 +218,9 @@ button-ctrl-container {
 }
 
 .form-enter-btn {
-    height: 5rem;
-    width: 5rem;
+    height: 3rem;
+    width: 280px;
+    border-radius: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
     margin: 1rem;
