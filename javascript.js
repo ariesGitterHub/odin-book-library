@@ -58,7 +58,7 @@ const myLibrary = [
   {
     id: "6",
     title: "Dune",
-    author: "Frank herbert",
+    author: "Frank Herbert",
     type: "Fiction",
     pages: 563,
     read: true,
@@ -83,19 +83,40 @@ class Book {
   }
 }
 
+const modalToggle = document.querySelector(".modal-toggle");
+
+const menuBtnAdd = document.querySelector("#menu-btn-add");
+const modalAdd = document.querySelector("#modal-add");
+menuBtnAdd.addEventListener("click", addBookToLibrary);
+
+const btnXOutModal = document.querySelector(".btn-x-out-modal");
+btnXOutModal.addEventListener("click", hideModal);
+const inputs = document.querySelectorAll("input");
+
+function hideModal() {
+    console.log("Close modals...");
+    modalToggle.style.display = "none";
+    modalAdd.style.display = "none";
+    inputs.forEach(function(input) {
+        input.value = "";
+    });
+}
+
 function addBookToLibrary() {
-  // do stuff here
+    console.log("Add book...");
+    modalToggle.style.display = "block";
+    modalAdd.style.display = "block";
 }
 
 function createCard(card) {
     return `
-        <book-card>
+        <book-card id="${card.id}">
             <book-card-content>
                 <book-card-nav-top>
                     <button class="bk-btns btn-edit">
                         <img src="./assets/card-edit.svg" alt="">
                     </button>
-                    <button class="bk-btns btn-xout">
+                    <button class="bk-btns btn-x-out">
                         <img src="./assets/card-x.svg" alt="">
                     </button>
                 </book-card-nav-top>
@@ -152,12 +173,12 @@ const bookCards = document.querySelectorAll('book-card');
 
 
 // FOREACH LOOP THROUGH EACH BOOK-CARD
-bookCards.forEach(function(bookCard, index) {
+bookCards.forEach(function(bookCard, id) {
 
-const card = myLibrary[index]; 
+const card = myLibrary[id]; 
 
   const btnInfo = bookCard.querySelector(".btn-info");
-  const btnXout = bookCard.querySelector(".btn-xout");
+  const btnXOut = bookCard.querySelector(".btn-x-out");
   const btnRead = bookCard.querySelector(".btn-read");
   const btnFave = bookCard.querySelector(".btn-fave");
   const togNotRead = bookCard.querySelector(".tog-not-read");
@@ -171,7 +192,7 @@ const card = myLibrary[index];
 
   function setInitReadState() {
 
-    const card = myLibrary[index];  
+    const card = myLibrary[id];  
 
     if (card.read === true) {
       togNotRead.style.display = "none";
@@ -187,7 +208,7 @@ const card = myLibrary[index];
   setInitReadState();
 
     function setInitFaveState() {
-      const card = myLibrary[index];
+      const card = myLibrary[id];
 
       if (card.fave === true) {
         togNotFave.style.display = "none";
@@ -212,7 +233,7 @@ const card = myLibrary[index];
     showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
   });
 
-  btnXout.addEventListener("click", function () {
+  btnXOut.addEventListener("click", function () {
     hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
   });
 
@@ -233,10 +254,10 @@ function showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
 }
 
 function hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
-  bookCardCover.style.display = "flex";
-  bookCardNavBot.style.display = "flex";
-  bookCardInfo.style.display = "none";
-  bookCardNavTop.style.display = "none";
+    bookCardCover.style.display = "flex";
+    bookCardNavBot.style.display = "flex";
+    bookCardInfo.style.display = "none";
+    bookCardNavTop.style.display = "none";
 }
 
 function toggleRead(togNotRead, togRead, btnRead) {
