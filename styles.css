@@ -57,7 +57,7 @@ left: 0;
 
 
 
-.modal-toggle, #modal-add {
+.modal-toggle {
     display: none;
     height: auto;
     width: auto;
@@ -66,6 +66,10 @@ left: 0;
     color: var(--white);
 
 }
+
+/* #modal-add {
+    
+} */
 
 
 
@@ -94,19 +98,19 @@ align-self: center;
 /* margin-top: .25rem; */
 }
 
-form-header h3 {
+/* h3 {
     font-family: "Platypi", 'Times New Roman', Times, serif;
 
-}
+} */
 
 
 fieldset {
     width: 280px;
     background: var(--dark);
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
 
         border-radius: 1rem;
     font-size: 1.1rem;;
@@ -116,6 +120,13 @@ fieldset {
 
 fieldset:hover, fieldset:focus {
     border-color: var(--candle);
+}
+
+.special-fieldset {
+    height: auto;
+    /* width: 280px; */
+    /* background: var(--white); */
+    border: none;
 }
 
 fieldset legend {
@@ -219,7 +230,7 @@ button-ctrl-container {
 
 .form-enter-btn {
     height: 3rem;
-    width: 280px;
+    width: auto;
     border-radius: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
