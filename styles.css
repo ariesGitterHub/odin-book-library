@@ -59,24 +59,15 @@ left: 0;
 
 .modal-toggle, #modal-add {
     display: none;
-    height: auto;
-    width: auto;
+    /* height: auto;
+    width: auto; */
     background: var(--dark);
 
     color: var(--white);
 
 }
 
-form-header {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Platypi", 'Times New Roman', Times, serif;
-}
 
-form-header h3 {
-    padding-right: 1rem;
-}
 
 form {
 
@@ -84,8 +75,30 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: .5rem;
+    margin: .25rem;
 }
+
+
+
+
+/* form-header {
+display: inline-flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+} */
+
+.btn-x-out-modal {
+align-self: center;
+margin-top: 1rem;
+}
+
+form-header h3 {
+    font-family: "Platypi", 'Times New Roman', Times, serif;
+
+}
+
 
 fieldset {
     width: 280px;
@@ -96,8 +109,17 @@ fieldset {
     align-items: center; */
 
         border-radius: 1rem;
+    font-size: 1.1rem;;
     margin: .25rem;
     text-align: center;
+}
+
+fieldset:hover, fieldset:focus {
+    border-color: var(--candle);
+}
+
+fieldset legend {
+    text-align: left;;
 }
 
 input[type="text"], input[type="number"]  {
@@ -112,14 +134,12 @@ input[type="text"], input[type="number"]  {
 
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
+input[type="text"]:focus, input[type="number"]:focus  {
     border: 5px solid var(--candle);
 }
 
 input[type="radio"] {
-/* display: inline-flex;
-align-items: center;
-justify-content: start; */
+
 }
 
 .label-radio {
@@ -128,7 +148,8 @@ justify-content: start; */
 }
 
 label {
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1rem;
 }
 
 
