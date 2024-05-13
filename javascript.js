@@ -93,6 +93,8 @@ const btnXOutModal = document.querySelector(".btn-x-out-modal");
 btnXOutModal.addEventListener("click", hideModal);
 const inputs = document.querySelectorAll("input");
 
+const mainContentContainer = document.querySelector("main-content-container");
+
 function hideModal() {
     console.log("Close modals...");
     modalToggle.style.display = "none";
@@ -100,12 +102,14 @@ function hideModal() {
     inputs.forEach(function(input) {
         input.value = "";
     });
+
 }
 
 function addBookToLibrary() {
     console.log("Add book...");
     modalToggle.style.display = "block";
     modalAdd.style.display = "block";
+
 }
 
 function createCard(card) {
@@ -150,7 +154,7 @@ function createCard(card) {
 
 
 function renderCards() {
-    const mainContentContainer = document.querySelector("main-content-container");
+
 
     mainContentContainer.innerHTML = "";
 
