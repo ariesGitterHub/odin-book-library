@@ -126,7 +126,7 @@ function createCard(card) {
                 </book-card-nav-top>
                 <book-card-info>
                     <p class="bk-title">${card.title}</p> 
-                    <p class="bk-author">${card.author}</p>
+                    <p class="bk-author">by ${card.author}</p>
                     <p class="bk-details">${card.type}, ${card.pages} pages </p>
                 </book-card-info> 
                 <book-card-cover>

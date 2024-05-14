@@ -122,11 +122,24 @@ fieldset:hover, fieldset:focus {
     border-color: var(--candle);
 }
 
-.special-fieldset {
-    height: auto;
-    /* width: 280px; */
-    /* background: var(--white); */
+form-header {
+    height: 5rem;
+    width: 280px;
+    background: var(--dark);
     border: none;
+    display: grid;
+    grid-template-columns: .5fr 2fr .5fr;
+    place-content: center;
+    place-items: center;
+    margin: -1rem 0 -1rem 0;
+}
+
+form-header img {
+    height: 3.5rem;
+}
+
+form-footer {
+    margin-top: .25rem;;
 }
 
 fieldset legend {
@@ -229,12 +242,12 @@ button-ctrl-container {
 }
 
 .form-enter-btn {
-    height: 3rem;
+    height: 2.25rem;
     width: auto;
     border-radius: 1rem;
     font-size: 1.2rem;
     font-weight: 600;
-    margin: 1rem;
+    margin-top: .05rem;
 
 }
 
