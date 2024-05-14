@@ -105,7 +105,7 @@ align-self: center;
 
 
 fieldset {
-    width: 280px;
+    width: 290px;
     background: var(--dark);
     display: flex;
 
@@ -124,7 +124,7 @@ fieldset:hover, fieldset:focus {
 
 form-header {
     height: 5rem;
-    width: 280px;
+    width: 290px;
     background: var(--dark);
     border: none;
     display: grid;
