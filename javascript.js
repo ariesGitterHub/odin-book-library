@@ -65,6 +65,17 @@ const myLibrary = [
     fave: true,
     imgsrc: "./assets/book-dune.jpg",
   },
+
+  {
+    id: "7",
+    title: "Fritz Leiber's Fafhrd and the Gray Mouser",
+    author: "Howard Chaykin, Mike Mignola, Al Williamson",
+    type: "Fiction",
+    pages: 320,
+    read: true,
+    fave: true,
+    imgsrc: "./assets/book-fafhrdAndTheGrayMouser.jpg",
+  },
 ];
 
 // console.log(myLibrary);
