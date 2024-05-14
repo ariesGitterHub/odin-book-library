@@ -8,7 +8,6 @@
     <title>Odin Book Library</title>
 </head>
 <body>
-
 <header>
     <title-container>
         <img-and-txt>
@@ -17,78 +16,6 @@
         </img-and-txt>
     </title-container>
 
-    <dialog class="modal-toggle">
-        <add-form id="modal-add">
-            <!-- <form-header>
-                <h2>Add a book!</h2>
-                <button class="bk-btns btn-xout btn-xout-modal">
-                    <img src="./assets/card-x.svg" alt="">
-                </button>                  
-            </form-header> -->
-            <form action="" method="dialog">
-
-
-
-  
-
-            <form-header>
-                <img src="./assets/btn-add-icon.svg" alt="">
-                <h3>ADD A BOOK!</h3>
-                <button class="bk-btns btn-x-out btn-x-out-modal">
-                <img src="./assets/card-x.svg" alt="">
-                </button> 
-            </form-header>
-
-
-
-                <fieldset>
-                    <legend>What is the book's title?</legend>
-                    <input type="text" id="input-title" placeholder="Title">
-                </fieldset>
-
-                <fieldset>
-                    <legend>Who is the book's author?</legend>
-                    <input type="text" id="input-author" placeholder="Author">
-                </fieldset>
-
-                <fieldset>
-                    <legend>Fiction, or non-fiction?</legend>
-                    <label class="label-radio"> <input type="radio" id="radio-fiction" name="book-type" value="Fiction"> Fiction </label>
-                    <label class="label-radio"> <input type="radio" id="radio-non-fiction" name="book-type" value="Non-fiction."> Non-fiction </label>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Number of pages?</legend>
-                    <input type="number" id="input-pages" min="1" placeholder="Pages">                  
-                </fieldset>
-
-                <fieldset>
-                    <legend>Have you read this book?</legend>
-                    <label class="label-radio"> <input type="radio" id="radio-read" name="read-status" value="true"> Read it! </label>
-                    <label class="label-radio"> <input type="radio" id="radio-not-read-it" name="read-status" value="false"> Not read. </label>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Is this book a favorite?</legend>
-                    <label class="label-radio"> <input type="radio" id="radio-fave" name="fave-status" value="true"> I like this book! </label>
-                    <label class="label-radio"> <input type="radio" id="radio-not-fave" name="fave-status" value="false"> Not so much. </label>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Is there a book cover URL?</legend>
-                    <input type="text" id="input-cover-url" placeholder="https://example.com/bookcover.jpg">                  
-                </fieldset>
-<form-footer class="special-fieldset">
-                <button class="menu-btn form-enter-btn" ="submit">Add Book</button>
-
-</form-footer>
-
-            
-            </form>
-
-        </add-form>
-    </dialog>
-
     <button-ctrl-container>
         <button class="menu-btn" id="menu-btn-add"><img src="./assets/btn-add-icon.svg" alt="Add icon"></button>
         <button class="menu-btn" id="menu-btn-stats"><img src="./assets/btn-stats-icon.svg" alt="This library's statistics icon"></button>
@@ -96,11 +23,57 @@
         <button class="menu-btn" id="menu-btn-search"><img src="./assets/btn-search-icon.svg" alt="Search icon"></button>
     </button-ctrl-container>
 </header>
-
-<main-content-container>
-</main-content-container>   
-<footer>
-    <p>Mad Muffin Man Design Studio, Copyright 2024</p>
-</footer>
+    <dialog class="modal-toggle">
+        <add-form id="modal-add">
+            <form action="" method="dialog">
+                <form-header>
+                    <img src="./assets/btn-add-icon.svg" alt="">
+                    <h3>Add a book!</h3>
+                    <button class="bk-btns btn-x-out btn-x-out-modal">
+                    <img src="./assets/card-x.svg" alt="">
+                    </button> 
+                </form-header>
+                <fieldset>
+                    <legend>What is the book's title?</legend>
+                    <input type="text" id="input-title" placeholder="Book's title..." >
+                </fieldset>
+                <fieldset>
+                    <legend>Who is the book's author?</legend>
+                    <input type="text" id="input-author" placeholder="Book's author(s)..." required>
+                </fieldset>
+                <fieldset>
+                    <legend>Fiction, or non-fiction?</legend>
+                    <label class="label-radio"> <input type="radio" id="radio-fiction" name="book-type" value="Fiction" required> Fiction </label>
+                    <label class="label-radio"> <input type="radio" id="radio-non-fiction" name="book-type" value="Non-fiction."> Non-fiction </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Number of pages?</legend>
+                    <input type="number" id="input-pages" min="1" placeholder="Book's page count..." required>                  
+                </fieldset>
+                <fieldset>
+                    <legend>Have you read this book?</legend>
+                    <label class="label-radio"> <input type="radio" id="radio-read" name="read-status" value="true" required> Read it! </label>
+                    <label class="label-radio"> <input type="radio" id="radio-not-read-it" name="read-status" value="false"> Not read. </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Is this book a favorite?</legend>
+                    <label class="label-radio"> <input type="radio" id="radio-fave" name="fave-status" value="true" required> I like this book! </label>
+                    <label class="label-radio"> <input type="radio" id="radio-not-fave" name="fave-status" value="false"> Not so much. </label>
+                </fieldset>
+                <fieldset>
+                    <legend>Is there a book cover URL?</legend>
+                    <input type="text" id="input-cover-url" placeholder="https://example.com/bookcover.jpg" required>                  
+                </fieldset>
+                <form-footer class="special-fieldset">
+                    <button class="menu-btn form-enter-btn" ="submit">Add Book</button>
+                </form-footer>
+            </form>
+        </add-form>
+    </dialog>
+    <main-content-container>
+    </main-content-container>   
+    <footer>
+        <p>Mad Muffin Man Design Studio, Copyright 2024</p>
+    </footer>
 </body>
 </html> 

@@ -102,9 +102,11 @@ menuBtnAdd.addEventListener("click", addBookToLibrary);
 
 const btnXOutModal = document.querySelector(".btn-x-out-modal");
 btnXOutModal.addEventListener("click", hideModal);
+const fieldsets = document.querySelectorAll("fieldset");
 const inputs = document.querySelectorAll("input");
 
 const mainContentContainer = document.querySelector("main-content-container");
+
 
 function hideModal() {
     console.log("Close modals...");
@@ -122,6 +124,7 @@ function addBookToLibrary() {
     modalAdd.style.display = "block";
 
 }
+
 
 function createCard(card) {
     return `
@@ -298,3 +301,5 @@ function toggleFave(togNotFave, togFave, btnFave) {
         btnFave.style.background = "var(--life-jacket)";
     }
 }
+
+
