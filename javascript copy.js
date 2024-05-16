@@ -129,6 +129,7 @@ function createCard(card) {
     return `
         <book-card id="${card.id}">
             <book-card-content>
+
                 <book-card-nav-top>
                     <button class="bk-btns btn-edit">
                         <img src="./assets/card-edit.svg" alt="">
@@ -137,6 +138,7 @@ function createCard(card) {
                         <img src="./assets/card-x.svg" alt="">
                     </button>
                 </book-card-nav-top>
+                
                 <book-card-info>
                     <p class="bk-title">${card.title}</p> 
                     <p class="bk-author">by ${card.author}</p>
@@ -167,17 +169,12 @@ function createCard(card) {
 
 
 function renderCards() {
-
-
     mainContentContainer.innerHTML = "";
-
     myLibrary.forEach(function(card) {
         const cardHtml = createCard(card);
         mainContentContainer.innerHTML += cardHtml;
     })
-
 }
-
 renderCards()
 
 

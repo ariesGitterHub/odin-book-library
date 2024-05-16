@@ -45,26 +45,20 @@ dialog {
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
-    border: .15rem solid var(--dark);
-    border-radius: 1rem;
-    display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-}
-
-.modal-toggle {
-    height: auto;
-    width: auto;
     background: var(--dark);
     color: var(--white);
-    display: none;
+      bottom: 0;
+    border: .15rem solid var(--dark);
+    border-radius: 1rem;
+    /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
 }
 
-/* #modal-add {
+#add-book-form {
 
-} */
+}
 
 form {
     display: flex;
@@ -218,7 +212,7 @@ button {
     background: var(--dk-sea);
 }
 
-.form-enter-btn {
+#add-book-enter-btn {
     height: 2.25rem;
     width: auto;
     border-radius: 1rem;

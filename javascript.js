@@ -9,9 +9,6 @@ const mainContentContainer = document.querySelector("main-content-container");
 // const togFave = document.querySelector(".tog-fave");
 
 
-
-
-
 // ALL TEMP BOOK DATA
 const myLibrary = [];
 
@@ -30,7 +27,7 @@ class Book {
   }
 }
 
-function addBookToLibrary(book) {
+function addInitialBookToLibrary(book) {
   myLibrary.push(book);
 }
 
@@ -39,8 +36,8 @@ const book1 = new Book( 1, "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,
 
 const book2 = new Book(2, "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, false, true, "./assets/book-theGreatestKnight.jpg");
 
-addBookToLibrary(book1);
-addBookToLibrary(book2);
+addInitialBookToLibrary(book1);
+addInitialBookToLibrary(book2);
 
 
 console.log(myLibrary);
@@ -152,14 +149,138 @@ function renderCards() {
   mainContentContainer.innerHTML = "";
   myLibrary.forEach(function (card) {
     const cardElement = createCard(card);
-    mainContentContainer.appendChild(cardElement); // Change innerHTML to appendChild
+    mainContentContainer.appendChild(cardElement);
   });
+
+  // document.addEventListener("DOMContentLoaded", function () {
+    const bookCards = document.querySelectorAll("book-card");
+
+    bookCards.forEach(function (bookCard, id) {
+      const card = myLibrary[id];
+
+      const btnInfo = bookCard.querySelector(".btn-info");
+      const btnXOut = bookCard.querySelector(".btn-x-out");
+      const btnRead = bookCard.querySelector(".btn-read");
+      const btnFave = bookCard.querySelector(".btn-fave");
+      const togNotRead = bookCard.querySelector(".tog-not-read");
+      const togRead = bookCard.querySelector(".tog-read");
+      const togNotFave = bookCard.querySelector(".tog-not-fave");
+      const togFave = bookCard.querySelector(".tog-fave");
+      const bookCardCover = bookCard.querySelector("book-card-cover");
+      const bookCardNavBot = bookCard.querySelector("book-card-nav-bot");
+      const bookCardInfo = bookCard.querySelector("book-card-info");
+      const bookCardNavTop = bookCard.querySelector("book-card-nav-top");
+
+      // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
+      //   togRead.style.display = "none";
+      //   togFave.style.display = "none";
+
+      // ADD EVENTLISTENERS FOR BOOK-CARD
+      btnInfo.addEventListener("click", function () {
+        showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+      });
+
+      btnXOut.addEventListener("click", function () {
+        hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+      });
+
+      btnRead.addEventListener("click", function () {
+        toggleRead(togNotRead, togRead, btnRead);
+      });
+
+      btnFave.addEventListener("click", function () {
+        toggleFave(togNotFave, togFave, btnFave);
+      });
+    });
+
+    function showInfo(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop
+    ) {
+      bookCardCover.style.display = "none";
+      bookCardNavBot.style.display = "none";
+      bookCardInfo.style.display = "flex";
+      bookCardNavTop.style.display = "flex";
+    }
+
+    function hideInfo(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop
+    ) {
+      bookCardCover.style.display = "flex";
+      bookCardNavBot.style.display = "flex";
+      bookCardInfo.style.display = "none";
+      bookCardNavTop.style.display = "none";
+    }
+
+    function toggleRead(togNotRead, togRead, btnRead) {
+      if (togRead.style.display === "none") {
+        togNotRead.style.display = "none";
+        togRead.style.display = "flex";
+        btnRead.style.background = "var(--dk-sea)";
+      } else {
+        togNotRead.style.display = "flex";
+        togRead.style.display = "none";
+        btnRead.style.background = "var(--life-jacket)";
+      }
+    }
+
+    function toggleFave(togNotFave, togFave, btnFave) {
+      if (togFave.style.display === "none") {
+        togNotFave.style.display = "none";
+        togFave.style.display = "flex";
+        btnFave.style.background = "var(--dk-sea)";
+      } else {
+        togNotFave.style.display = "flex";
+        togFave.style.display = "none";
+        btnFave.style.background = "var(--life-jacket)";
+      }
+    }
+
+      function setInitReadFaveState(card) {
+        const cardContainer = document.getElementById(card.id);
+        // Hitting cardContainer spreads it around...remember this!
+
+        const btnRead = cardContainer.querySelector(".btn-read");
+        const togNotRead = cardContainer.querySelector(".tog-not-read");
+        const togRead = cardContainer.querySelector(".tog-read");
+        const btnFave = cardContainer.querySelector(".btn-fave");
+        const togNotFave = cardContainer.querySelector(".tog-not-fave");
+        const togFave = cardContainer.querySelector(".tog-fave");
+
+        // INITIAL READ STATE
+        if (card.read === true) {
+          togNotRead.style.display = "none";
+          togRead.style.display = "flex";
+          btnRead.style.background = "var(--dk-sea)";
+        } else if (card.read === false) {
+          togNotRead.style.display = "flex";
+          togRead.style.display = "none";
+          btnRead.style.background = "var(--life-jacket)";
+        }
+
+        // INITIAL FAVE STATE
+        if (card.fave === true) {
+          togNotFave.style.display = "none";
+          togFave.style.display = "flex";
+          btnFave.style.background = "var(--dk-sea)";
+        } else if (card.fave === false) {
+          togNotFave.style.display = "flex";
+          togFave.style.display = "none";
+          btnFave.style.background = "var(--life-jacket)";
+        }
+      }
+      myLibrary.forEach(function (card) {
+        setInitReadFaveState(card);
+      });
+
 }
 
 renderCards();
-
-
-
 
 // Reference only, delete when done...
     // if (card.read === false) {
@@ -217,165 +338,203 @@ renderCards();
 //     });
 // });
 
-// ChatGPT said: 
+
 // To fix this issue, you need to ensure that you're selecting the elements within the context of each card, rather than selecting globally from the entire document. One way to achieve this is by selecting the elements relative to each card within the setInitReadFaveState function.
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  function setInitReadFaveState(card) {
-    const cardContainer = document.getElementById(card.id);
-    // Hitting cardContainer spreads it around...remember this!
+// document.addEventListener("DOMContentLoaded", function () {
+  // function setInitReadFaveState(card) {
+  //   const cardContainer = document.getElementById(card.id);
+  //   // Hitting cardContainer spreads it around...remember this!
 
-    const btnRead = cardContainer.querySelector(".btn-read");
-    const togNotRead = cardContainer.querySelector(".tog-not-read");
-    const togRead = cardContainer.querySelector(".tog-read");
-    const btnFave = cardContainer.querySelector(".btn-fave");
-    const togNotFave = cardContainer.querySelector(".tog-not-fave");
-    const togFave = cardContainer.querySelector(".tog-fave");
+  //   const btnRead = cardContainer.querySelector(".btn-read");
+  //   const togNotRead = cardContainer.querySelector(".tog-not-read");
+  //   const togRead = cardContainer.querySelector(".tog-read");
+  //   const btnFave = cardContainer.querySelector(".btn-fave");
+  //   const togNotFave = cardContainer.querySelector(".tog-not-fave");
+  //   const togFave = cardContainer.querySelector(".tog-fave");
 
-    // INITIAL READ STATE
-    if (card.read === true) {
-      togNotRead.style.display = "none";
-      togRead.style.display = "flex";
-      btnRead.style.background = "var(--dk-sea)";
-    } else if (card.read === false) {
-      togNotRead.style.display = "flex";
-      togRead.style.display = "none";
-      btnRead.style.background = "var(--life-jacket)";
-    }
+  //   // INITIAL READ STATE
+  //   if (card.read === true) {
+  //     togNotRead.style.display = "none";
+  //     togRead.style.display = "flex";
+  //     btnRead.style.background = "var(--dk-sea)";
+  //   } else if (card.read === false) {
+  //     togNotRead.style.display = "flex";
+  //     togRead.style.display = "none";
+  //     btnRead.style.background = "var(--life-jacket)";
+  //   }
 
-    // INITIAL FAVE STATE
-    if (card.fave === true) {
-      togNotFave.style.display = "none";
-      togFave.style.display = "flex";
-      btnFave.style.background = "var(--dk-sea)";
-    } else if (card.fave === false) {
-      togNotFave.style.display = "flex";
-      togFave.style.display = "none";
-      btnFave.style.background = "var(--life-jacket)";
-    }
+  //   // INITIAL FAVE STATE
+  //   if (card.fave === true) {
+  //     togNotFave.style.display = "none";
+  //     togFave.style.display = "flex";
+  //     btnFave.style.background = "var(--dk-sea)";
+  //   } else if (card.fave === false) {
+  //     togNotFave.style.display = "flex";
+  //     togFave.style.display = "none";
+  //     btnFave.style.background = "var(--life-jacket)";
+  //   }
 
-  }
-
-  myLibrary.forEach(function (card) {
-    setInitReadFaveState(card);
-  });
-});
-
-
-// Get all book card elements
-const bookCards = document.querySelectorAll('book-card');
-
-bookCards.forEach(function (bookCard, id) {
-const card = myLibrary[id];
-
-  const btnInfo = bookCard.querySelector(".btn-info");
-  const btnXOut = bookCard.querySelector(".btn-x-out");
-  const btnRead = bookCard.querySelector(".btn-read");
-  const btnFave = bookCard.querySelector(".btn-fave");
-  const togNotRead = bookCard.querySelector(".tog-not-read");
-  const togRead = bookCard.querySelector(".tog-read");
-  const togNotFave = bookCard.querySelector(".tog-not-fave");
-  const togFave = bookCard.querySelector(".tog-fave");
-  const bookCardCover = bookCard.querySelector("book-card-cover");
-  const bookCardNavBot = bookCard.querySelector("book-card-nav-bot");
-  const bookCardInfo = bookCard.querySelector("book-card-info");
-  const bookCardNavTop = bookCard.querySelector("book-card-nav-top");
+  // }
+  // myLibrary.forEach(function (card) {
+  //   setInitReadFaveState(card);
+  // });
+// });
 
 
-  // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
-  //   togRead.style.display = "none";
-  //   togFave.style.display = "none";
+// MAKE BOOK-CARD BUTTONS WORK ... COME BACK TO DO EDIT BUTTON VIA ANOTHER MODAL...
 
-  // ADD EVENTLISTENERS FOR BOOK-CARD
-  btnInfo.addEventListener("click", function () {
-    showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
-  });
+// document.addEventListener("DOMContentLoaded", function() {
+//   const bookCards = document.querySelectorAll('book-card');
 
-  btnXOut.addEventListener("click", function () {
-    hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
-  });
+//   bookCards.forEach(function (bookCard, id) {
+//   const card = myLibrary[id];
 
-  btnRead.addEventListener("click", function () {
-    toggleRead(togNotRead, togRead, btnRead);
-  });
+//     const btnInfo = bookCard.querySelector(".btn-info");
+//     const btnXOut = bookCard.querySelector(".btn-x-out");
+//     const btnRead = bookCard.querySelector(".btn-read");
+//     const btnFave = bookCard.querySelector(".btn-fave");
+//     const togNotRead = bookCard.querySelector(".tog-not-read");
+//     const togRead = bookCard.querySelector(".tog-read");
+//     const togNotFave = bookCard.querySelector(".tog-not-fave");
+//     const togFave = bookCard.querySelector(".tog-fave");
+//     const bookCardCover = bookCard.querySelector("book-card-cover");
+//     const bookCardNavBot = bookCard.querySelector("book-card-nav-bot");
+//     const bookCardInfo = bookCard.querySelector("book-card-info");
+//     const bookCardNavTop = bookCard.querySelector("book-card-nav-top");
 
-  btnFave.addEventListener("click", function () {
-    toggleFave(togNotFave, togFave, btnFave);
-  });
-});
 
-function showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
-  bookCardCover.style.display = "none";
-  bookCardNavBot.style.display = "none";
-  bookCardInfo.style.display = "flex";
-  bookCardNavTop.style.display = "flex";
-}
+//     // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
+//     //   togRead.style.display = "none";
+//     //   togFave.style.display = "none";
 
-function hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
-  bookCardCover.style.display = "flex";
-  bookCardNavBot.style.display = "flex";
-  bookCardInfo.style.display = "none";
-  bookCardNavTop.style.display = "none";
-}
+//     // ADD EVENTLISTENERS FOR BOOK-CARD
+//     btnInfo.addEventListener("click", function () {
+//       showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+//     });
 
-function toggleRead(togNotRead, togRead, btnRead) {
-  if (togRead.style.display === "none") {
-    togNotRead.style.display = "none";
-    togRead.style.display = "flex";
-    btnRead.style.background = "var(--dk-sea)";
-  } else {
-    togNotRead.style.display = "flex";
-    togRead.style.display = "none";
-    btnRead.style.background = "var(--life-jacket)";
-  }
-}
+//     btnXOut.addEventListener("click", function () {
+//       hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+//     });
 
-function toggleFave(togNotFave, togFave, btnFave) {
-  if (togFave.style.display === "none") {
-    togNotFave.style.display = "none";
-    togFave.style.display = "flex";
-    btnFave.style.background = "var(--dk-sea)";
-  } else {
-    togNotFave.style.display = "flex";
-    togFave.style.display = "none";
-    btnFave.style.background = "var(--life-jacket)";
-  }
-}
+//     btnRead.addEventListener("click", function () {
+//       toggleRead(togNotRead, togRead, btnRead);
+//     });
 
-const modalToggle = document.querySelector(".modal-toggle");
+//     btnFave.addEventListener("click", function () {
+//       toggleFave(togNotFave, togFave, btnFave);
+//     });
+//   });
+
+//   function showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
+//     bookCardCover.style.display = "none";
+//     bookCardNavBot.style.display = "none";
+//     bookCardInfo.style.display = "flex";
+//     bookCardNavTop.style.display = "flex";
+//   }
+
+//   function hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop) {
+//     bookCardCover.style.display = "flex";
+//     bookCardNavBot.style.display = "flex";
+//     bookCardInfo.style.display = "none";
+//     bookCardNavTop.style.display = "none";
+//   }
+
+//   function toggleRead(togNotRead, togRead, btnRead) {
+//     if (togRead.style.display === "none") {
+//       togNotRead.style.display = "none";
+//       togRead.style.display = "flex";
+//       btnRead.style.background = "var(--dk-sea)";
+//     } else {
+//       togNotRead.style.display = "flex";
+//       togRead.style.display = "none";
+//       btnRead.style.background = "var(--life-jacket)";
+//     }
+//   }
+
+//   function toggleFave(togNotFave, togFave, btnFave) {
+//     if (togFave.style.display === "none") {
+//       togNotFave.style.display = "none";
+//       togFave.style.display = "flex";
+//       btnFave.style.background = "var(--dk-sea)";
+//     } else {
+//       togNotFave.style.display = "flex";
+//       togFave.style.display = "none";
+//       btnFave.style.background = "var(--life-jacket)";
+//     }
+//   }
+// })
+
+// MODALS
+
+const addBookForm = document.querySelector("#add-book-form");
 
 const menuBtnAdd = document.querySelector("#menu-btn-add");
-const modalAdd = document.querySelector("#modal-add");
-menuBtnAdd.addEventListener("click", showAddBookModal);
+menuBtnAdd.addEventListener("click", function() {
+  addBookForm.showModal();
+})
 
 const btnXOutModal = document.querySelector(".btn-x-out-modal");
-btnXOutModal.addEventListener("click", hideModal);
+btnXOutModal.addEventListener("click", function () {
+  addBookForm.close();
+});
 
-const inputs = document.querySelectorAll("input");
+const addBookEnterBtn = document.querySelector("#add-book-enter-btn");
+addBookEnterBtn.addEventListener("click", addFormBookToLibrary)
 
-function showAddBookModal() {
-  console.log("Add book...");
-  modalToggle.style.display = "block";
-  modalAdd.style.display = "block";
+function addFormBookToLibrary(event) {
+
+  const idCount = myLibrary.length + 1;
+  const inputTitle = document.querySelector("#input-title").value;
+  const inputAuthor = document.querySelector("#input-author").value;
+
+  const radioFiction = document.querySelector("#radio-fiction");
+  const radioNonFiction = document.querySelector("#radio-non-fiction");
+    let valueFicNonFic = null;
+    if (radioFiction.checked) {
+      valueFicNonFic = radioFiction.value;
+    } else if (radioNonFiction.checked) {
+      valueFicNonFic = radioNonFiction.value;
+    }
+
+  const inputPages = document.querySelector("#input-pages").value;
+
+  const radioReadIt = document.querySelector("#radio-read-it");
+  const radioNotReadIt = document.querySelector("#radio-not-read-it");
+    let valueReadNotRead = null;
+    if (radioReadIt.checked) {
+      valueReadNotRead = true;
+    } else if (radioNotReadIt.checked) {
+      valueReadNotRead = false;
+    }
+
+  const radioFave = document.querySelector("#radio-fave");
+  const radioNotFave = document.querySelector("#radio-not-fave");
+    let valueFaveNotFave = null;
+    if (radioFave.checked) {
+      valueFaveNotFave = true;
+    } else if (radioNotFave.checked) {
+      valueFaveNotFave = false;
+    }
+
+  const inputCoverUrl = document.querySelector("#input-cover-url").value;
+
+  myLibrary.push(
+    new Book(
+      idCount,
+      inputTitle,
+      inputAuthor,
+      valueFicNonFic,
+      inputPages,
+      valueReadNotRead,
+      valueFaveNotFave,
+      inputCoverUrl
+    )
+  );
+  console.log(myLibrary);
+  renderCards();
 }
-
-function hideModal() {
-  console.log("Close modal...");
-  modalToggle.style.display = "none";
-  modalAdd.style.display = "none";
-  inputs.forEach(function (input) {
-    input.value = "";
-  });
-}
-
-const formEnterBtn = document.querySelector(".form-enter-btn");
-formEnterBtn.addEventListener("click", addBookToLibrary);
-
-console.log(myLibrary);
-
-
-
 
 
 console.log(myLibrary);
