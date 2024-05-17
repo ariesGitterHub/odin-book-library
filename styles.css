@@ -16,6 +16,7 @@
 
     --cover-info-size: 270px;
     --form-width: 290px;
+    --book-card-width: 250px;
 }
 
 body {
@@ -56,7 +57,7 @@ dialog {
         align-items: center; */
 }
 
-#add-book-form {
+#add-book-dialog {
 
 }
 
@@ -123,7 +124,7 @@ fieldset legend {
 
 input[type="text"], input[type="number"]  {
     height: 1.5rem;
-    width: 250px;
+    width: var(--book-card-width);
     border: 3px solid var(--white);
     border-radius: 1rem;
     font-family: "Teachers", sans-serif;
@@ -173,7 +174,7 @@ title-container img {
 
 title-container h1 {
     align-self: center;
-    color: var(--white);
+    color: var(--candle);
     font-family: "Platypi", 'Times New Roman', Times, serif;
     font-size:2rem;
     font-weight: 500;
@@ -232,7 +233,7 @@ main-content-container {
 }
 
 book-card {
-    width: 250px;
+    width: var(--book-card-width);
     border: .15rem solid;
     border-color: var(--white);
     /* border:none; */
@@ -242,7 +243,9 @@ book-card {
         grid-template-areas:
         "book-card-nav-top"
         "book-card-content"
-        "book-card-nav-bot";
+        "book-card-nav-bot"
+        "book-card-nav-top-edit"
+        "edit-book-form";
     margin: 1rem 1rem 0 1rem;
 }
 
@@ -286,7 +289,7 @@ book-card-info p {
 }
 
 .bk-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 600;
     margin-bottom: .5rem;
 }
@@ -295,7 +298,7 @@ book-card-info p {
     font-size: 1.15rem;
 }
 
-book-card-nav-top, book-card-nav-bot {
+book-card-nav-top, book-card-nav-bot, book-card-nav-top-edit {
     background: transparent;
 }
 
@@ -313,6 +316,14 @@ book-card-nav-bot {
         justify-content: space-evenly;
 }
 
+book-card-nav-top-edit {
+    grid-area: book-card-nav-top-edit;
+    /* align-self: start; */
+    display: none;
+        justify-content: end;
+        align-items: center;
+}
+
 .bk-btns {
     height: 2.5rem;
     width: 2.5rem;
@@ -328,7 +339,7 @@ book-card-nav-bot {
     height: 1.5rem;
 }
 
-book-card-nav-top .bk-btns {
+book-card-nav-top .bk-btns, book-card-nav-top-edit .bk-btns {
     margin: 1rem 1rem 0 1rem;
 }
 
@@ -355,6 +366,34 @@ book-card-nav-bot .bk-btns {
 .tog-fave {
     display: none;
 } */
+
+.edit-book-form {
+    grid-area: edit-book-form;
+    height: var(--cover-info-size);
+    /* height: 326px; */
+    display: none;
+        justify-content: center;
+        align-items: start;
+    margin: 0;
+    padding: .5rem;
+}
+
+.edit-book-form input[type="text"], .edit-book-forminput[type="number"]  {
+    height: 1.5rem;
+    width: 215px;
+    border: 3px solid var(--white);
+    border-radius: 1rem;
+    font-family: "Teachers", sans-serif;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1rem;
+    /* padding-left: .5rem; */
+}
+
+.edit-book-form label {
+    text-align: right;
+    /* padding-bottom: .1rem; */
+}
 
 footer {
     display: flex;

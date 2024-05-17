@@ -1,9 +1,11 @@
 const mainContentContainer = document.querySelector("main-content-container");
 
 // ALL TEMP BOOK DATA
+
 const myLibrary = [];
 
 // ADD NEW BOOKS VIA A CONSTRUCTOR AND ADD-BOOK FORM
+
 class Book {
   constructor(id, title, author, type, pages, read, fave, imgsrc) {
     this.id = id;
@@ -22,6 +24,7 @@ function addInitialBookToLibrary(book) {
 }
 
 // HARDCODED INITIAL BOOKS
+
 const book1 = new Book( 1, "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  true, "./assets/book-theHobbit.jpg");
 
 const book2 = new Book(2, "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
@@ -57,20 +60,22 @@ function createCard(card) {
 const bookCard = document.createElement("book-card");
 // bookCard.id = card.id;
 bookCard.id = `${card.id}`;
-// bookCard.className = "fic-non-border-color";
+// bookCard.classList.add("fic-non-border-color");
+
+//  INDENTATION BELOW WAS FOR MY OWN CLARITY WHILE CODING THIS UP...
 
 const bookCardContent = document.createElement("book-card-content");
 
 const bookCardNavTop = document.createElement("book-card-nav-top");
     const editBtn = document.createElement("button");
-    editBtn.className = "bk-btns btn-edit";
+    editBtn.classList.add("bk-btns", "btn-edit");
         const editBtnImg = document.createElement("img");
         editBtnImg.src = "./assets/card-edit.svg";
         editBtnImg.alt = "Edit button";
         editBtn.appendChild(editBtnImg);
     bookCardNavTop.appendChild(editBtn);
     const xOutBtn = document.createElement("button");
-    xOutBtn.className = "bk-btns btn-x-out";
+    xOutBtn.classList.add("bk-btns", "btn-x-out");
         const xOutBtnImg = document.createElement("img");
         xOutBtnImg.src = "./assets/card-x.svg";
         xOutBtnImg.alt = "Close window button";
@@ -80,47 +85,96 @@ bookCardContent.appendChild(bookCardNavTop);
 
 const bookCardInfo = document.createElement("book-card-info");
     const bkTitle = document.createElement("p");
-    bkTitle.className = "bk-title";
+    bkTitle.classList.add("bk-title");
     bkTitle.innerText = `${card.title}`;
     bookCardInfo.appendChild(bkTitle);
     const bkAuthor = document.createElement("p");
-    bkAuthor.className = "bk-author";
-    bkAuthor.innerText =  `${card.author}`;
+    bkAuthor.classList.add("bk-author");
+    bkAuthor.innerText =  `by ${card.author}`;
     bookCardInfo.appendChild(bkAuthor);
     const bkDetails = document.createElement("p");
-    bkDetails.className = "bk-details";
+    bkDetails.classList.add("bk-details");
     bkDetails.innerText = `${card.type}, ${card.pages} pages`;
     bookCardInfo.appendChild(bkDetails);
 bookCardContent.appendChild(bookCardInfo);
+
+// SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICK
+
+const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
+
+    const xOutBtn2 = document.createElement("button");
+    xOutBtn2.classList.add("bk-btns", "btn-x-out");
+        const xOutBtnImg2 = document.createElement("img");
+        xOutBtnImg2.src = "./assets/card-x.svg";
+        xOutBtnImg2.alt = "Close window button";
+        xOutBtn2.appendChild(xOutBtnImg2);
+    bookCardNavTopEdit.appendChild(xOutBtn2);
+bookCardContent.appendChild(bookCardNavTopEdit);
+
+const editBookForm = document.createElement("form");
+    editBookForm.classList.add("edit-book-form");
+
+    const editTitleLabel = document.createElement("label");
+    editTitleLabel.for = "edit-title";
+    editTitleLabel.innerText = "Title";
+    editBookForm.appendChild(editTitleLabel);
+
+    const editTitleInput = document.createElement("input");
+    editTitleInput.type = "text";
+    editTitleInput.classList.add("edit-title");
+    editTitleInput.value = `${card.title}`;
+    editBookForm.appendChild(editTitleInput);
+
+    const editAuthorLabel = document.createElement("label");
+    editAuthorLabel.for = "edit-author";
+    editAuthorLabel.innerText = "Author";
+    editBookForm.appendChild(editAuthorLabel);
+
+    const editAuthorInput = document.createElement("input");
+    editAuthorInput.type = "text";
+    editAuthorInput.classList.add("edit-author");
+    editAuthorInput.value = `${card.author}`;
+    editBookForm.appendChild(editAuthorInput);
+
+    const editPageLabel = document.createElement("label");
+    editPageLabel.for = "edit-page";
+    editPageLabel.innerText = "Page Number";
+    editBookForm.appendChild(editPageLabel);
+
+    const editPageInput = document.createElement("input");
+    editPageInput.type = "text";
+    editPageInput.classList.add("edit-page");
+    editPageInput.value = `${card.pages}`;
+    editBookForm.appendChild(editPageInput);
+bookCardContent.appendChild(editBookForm);
 
 // ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
 
 const bookCardCover = document.createElement("book-card-cover");
     const bkCoverImg = document.createElement("img");
-    bkDetails.className = "bk-cover";
+    bkDetails.classList.add("bk-cover");
     bkCoverImg.src = `${card.imgsrc}`;
     bookCardCover.appendChild(bkCoverImg);
 bookCardContent.appendChild(bookCardCover);
 
-
 const bookCardNavBot = document.createElement("book-card-nav-bot");
 
     const readBtn = document.createElement("button");
-    readBtn.className = "bk-btns btn-read";
+    readBtn.classList.add("bk-btns", "btn-read");
         const readBtnImg1 = document.createElement("img");
-        readBtnImg1.className = "tog-not-read";
+        readBtnImg1.classList.add("tog-not-read");
         readBtnImg1.src = "./assets/card-not-read.svg";
         readBtnImg1.alt = "Read button";
         readBtn.appendChild(readBtnImg1);
         const readBtnImg2 = document.createElement("img");
-        readBtnImg2.className = "tog-read";
+        readBtnImg2.classList.add("tog-read");
         readBtnImg2.src = "./assets/card-read.svg";
         readBtnImg2.alt = "Read button";
         readBtn.appendChild(readBtnImg2);
     bookCardNavBot.appendChild(readBtn);
 
     const infoBtn = document.createElement("button");
-        infoBtn.className = "bk-btns btn-info";
+        infoBtn.classList.add("bk-btns", "btn-info");
         const infoBtnImg = document.createElement("img");
         infoBtnImg.src = "./assets/card-info.svg";
         infoBtnImg.alt = "Book info button";
@@ -128,15 +182,15 @@ const bookCardNavBot = document.createElement("book-card-nav-bot");
     bookCardNavBot.appendChild(infoBtn);
 
     const faveBtn = document.createElement("button");
-    faveBtn.className = "bk-btns btn-fave";
+    faveBtn.classList.add("bk-btns", "btn-fave");
         const faveBtnImg1 = document.createElement("img");
-        faveBtnImg1.className = "tog-not-fave";
+        faveBtnImg1.classList.add("tog-not-fave");
         faveBtnImg1.src = "./assets/card-not-fave.svg";
         faveBtnImg1.alt = "Favorite button";
         faveBtn.appendChild(faveBtnImg1);
 
         const faveBtnImg2 = document.createElement("img");
-        faveBtnImg2.className = "tog-fave";
+        faveBtnImg2.classList.add("tog-fave");
         faveBtnImg2.src = "./assets/card-fave.svg";
         faveBtnImg2.alt = "Favorite button";
         faveBtn.appendChild(faveBtnImg2);
@@ -164,7 +218,6 @@ function renderCards() {
     bookCards.forEach(function (bookCard, id) {
       const card = myLibrary[id];
 
-      const btnEdit = bookCard.querySelector(".btn-edit");
       const btnInfo = bookCard.querySelector(".btn-info");
       const btnXOut = bookCard.querySelector(".btn-x-out");
       const btnRead = bookCard.querySelector(".btn-read");
@@ -178,19 +231,49 @@ function renderCards() {
       const bookCardInfo = bookCard.querySelector("book-card-info");
       const bookCardNavTop = bookCard.querySelector("book-card-nav-top");
 
+      const btnEdit = bookCard.querySelector(".btn-edit");
+      const editBook = bookCard.querySelector(".edit-book-form");
+      const bookCardNavTopEdit = bookCard.querySelector("book-card-nav-top-edit");
+
       // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
       //   togRead.style.display = "none";
       //   togFave.style.display = "none";
 
       // ADD EVENT LISTENERS FOR BOOK-CARD
-      btnEdit.addEventListener("click", showEditForm);
+      
+      
+
+      btnEdit.addEventListener("click", function() {
+      showEdit(
+        bookCardCover,
+        bookCardNavBot,
+        bookCardInfo,
+        bookCardNavTop,
+        editBook,
+        bookCardNavTopEdit
+      );
+      })
 
       btnInfo.addEventListener("click", function () {
-        showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+        showInfo(
+          bookCardCover,
+          bookCardNavBot,
+          bookCardInfo,
+          bookCardNavTop,
+          editBook,
+          bookCardNavTopEdit
+        );
       });
 
       btnXOut.addEventListener("click", function () {
-        hideInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
+        showCover(
+          bookCardCover,
+          bookCardNavBot,
+          bookCardInfo,
+          bookCardNavTop,
+          editBook,
+          bookCardNavTopEdit
+        );
       });
 
       btnRead.addEventListener("click", function () {
@@ -202,29 +285,60 @@ function renderCards() {
       });
     });
 
-    function showInfo(
+    function showCover(
+      // hides info
+      // hides edit
       bookCardCover,
       bookCardNavBot,
       bookCardInfo,
-      bookCardNavTop
-    ) {
-      bookCardCover.style.display = "none";
-      bookCardNavBot.style.display = "none";
-      bookCardInfo.style.display = "flex";
-      bookCardNavTop.style.display = "flex";
-    }
-
-    function hideInfo(
-      bookCardCover,
-      bookCardNavBot,
-      bookCardInfo,
-      bookCardNavTop
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
     ) {
       bookCardCover.style.display = "flex";
       bookCardNavBot.style.display = "flex";
       bookCardInfo.style.display = "none";
       bookCardNavTop.style.display = "none";
+      editBook.style.display = "none";
+      bookCardNavTopEdit.style.display = "none";
     }
+
+    function showInfo(
+      // hides cover
+      // hides edit
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    ) {
+      bookCardCover.style.display = "none";
+      bookCardNavBot.style.display = "none";
+      bookCardInfo.style.display = "flex";
+      bookCardNavTop.style.display = "flex";
+      editBook.style.display = "none";
+      bookCardNavTopEdit.style.display = "none";
+    }
+
+    function showEdit(
+      // hides cover
+      // hides info
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    ) {
+      bookCardCover.style.display = "none";
+      bookCardNavBot.style.display = "none";
+      bookCardInfo.style.display = "none";
+      bookCardNavTop.style.display = "none";
+      editBook.style.display = "flex";
+      bookCardNavTopEdit.style.display = "flex";
+    }
+    
 
     function toggleRead(togNotRead, togRead, btnRead) {
       if (togRead.style.display === "none") {
@@ -386,11 +500,11 @@ renderCards();
 
 // MODALS
 
-const addBookForm = document.querySelector("#add-book-form");
+const addBookDialog = document.querySelector("#add-book-dialog");
 
 const menuBtnAdd = document.querySelector("#menu-btn-add");
   menuBtnAdd.addEventListener("click", function() {
-  addBookForm.showModal();
+  addBookDialog.showModal();
 
 })
 
@@ -411,7 +525,7 @@ function closeModal() {
       input.checked = false;
     });
     clearModalFormData();
-    addBookForm.close();
+    addBookDialog.close();
   });
 }
 closeModal();
@@ -497,14 +611,17 @@ function addFormBookToLibrary() {
   }
 
   console.log(myLibrary);
-  // closeAddBookFormModal();
+
   renderCards();
-  addBookForm.close();
+  addBookDialog.close();
   clearModalFormData();
 }
 
-function showEditForm() {
-  console.log("Edit form btn test...");
-}
+// function showEditForm() {
+//   console.log("Edit form btn test...");
+
+//   const editBookDialog = document.querySelector(".edit-book-dialog")
+//   editBookDialog.style.
+// }
 
 console.log(myLibrary);
