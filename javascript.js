@@ -103,7 +103,7 @@ bookCardContent.appendChild(bookCardInfo);
 const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
 
     const xOutBtn2 = document.createElement("button");
-    xOutBtn2.classList.add("bk-btns", "btn-x-out");
+    xOutBtn2.classList.add("bk-btns", "btn-x-out2");
         const xOutBtnImg2 = document.createElement("img");
         xOutBtnImg2.src = "./assets/card-x.svg";
         xOutBtnImg2.alt = "Close window button";
@@ -234,7 +234,8 @@ function renderCards() {
       const btnEdit = bookCard.querySelector(".btn-edit");
       const editBook = bookCard.querySelector(".edit-book-form");
       const bookCardNavTopEdit = bookCard.querySelector("book-card-nav-top-edit");
-
+      const btnXOut2 = bookCard.querySelector(".btn-x-out2");
+  
       // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
       //   togRead.style.display = "none";
       //   togFave.style.display = "none";
@@ -275,6 +276,19 @@ function renderCards() {
           bookCardNavTopEdit
         );
       });
+
+      btnXOut2.addEventListener("click", function () {
+        showCover(
+          bookCardCover,
+          bookCardNavBot,
+          bookCardInfo,
+          bookCardNavTop,
+          editBook,
+          bookCardNavTopEdit
+        );
+      });
+
+      console.log("btnXOut:", btnXOut);
 
       btnRead.addEventListener("click", function () {
         toggleRead(togNotRead, togRead, btnRead);

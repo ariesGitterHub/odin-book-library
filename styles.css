@@ -347,7 +347,7 @@ book-card-nav-bot .bk-btns {
     margin-bottom: 1rem;
 }
 
-.btn-info:hover, .btn-edit:hover, .btn-x-out:hover {
+.btn-info:hover, .btn-edit:hover, .btn-x-out:hover, .btn-x-out2:hover {
     background: var(--dk-sea);
 }
 
