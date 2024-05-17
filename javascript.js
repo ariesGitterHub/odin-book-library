@@ -1,19 +1,9 @@
-// GLOBALS
-
 const mainContentContainer = document.querySelector("main-content-container");
-
-// const btnRead = document.querySelector(".btn-read");
-// const togNotRead = document.querySelector(".tog-not-read");
-// const togRead = document.querySelector(".tog-read");
-// const togNotFave = document.querySelector(".tog-not-fave");
-// const togFave = document.querySelector(".tog-fave");
-
 
 // ALL TEMP BOOK DATA
 const myLibrary = [];
 
 // ADD NEW BOOKS VIA A CONSTRUCTOR AND ADD-BOOK FORM
-
 class Book {
   constructor(id, title, author, type, pages, read, fave, imgsrc) {
     this.id = id;
@@ -31,17 +21,34 @@ function addInitialBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-// HARDCODED BOOKS
-const book1 = new Book( 1, "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  false, "./assets/book-theHobbit.jpg");
+// HARDCODED INITIAL BOOKS
+const book1 = new Book( 1, "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  true, "./assets/book-theHobbit.jpg");
 
-const book2 = new Book(2, "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, false, true, "./assets/book-theGreatestKnight.jpg");
+const book2 = new Book(2, "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
+
+const book3 = new Book(3, "'Generic Cover' Test", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
+
+const book4 = new Book(4, "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
+
+const book5 = new Book(5, "Universal Principles of Design", "William Lidwell, Kritina Holden, Jill Butler", "Non-fiction", 216, true, false, "./assets/book-universalPrinciplesOfDesign.jpg");
+
+const book6 = new Book(6, "The Plantagenets", "Dan Jones", "Non-fiction", 560, true, false, "./assets/book-thePlantagenets.jpg");
+
+const book7 = new Book(7, "Dune", "Frank Herbert", "Fiction", 563, true, true, "./assets/book-dune.jpg"
+);
+
+const book8 = new Book(8, "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg");
 
 addInitialBookToLibrary(book1);
 addInitialBookToLibrary(book2);
-
+addInitialBookToLibrary(book3);
+addInitialBookToLibrary(book4);
+addInitialBookToLibrary(book5);
+addInitialBookToLibrary(book6);
+addInitialBookToLibrary(book7);
+addInitialBookToLibrary(book8);
 
 console.log(myLibrary);
-
 
 // DYNAMICALLY CREATE BOOK CARDS 
 
@@ -51,7 +58,6 @@ const bookCard = document.createElement("book-card");
 // bookCard.id = card.id;
 bookCard.id = `${card.id}`;
 // bookCard.className = "fic-non-border-color";
-
 
 const bookCardContent = document.createElement("book-card-content");
 
@@ -87,7 +93,7 @@ const bookCardInfo = document.createElement("book-card-info");
     bookCardInfo.appendChild(bkDetails);
 bookCardContent.appendChild(bookCardInfo);
 
-// ***top and info, above... vs cover and bot, below...
+// ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
 
 const bookCardCover = document.createElement("book-card-cover");
     const bkCoverImg = document.createElement("img");
@@ -158,6 +164,7 @@ function renderCards() {
     bookCards.forEach(function (bookCard, id) {
       const card = myLibrary[id];
 
+      const btnEdit = bookCard.querySelector(".btn-edit");
       const btnInfo = bookCard.querySelector(".btn-info");
       const btnXOut = bookCard.querySelector(".btn-x-out");
       const btnRead = bookCard.querySelector(".btn-read");
@@ -175,7 +182,9 @@ function renderCards() {
       //   togRead.style.display = "none";
       //   togFave.style.display = "none";
 
-      // ADD EVENTLISTENERS FOR BOOK-CARD
+      // ADD EVENT LISTENERS FOR BOOK-CARD
+      btnEdit.addEventListener("click", showEditForm);
+
       btnInfo.addEventListener("click", function () {
         showInfo(bookCardCover, bookCardNavBot, bookCardInfo, bookCardNavTop);
       });
@@ -245,6 +254,8 @@ function renderCards() {
         const cardContainer = document.getElementById(card.id);
         // Hitting cardContainer spreads it around...remember this!
 
+        // const ficNonBorderColor = cardContainer.querySelector(".fic-non-border-color");
+
         const btnRead = cardContainer.querySelector(".btn-read");
         const togNotRead = cardContainer.querySelector(".tog-not-read");
         const togRead = cardContainer.querySelector(".tog-read");
@@ -273,6 +284,13 @@ function renderCards() {
           togFave.style.display = "none";
           btnFave.style.background = "var(--life-jacket)";
         }
+
+        // INITIAL TYPE STATE
+//         if (card.type === "Fiction") {
+//           ficNonBorderColor.style.borderColor = "var(--sea)";
+// ;        } else if (card.type === "Non-fiction") {
+//           ficNonBorderColor.style.borderColor = "var(--candle)";
+//         }
       }
       myLibrary.forEach(function (card) {
         setInitReadFaveState(card);
@@ -281,106 +299,6 @@ function renderCards() {
 }
 
 renderCards();
-
-// Reference only, delete when done...
-    // if (card.read === false) {
-    //   togNotRead.style.display = "flex";
-    //   togRead.style.display = "none";
-    //   btnRead.style.background = "var(--life-jacket)";
-    // } else if (card.read === true) {
-    //   togNotRead.style.display = "none";
-    //   togRead.style.display = "flex";
-    //   btnRead.style.background = "var(--dk-sea)";
-    // }
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-// function setInitReadFaveState(card) {
-
-
-//     const btnRead = document.querySelector(".btn-read");
-//     const togNotRead = document.querySelector(".tog-not-read");
-//     const togRead = document.querySelector(".tog-read");
-//     const btnFave = document.querySelector(".btn-fave");
-//     const togNotFave = document.querySelector(".tog-not-fave");
-//     const togFave = document.querySelector(".tog-fave");
-
-//         console.log(myLibrary);
-//         // console.log("togNotRead:", togNotRead);
-//         // console.log("togRead:", togRead);
-//         // console.log("btnRead:", btnRead);
-
-//     // READ STATE
-//     if (card.read === true) {
-//         togNotRead.style.display = "none";
-//         togRead.style.display = "flex";
-//         btnRead.style.background = "var(--dk-sea)";
-//     } else if (card.read === false) {
-//         togNotRead.style.display = "flex";
-//         togRead.style.display = "none";
-//         btnRead.style.background = "var(--life-jacket)";
-//     }
-
-//     // FAVE STATE
-//         if (card.fave === true) {
-//           togNotFave.style.display = "none";
-//           togFave.style.display = "flex";
-//           btnFave.style.background = "var(--dk-sea)";
-//         } else if (card.fave === false) {
-//           togNotFave.style.display = "flex";
-//           togFave.style.display = "none";
-//           btnFave.style.background = "var(--life-jacket)";
-//         }
-// }
-
-//     myLibrary.forEach(function(card) {
-//         setInitReadFaveState(card);
-//     });
-// });
-
-
-// To fix this issue, you need to ensure that you're selecting the elements within the context of each card, rather than selecting globally from the entire document. One way to achieve this is by selecting the elements relative to each card within the setInitReadFaveState function.
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-  // function setInitReadFaveState(card) {
-  //   const cardContainer = document.getElementById(card.id);
-  //   // Hitting cardContainer spreads it around...remember this!
-
-  //   const btnRead = cardContainer.querySelector(".btn-read");
-  //   const togNotRead = cardContainer.querySelector(".tog-not-read");
-  //   const togRead = cardContainer.querySelector(".tog-read");
-  //   const btnFave = cardContainer.querySelector(".btn-fave");
-  //   const togNotFave = cardContainer.querySelector(".tog-not-fave");
-  //   const togFave = cardContainer.querySelector(".tog-fave");
-
-  //   // INITIAL READ STATE
-  //   if (card.read === true) {
-  //     togNotRead.style.display = "none";
-  //     togRead.style.display = "flex";
-  //     btnRead.style.background = "var(--dk-sea)";
-  //   } else if (card.read === false) {
-  //     togNotRead.style.display = "flex";
-  //     togRead.style.display = "none";
-  //     btnRead.style.background = "var(--life-jacket)";
-  //   }
-
-  //   // INITIAL FAVE STATE
-  //   if (card.fave === true) {
-  //     togNotFave.style.display = "none";
-  //     togFave.style.display = "flex";
-  //     btnFave.style.background = "var(--dk-sea)";
-  //   } else if (card.fave === false) {
-  //     togNotFave.style.display = "flex";
-  //     togFave.style.display = "none";
-  //     btnFave.style.background = "var(--life-jacket)";
-  //   }
-
-  // }
-  // myLibrary.forEach(function (card) {
-  //   setInitReadFaveState(card);
-  // });
-// });
 
 
 // MAKE BOOK-CARD BUTTONS WORK ... COME BACK TO DO EDIT BUTTON VIA ANOTHER MODAL...
@@ -471,19 +389,37 @@ renderCards();
 const addBookForm = document.querySelector("#add-book-form");
 
 const menuBtnAdd = document.querySelector("#menu-btn-add");
-menuBtnAdd.addEventListener("click", function() {
+  menuBtnAdd.addEventListener("click", function() {
   addBookForm.showModal();
+
 })
 
-const btnXOutModal = document.querySelector(".btn-x-out-modal");
-btnXOutModal.addEventListener("click", function () {
-  addBookForm.close();
-});
+function clearModalFormData() {
+  const inputs = document.querySelectorAll("input");
+      inputs.forEach(function (input) {
+      input.value = "";
+      input.checked = false;
+    });
+}
+
+function closeModal() {
+  const btnXOutModal = document.querySelector(".btn-x-out-modal");
+  const inputs = document.querySelectorAll("input");
+  btnXOutModal.addEventListener("click", function () {
+    inputs.forEach(function (input) {
+      input.value = "";
+      input.checked = false;
+    });
+    clearModalFormData();
+    addBookForm.close();
+  });
+}
+closeModal();
 
 const addBookEnterBtn = document.querySelector("#add-book-enter-btn");
 addBookEnterBtn.addEventListener("click", addFormBookToLibrary)
 
-function addFormBookToLibrary(event) {
+function addFormBookToLibrary() {
 
   const idCount = myLibrary.length + 1;
   const inputTitle = document.querySelector("#input-title").value;
@@ -518,23 +454,57 @@ function addFormBookToLibrary(event) {
       valueFaveNotFave = false;
     }
 
-  const inputCoverUrl = document.querySelector("#input-cover-url").value;
+  const inputCoverUrl = document.querySelector("#input-cover-url");
+    let valueCoverUrl = null;
+    if (inputCoverUrl.value === "") {
+      valueCoverUrl = "./assets/book-icon.svg";
+    } else {
+      valueCoverUrl = inputCoverUrl.value;
+    }
 
-  myLibrary.push(
-    new Book(
-      idCount,
-      inputTitle,
-      inputAuthor,
-      valueFicNonFic,
-      inputPages,
-      valueReadNotRead,
-      valueFaveNotFave,
-      inputCoverUrl
-    )
-  );
+    const titleCheck = document.querySelector("input[name='book-title']");
+    const authorCheck = document.querySelector("input[name='book-author']");
+    const ficNonFicCheck = document.querySelector("input[name='book-type']:checked");
+
+    const pageCheck = document.querySelector("input[name='book-pages']");
+
+    const readStatusCheck = document.querySelector("input[name='read-status']:checked");
+
+    const faveStatusCheck = document.querySelector("input[name='fave-status']:checked");
+
+  if (
+    titleCheck.value === "" ||
+    authorCheck.value === "" ||
+    !ficNonFicCheck ||
+    pageCheck.value === "" ||
+    !readStatusCheck ||
+    !faveStatusCheck
+  ) {
+    return false
+  } else {
+      myLibrary.push(
+      new Book(
+        idCount,
+        inputTitle,
+        inputAuthor,
+        valueFicNonFic,
+        inputPages,
+        valueReadNotRead,
+        valueFaveNotFave,
+        valueCoverUrl
+      )
+    );
+  }
+
   console.log(myLibrary);
+  // closeAddBookFormModal();
   renderCards();
+  addBookForm.close();
+  clearModalFormData();
 }
 
+function showEditForm() {
+  console.log("Edit form btn test...");
+}
 
 console.log(myLibrary);

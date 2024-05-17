@@ -33,33 +33,37 @@
             </form-header>
             <fieldset>
                 <legend>What is the book's title?</legend>
-                <input type="text" id="input-title" name="book-title" placeholder="Book's title...">
+                <label for="input-title"></label>
+                <input type="text" id="input-title" name="book-title" placeholder="Book's title..." required autofocus>
             </fieldset>
             <fieldset>
                 <legend>Who is the book's author?</legend>
-                <input type="text" id="input-author" name="book-author" placeholder="Book's author(s)...">
+                <label for="input-author"></label>
+                <input type="text" id="input-author" name="book-author" placeholder="Book's author(s)..." required>
             </fieldset>
             <fieldset>
                 <legend>Fiction, or non-fiction?</legend>
-                <label class="label-radio"> <input type="radio" id="radio-fiction" name="book-type" value="Fiction"> Fiction </label>
-                <label class="label-radio"> <input type="radio" id="radio-non-fiction" name="book-type" value="Non-fiction."> Non-fiction </label>
+                <label for="radio-fiction" class="label-radio"> <input type="radio" id="radio-fiction" name="book-type" value="Fiction" required> Fiction </label>
+                <label for="radio-non-fiction"class="label-radio"> <input type="radio" id="radio-non-fiction" name="book-type" value="Non-fiction."> Non-fiction </label>
             </fieldset>
             <fieldset>
                 <legend>Number of pages?</legend>
-                <input type="number" id="input-pages" name="book-pages" min="1" placeholder="Book's page count...">                  
+                <label for="input-pages"></label>
+                <input type="number" id="input-pages" name="book-pages" min="1" placeholder="Book's page count..." required>                  
             </fieldset>
             <fieldset>
                 <legend>Have you read this book?</legend>
-                <label class="label-radio"> <input type="radio" id="radio-read-it" name="read-status"> Read it! </label>
-                <label class="label-radio"> <input type="radio" id="radio-not-read-it" name="read-status"> Not read. </label>
+                <label for="radio-read-it" class="label-radio"> <input type="radio" id="radio-read-it" name="read-status" required> Read it! </label>
+                <label for="radio-not-read-it" class="label-radio"> <input type="radio" id="radio-not-read-it" name="read-status"> Not read. </label>
             </fieldset>
             <fieldset>
                 <legend>Is this book a favorite?</legend>
-                <label class="label-radio"> <input type="radio" id="radio-fave" name="fave-status"> I like this book! </label>
-                <label class="label-radio"> <input type="radio" id="radio-not-fave" name="fave-status"> Not so much. </label>
+                <label for="radio-fave" class="label-radio"> <input type="radio" id="radio-fave" name="fave-status" required> I like this book! </label>
+                <label for="radio-not-fave" class="label-radio"> <input type="radio" id="radio-not-fave" name="fave-status"> Nope. </label>
             </fieldset>
             <fieldset>
                 <legend>Is there a book cover URL?</legend>
+                <label for="input-cover-url"></label>
                 <input type="text" id="input-cover-url" name="book-cover" placeholder="https://example.com/bookcover.jpg" >                  
             </fieldset>
             <form-footer class="special-fieldset">
