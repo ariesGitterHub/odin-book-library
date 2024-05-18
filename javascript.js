@@ -98,8 +98,7 @@ const bookCardInfo = document.createElement("book-card-info");
     bookCardInfo.appendChild(bkDetails);
 bookCardContent.appendChild(bookCardInfo);
 
-// SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICK
-
+// SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
 const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
 
     const xOutBtn2 = document.createElement("button");
@@ -115,37 +114,61 @@ const editBookForm = document.createElement("form");
     editBookForm.classList.add("edit-book-form");
 
     const editTitleLabel = document.createElement("label");
-    editTitleLabel.for = "edit-title";
+    editTitleLabel.htmlFor = `edit-title${card.id}`;
     editTitleLabel.innerText = "Title";
     editBookForm.appendChild(editTitleLabel);
 
     const editTitleInput = document.createElement("input");
     editTitleInput.type = "text";
     editTitleInput.classList.add("edit-title");
+    editTitleInput.id = `edit-title${card.id}`;
     editTitleInput.value = `${card.title}`;
     editBookForm.appendChild(editTitleInput);
 
     const editAuthorLabel = document.createElement("label");
-    editAuthorLabel.for = "edit-author";
+    editAuthorLabel.htmlFor = `edit-author${card.id}`;
     editAuthorLabel.innerText = "Author";
     editBookForm.appendChild(editAuthorLabel);
 
     const editAuthorInput = document.createElement("input");
     editAuthorInput.type = "text";
     editAuthorInput.classList.add("edit-author");
+    editAuthorInput.id = `edit-author${card.id}`;
     editAuthorInput.value = `${card.author}`;
     editBookForm.appendChild(editAuthorInput);
 
     const editPageLabel = document.createElement("label");
-    editPageLabel.for = "edit-page";
-    editPageLabel.innerText = "Page Number";
+    editPageLabel.htmlFor = `edit-page${card.id}`;
+    editPageLabel.innerText = "Pages";
     editBookForm.appendChild(editPageLabel);
 
     const editPageInput = document.createElement("input");
-    editPageInput.type = "text";
+    editPageInput.type = "number";
     editPageInput.classList.add("edit-page");
+    editPageInput.id = `edit-page${card.id}`;
     editPageInput.value = `${card.pages}`;
     editBookForm.appendChild(editPageInput);
+
+    const flexDiv = document.createElement("flex-div");
+
+      const deleteBookBtn = document.createElement("button");
+      deleteBookBtn.type = "button";
+      deleteBookBtn.classList.add("menu-btn", "other-btn");
+      deleteBookBtn.id = "delete-book";
+      deleteBookBtn.innerText = "Delete Book";
+      // editBookForm.appendChild(deleteBookBtn);
+      flexDiv.appendChild(deleteBookBtn);
+
+      const updateBookBtn = document.createElement("button");
+      updateBookBtn.type = "button";
+      updateBookBtn.classList.add("menu-btn", "other-btn");
+      updateBookBtn.id = "update-book";
+      updateBookBtn.innerText = "Update Book";
+      // editBookForm.appendChild(updateBookBtn);
+      flexDiv.appendChild(updateBookBtn);
+
+      editBookForm.appendChild(flexDiv);
+
 bookCardContent.appendChild(editBookForm);
 
 // ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
@@ -218,6 +241,8 @@ function renderCards() {
     bookCards.forEach(function (bookCard, id) {
       const card = myLibrary[id];
 
+      // const bookCard2 = bookCard.querySelector("book-card");
+
       const btnInfo = bookCard.querySelector(".btn-info");
       const btnXOut = bookCard.querySelector(".btn-x-out");
       const btnRead = bookCard.querySelector(".btn-read");
@@ -288,7 +313,7 @@ function renderCards() {
         );
       });
 
-      console.log("btnXOut:", btnXOut);
+      // console.log("btnXOut:", btnXOut);
 
       btnRead.addEventListener("click", function () {
         toggleRead(togNotRead, togRead, btnRead);
@@ -338,6 +363,7 @@ function renderCards() {
     function showEdit(
       // hides cover
       // hides info
+      // bookCard2,
       bookCardCover,
       bookCardNavBot,
       bookCardInfo,
@@ -345,11 +371,13 @@ function renderCards() {
       editBook,
       bookCardNavTopEdit
     ) {
+      // bookCard2.style.border = ".15rem solid var(--candle)";
       bookCardCover.style.display = "none";
       bookCardNavBot.style.display = "none";
       bookCardInfo.style.display = "none";
       bookCardNavTop.style.display = "none";
       editBook.style.display = "flex";
+      // editBook.style.background = "var(--candle)";
       bookCardNavTopEdit.style.display = "flex";
     }
     

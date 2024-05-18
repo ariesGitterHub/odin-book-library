@@ -31,7 +31,7 @@ body {
         justify-content: center;
     font-family: "Teachers", sans-serif;
     font-optical-sizing: auto;
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
     font-weight: 400;
     font-style: normal;
     margin: auto;
@@ -105,7 +105,7 @@ form-header {
 
 form-header h3 {
     /* background: var(--sea); */
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     line-height: 2.25;
 }
 
@@ -176,17 +176,17 @@ title-container h1 {
     align-self: center;
     color: var(--candle);
     font-family: "Platypi", 'Times New Roman', Times, serif;
-    font-size:2rem;
+    font-size: 2rem;
     font-weight: 500;
     padding-left: .25rem;
 }
 
 button-ctrl-container {
-    max-width: 900px;
-    align-self: center;
+    max-width: 800px;
+    /* align-self: center; */
     display: grid;
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-        justify-content: center;
+        place-content: center;
         align-items: center;
         place-items: center;
     margin: auto;
@@ -202,7 +202,7 @@ button {
     border: .15rem solid var(--white);
     border-radius: 100%;
     color: var(--white);
-    margin: .2rem;
+    margin: .1rem;
 }
 
 .menu-btn img{
@@ -213,12 +213,35 @@ button {
     background: var(--dk-sea);
 }
 
-#add-book-enter-btn {
-    height: 2.25rem;
+.other-btn {
+    height: 2.5rem;
     width: auto;
     border-radius: 1rem;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: .95rem; 
+        font-weight: 600;
+    margin: 0 .25rem .75rem .25rem;
+}
+
+.edit-page {
+    margin-bottom: 1rem;
+}
+
+flex-div {
+    display: flex;
+    gap: .5rem;
+
+    margin: auto;
+    padding:1rem
+}
+
+
+
+#add-book-enter-btn {
+    height: 2.5rem;
+    /* width: auto;
+    border-radius: 1rem;
+    font-size: 1rem; */
+    /* font-weight: 600; */
     margin-top: .05rem;
 }
 
@@ -228,14 +251,14 @@ main-content-container {
         justify-content: center;
         align-items: center;
         gap: 1rem;
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0;
+    /* padding: 1rem; */
 }
 
 book-card {
     width: var(--book-card-width);
-    border: .15rem solid;
-    border-color: var(--white);
+    border: .15rem solid var(--white);
+    /* border-color: var(--white); */
     /* border:none; */
     border-radius: 1rem;
     color: var(--white);
@@ -246,7 +269,8 @@ book-card {
         "book-card-nav-bot"
         "book-card-nav-top-edit"
         "edit-book-form";
-    margin: 1rem 1rem 0 1rem;
+    /* margin: 1rem 1rem 0 1rem; */
+    margin: .25rem;
 }
 
 /* .fic-non-border-color {
@@ -289,13 +313,14 @@ book-card-info p {
 }
 
 .bk-title {
-    font-size: 1.35rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 800;
     margin-bottom: .5rem;
 }
 
 .bk-author {
-    font-size: 1.15rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 book-card-nav-top, book-card-nav-bot, book-card-nav-top-edit {
@@ -378,7 +403,7 @@ book-card-nav-bot .bk-btns {
     padding: .5rem;
 }
 
-.edit-book-form input[type="text"], .edit-book-forminput[type="number"]  {
+.edit-book-form input[type="text"], .edit-book-form input[type="number"]  {
     height: 1.5rem;
     width: 215px;
     border: 3px solid var(--white);
