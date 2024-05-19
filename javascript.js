@@ -25,22 +25,22 @@ function addInitialBookToLibrary(book) {
 
 // HARDCODED INITIAL BOOKS
 
-const book1 = new Book( 1, "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  true, "./assets/book-theHobbit.jpg");
+const book1 = new Book("b0", "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  true, "./assets/book-theHobbit.jpg");
 
-const book2 = new Book(2, "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
+const book2 = new Book("b1", "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
 
-const book3 = new Book(3, "'Generic Cover' Test", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
+const book3 = new Book("b2", "'Generic Book Cover' Test", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
 
-const book4 = new Book(4, "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
+const book4 = new Book("b3", "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
 
-const book5 = new Book(5, "Universal Principles of Design", "William Lidwell, Kritina Holden, Jill Butler", "Non-fiction", 216, true, false, "./assets/book-universalPrinciplesOfDesign.jpg");
+const book5 = new Book("b4", "Universal Principles of Design", "William Lidwell, Kritina Holden, Jill Butler", "Non-fiction", 216, true, false, "./assets/book-universalPrinciplesOfDesign.jpg");
 
-const book6 = new Book(6, "The Plantagenets", "Dan Jones", "Non-fiction", 560, true, false, "./assets/book-thePlantagenets.jpg");
+const book6 = new Book("b5", "The Plantagenets", "Dan Jones", "Non-fiction", 560, true, false, "./assets/book-thePlantagenets.jpg");
 
-const book7 = new Book(7, "Dune", "Frank Herbert", "Fiction", 563, true, true, "./assets/book-dune.jpg"
+const book7 = new Book("b6", "Dune", "Frank Herbert", "Fiction", 563, true, true, "./assets/book-dune.jpg"
 );
 
-const book8 = new Book(8, "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg");
+const book8 = new Book("b7", "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg");
 
 addInitialBookToLibrary(book1);
 addInitialBookToLibrary(book2);
@@ -64,7 +64,7 @@ bookCard.id = `${card.id}`;
 
 //  INDENTATION BELOW WAS FOR MY OWN CLARITY WHILE CODING THIS UP...
 
-const bookCardContent = document.createElement("book-card-content");
+// const bookCardContent = document.createElement("book-card-content");
 
 const bookCardNavTop = document.createElement("book-card-nav-top");
     const editBtn = document.createElement("button");
@@ -81,7 +81,8 @@ const bookCardNavTop = document.createElement("book-card-nav-top");
         xOutBtnImg.alt = "Close window button";
         xOutBtn.appendChild(xOutBtnImg);
     bookCardNavTop.appendChild(xOutBtn);
-bookCardContent.appendChild(bookCardNavTop);
+// bookCardContent.appendChild(bookCardNavTop);
+bookCard.appendChild(bookCardNavTop);
 
 const bookCardInfo = document.createElement("book-card-info");
     const bkTitle = document.createElement("p");
@@ -96,7 +97,8 @@ const bookCardInfo = document.createElement("book-card-info");
     bkDetails.classList.add("bk-details");
     bkDetails.innerText = `${card.type}, ${card.pages} pages`;
     bookCardInfo.appendChild(bkDetails);
-bookCardContent.appendChild(bookCardInfo);
+// bookCardContent.appendChild(bookCardInfo);
+bookCard.appendChild(bookCardInfo);
 
 // SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
 const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
@@ -108,7 +110,8 @@ const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
         xOutBtnImg2.alt = "Close window button";
         xOutBtn2.appendChild(xOutBtnImg2);
     bookCardNavTopEdit.appendChild(xOutBtn2);
-bookCardContent.appendChild(bookCardNavTopEdit);
+// bookCardContent.appendChild(bookCardNavTopEdit);
+bookCard.appendChild(bookCardNavTopEdit);
 
 const editBookForm = document.createElement("form");
     editBookForm.classList.add("edit-book-form");
@@ -155,6 +158,7 @@ const editBookForm = document.createElement("form");
       deleteBookBtn.type = "button";
       deleteBookBtn.classList.add("menu-btn", "other-btn");
       deleteBookBtn.id = "delete-book";
+      // deleteBookBtn.id = `delete-book${card.id}`;
       deleteBookBtn.innerText = "Delete Book";
       // editBookForm.appendChild(deleteBookBtn);
       flexDiv.appendChild(deleteBookBtn);
@@ -169,7 +173,8 @@ const editBookForm = document.createElement("form");
 
       editBookForm.appendChild(flexDiv);
 
-bookCardContent.appendChild(editBookForm);
+// bookCardContent.appendChild(editBookForm);
+bookCard.appendChild(editBookForm);
 
 // ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
 
@@ -178,7 +183,8 @@ const bookCardCover = document.createElement("book-card-cover");
     bkDetails.classList.add("bk-cover");
     bkCoverImg.src = `${card.imgsrc}`;
     bookCardCover.appendChild(bkCoverImg);
-bookCardContent.appendChild(bookCardCover);
+// bookCardContent.appendChild(bookCardCover);
+bookCard.appendChild(bookCardCover);
 
 const bookCardNavBot = document.createElement("book-card-nav-bot");
 
@@ -219,9 +225,10 @@ const bookCardNavBot = document.createElement("book-card-nav-bot");
         faveBtn.appendChild(faveBtnImg2);
     bookCardNavBot.appendChild(faveBtn);
 
-bookCardContent.appendChild(bookCardNavBot);
+// bookCardContent.appendChild(bookCardNavBot);
+bookCard.appendChild(bookCardNavBot);
 
-bookCard.appendChild(bookCardContent);
+// bookCard.appendChild(bookCardContent);
 
 return bookCard;
 }
@@ -241,7 +248,7 @@ function renderCards() {
     bookCards.forEach(function (bookCard, id) {
       const card = myLibrary[id];
 
-      // const bookCard2 = bookCard.querySelector("book-card");
+      const bookCard2 = bookCard.querySelector("book-card");
 
       const btnInfo = bookCard.querySelector(".btn-info");
       const btnXOut = bookCard.querySelector(".btn-x-out");
@@ -258,27 +265,30 @@ function renderCards() {
 
       const btnEdit = bookCard.querySelector(".btn-edit");
       const editBook = bookCard.querySelector(".edit-book-form");
-      const bookCardNavTopEdit = bookCard.querySelector("book-card-nav-top-edit");
+      const bookCardNavTopEdit = bookCard.querySelector(
+        "book-card-nav-top-edit"
+      );
       const btnXOut2 = bookCard.querySelector(".btn-x-out2");
-  
+
+      const btnDeleteBook = bookCard.querySelector("#delete-book");
+      // console.log(deleteBtn);
+
       // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
       //   togRead.style.display = "none";
       //   togFave.style.display = "none";
 
       // ADD EVENT LISTENERS FOR BOOK-CARD
-      
-      
 
-      btnEdit.addEventListener("click", function() {
-      showEdit(
-        bookCardCover,
-        bookCardNavBot,
-        bookCardInfo,
-        bookCardNavTop,
-        editBook,
-        bookCardNavTopEdit
-      );
-      })
+      btnEdit.addEventListener("click", function () {
+        showEdit(
+          bookCardCover,
+          bookCardNavBot,
+          bookCardInfo,
+          bookCardNavTop,
+          editBook,
+          bookCardNavTopEdit
+        );
+      });
 
       btnInfo.addEventListener("click", function () {
         showInfo(
@@ -313,7 +323,25 @@ function renderCards() {
         );
       });
 
-      // console.log("btnXOut:", btnXOut);
+      btnDeleteBook.addEventListener("click",  deleteFromLibrary);
+
+      function deleteFromLibrary() {
+
+        console.log(card.id); // This works
+        let testArray = myLibrary.filter((item) => item.id !== card.id);
+
+      let removeElement = document.querySelector(`#${card.id}`);
+      if (removeElement) {
+        removeElement.remove();
+      }
+    
+        console.log(testArray);
+
+
+      }
+
+      
+
 
       btnRead.addEventListener("click", function () {
         toggleRead(togNotRead, togRead, btnRead);
@@ -381,6 +409,7 @@ function renderCards() {
       bookCardNavTopEdit.style.display = "flex";
     }
     
+  
 
     function toggleRead(togNotRead, togRead, btnRead) {
       if (togRead.style.display === "none") {
@@ -577,7 +606,7 @@ addBookEnterBtn.addEventListener("click", addFormBookToLibrary)
 
 function addFormBookToLibrary() {
 
-  const idCount = myLibrary.length + 1;
+  const idCount = `b${myLibrary.length}`;
   const inputTitle = document.querySelector("#input-title").value;
   const inputAuthor = document.querySelector("#input-author").value;
 

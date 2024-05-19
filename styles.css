@@ -217,7 +217,7 @@ button {
     height: 2.5rem;
     width: auto;
     border-radius: 1rem;
-    font-size: .95rem; 
+    font-size: .85rem; 
         font-weight: 600;
     margin: 0 .25rem .75rem .25rem;
 }
@@ -262,16 +262,23 @@ book-card {
     /* border:none; */
     border-radius: 1rem;
     color: var(--white);
-    display: grid;
+    display: block;
         grid-template-areas:
         "book-card-nav-top"
-        "book-card-content"
+        "book-card-info"
+        /* "book-card-content" */
+        "book-card-cover"
         "book-card-nav-bot"
         "book-card-nav-top-edit"
         "edit-book-form";
     /* margin: 1rem 1rem 0 1rem; */
     margin: .25rem;
+      overflow: hidden;
 }
+
+/* #b1 {
+display: none;
+} */
 
 /* .fic-non-border-color {
     border-color: red;
@@ -281,11 +288,12 @@ book-card:hover{
     background: var(--dark);
 }
 
-book-card-content {
+/* book-card-content {
     grid-area: book-card-content;
-}
+} */
 
 book-card-cover {
+    grid-area: book-card-cover;
     height: var(--cover-info-size);
     display: flex;
         justify-content: center;
@@ -299,6 +307,7 @@ book-card-cover img{
 }
 
 book-card-info {
+    grid-area: book-card-info;
     height: var(--cover-info-size);
     display: none;
         flex-direction: column;
@@ -417,7 +426,7 @@ book-card-nav-bot .bk-btns {
 
 .edit-book-form label {
     text-align: right;
-    /* padding-bottom: .1rem; */
+    padding-left: .5rem;
 }
 
 footer {
