@@ -217,9 +217,10 @@ button {
     height: 2.75rem;
     width: auto;
     border-radius: 1rem;
-    font-size: .85rem; 
+    font-size: .825rem; 
         font-weight: 600;
     margin: 0 .25rem .75rem .25rem;
+
 }
 
 .edit-page {

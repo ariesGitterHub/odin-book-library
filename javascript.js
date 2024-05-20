@@ -323,6 +323,7 @@ function renderCards() {
         );
       });
 
+// THIS WORKS!!!!!
       btnDeleteBook.addEventListener("click",  deleteFromLibrary);
 
       function deleteFromLibrary() {
@@ -337,10 +338,8 @@ function renderCards() {
     
         console.log(testArray);
 
-
       }
-
-      
+// ******************************************** 
 
 
       btnRead.addEventListener("click", function () {
@@ -597,6 +596,7 @@ function closeModal() {
     });
     clearModalFormData();
     addBookDialog.close();
+    location.reload();
   });
 }
 closeModal();
@@ -686,6 +686,7 @@ function addFormBookToLibrary() {
   renderCards();
   addBookDialog.close();
   clearModalFormData();
+  location.reload();
 }
 
 // function showEditForm() {
