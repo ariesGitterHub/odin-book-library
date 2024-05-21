@@ -486,7 +486,15 @@ function updateBookInLibrary() {
       console.log(`Author updated to: ${bookInfoFinder.author}`);
     }
 
-    // if
+    if (bookInfoFinder.type !== editFictionType.value) {
+      bookInfoFinder.type = editFictionType.value;
+      console.log(`Type updated to: ${bookInfoFinder.type}`);
+    } else if (bookInfoFinder.type !== editNonFictionType.value) {
+      bookInfoFinder.type = editNonFictionType.value;
+    }
+
+//ABOVE WORKS
+
 
 
     if (bookInfoFinder.pages !== editPage.value) {
