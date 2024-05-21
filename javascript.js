@@ -2,7 +2,7 @@ const mainContentContainer = document.querySelector("main-content-container");
 
 // ALL TEMP BOOK DATA
 
-const myLibrary = [];
+let myLibrary = [];
 
 // ADD NEW BOOKS VIA A CONSTRUCTOR AND ADD-BOOK FORM
 
@@ -193,7 +193,7 @@ function createCard(card) {
 
         // Create the label for the first radio input
         const editTypeFicLabel = document.createElement("label");
-        editTypeFicLabel.classList.add("label-radio");
+        // editTypeFicLabel.classList.add("label-radio");
         editTypeFicLabel.htmlFor = `edit-fiction${card.id}`;
         editTypeFicLabel.innerText = "Fiction";
         flexDiv1.appendChild(editTypeFicLabel);
@@ -210,7 +210,7 @@ function createCard(card) {
 
         // Create the label for the second radio input
         const editTypeNonLabel = document.createElement("label");
-        editTypeNonLabel.classList.add("label-radio");
+        // editTypeNonLabel.classList.add("label-radio");
         editTypeNonLabel.htmlFor = `edit-non-fiction${card.id}`;
         editTypeNonLabel.innerText = "Non-fiction";
         flexDiv1.appendChild(editTypeNonLabel);
@@ -410,16 +410,18 @@ function renderCards() {
       function deleteFromLibrary() {
 
         console.log(card.id); // This works
-        let holderLibrary = myLibrary.filter((item) => item.id !== card.id);
+        myLibrary = myLibrary.filter((item) => item.id !== card.id);
 
       let removeElement = document.querySelector(`#${card.id}`);
       if (removeElement) {
         removeElement.remove();
       }
     
-        console.log(holderLibrary);
-
+        console.log(`XXX${myLibrary}`);
+      
       }
+
+              console.log(`YYY${myLibrary}`);
 // ******************************************** 
       btnUpdateBook.addEventListener("click", updateBookInLibrary);
 

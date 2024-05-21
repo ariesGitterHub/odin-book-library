@@ -14,8 +14,8 @@
     --dk-sea: #1f3848;
     --dark: #292D32;
 
-    --cover-info-size: 270px;
-    --form-width: 290px;
+    --cover-info-size: 280px;
+    --form-width: 300px;
     --book-card-width: 250px;
 }
 
@@ -266,6 +266,7 @@ main-content-container {
 }
 
 book-card {
+    height: 350px;
     width: var(--book-card-width);
     border: .15rem solid var(--white);
     /* border-color: var(--white); */
@@ -424,7 +425,7 @@ book-card-nav-bot .bk-btns {
 
 .edit-book-form input[type="text"], .edit-book-form input[type="number"]  {
     height: 1.5rem;
-    width: 215px;
+    width: 213px;
     border: 3px solid var(--white);
     border-radius: 1rem;
     font-family: "Teachers", sans-serif;
