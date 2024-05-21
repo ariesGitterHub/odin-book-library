@@ -56,181 +56,260 @@ console.log(myLibrary);
 // DYNAMICALLY CREATE BOOK CARDS 
 
 function createCard(card) {
+  const bookCard = document.createElement("book-card");
+  // bookCard.id = card.id;
+  bookCard.id = `${card.id}`;
+  // bookCard.classList.add("fic-non-border-color");
 
-const bookCard = document.createElement("book-card");
-// bookCard.id = card.id;
-bookCard.id = `${card.id}`;
-// bookCard.classList.add("fic-non-border-color");
+  //  INDENTATION BELOW WAS FOR MY OWN CLARITY WHILE CODING THIS UP...
 
-//  INDENTATION BELOW WAS FOR MY OWN CLARITY WHILE CODING THIS UP...
+  // const bookCardContent = document.createElement("book-card-content");
 
-// const bookCardContent = document.createElement("book-card-content");
+  const bookCardNavTop = document.createElement("book-card-nav-top");
+  const editBtn = document.createElement("button");
+  editBtn.classList.add("bk-btns", "btn-edit");
+  const editBtnImg = document.createElement("img");
+  editBtnImg.src = "./assets/card-edit.svg";
+  editBtnImg.alt = "Edit button";
+  editBtn.appendChild(editBtnImg);
+  bookCardNavTop.appendChild(editBtn);
+  const xOutBtn = document.createElement("button");
+  xOutBtn.classList.add("bk-btns", "btn-x-out");
+  const xOutBtnImg = document.createElement("img");
+  xOutBtnImg.src = "./assets/card-x.svg";
+  xOutBtnImg.alt = "Close window button";
+  xOutBtn.appendChild(xOutBtnImg);
+  bookCardNavTop.appendChild(xOutBtn);
+  // bookCardContent.appendChild(bookCardNavTop);
+  bookCard.appendChild(bookCardNavTop);
 
-const bookCardNavTop = document.createElement("book-card-nav-top");
-    const editBtn = document.createElement("button");
-    editBtn.classList.add("bk-btns", "btn-edit");
-        const editBtnImg = document.createElement("img");
-        editBtnImg.src = "./assets/card-edit.svg";
-        editBtnImg.alt = "Edit button";
-        editBtn.appendChild(editBtnImg);
-    bookCardNavTop.appendChild(editBtn);
-    const xOutBtn = document.createElement("button");
-    xOutBtn.classList.add("bk-btns", "btn-x-out");
-        const xOutBtnImg = document.createElement("img");
-        xOutBtnImg.src = "./assets/card-x.svg";
-        xOutBtnImg.alt = "Close window button";
-        xOutBtn.appendChild(xOutBtnImg);
-    bookCardNavTop.appendChild(xOutBtn);
-// bookCardContent.appendChild(bookCardNavTop);
-bookCard.appendChild(bookCardNavTop);
+  const bookCardInfo = document.createElement("book-card-info");
+  const bkTitle = document.createElement("p");
+  bkTitle.classList.add("bk-title");
+  bkTitle.innerText = `${card.title}`;
+  bookCardInfo.appendChild(bkTitle);
+  const bkAuthor = document.createElement("p");
+  bkAuthor.classList.add("bk-author");
+  bkAuthor.innerText = `by ${card.author}`;
+  bookCardInfo.appendChild(bkAuthor);
+  const bkDetails = document.createElement("p");
+  bkDetails.classList.add("bk-details");
+  bkDetails.innerText = `${card.type}, ${card.pages} pages`;
+  bookCardInfo.appendChild(bkDetails);
+  // bookCardContent.appendChild(bookCardInfo);
+  bookCard.appendChild(bookCardInfo);
 
-const bookCardInfo = document.createElement("book-card-info");
-    const bkTitle = document.createElement("p");
-    bkTitle.classList.add("bk-title");
-    bkTitle.innerText = `${card.title}`;
-    bookCardInfo.appendChild(bkTitle);
-    const bkAuthor = document.createElement("p");
-    bkAuthor.classList.add("bk-author");
-    bkAuthor.innerText =  `by ${card.author}`;
-    bookCardInfo.appendChild(bkAuthor);
-    const bkDetails = document.createElement("p");
-    bkDetails.classList.add("bk-details");
-    bkDetails.innerText = `${card.type}, ${card.pages} pages`;
-    bookCardInfo.appendChild(bkDetails);
-// bookCardContent.appendChild(bookCardInfo);
-bookCard.appendChild(bookCardInfo);
+  // SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
+  const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
 
-// SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
-const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
+  const xOutBtn2 = document.createElement("button");
+  xOutBtn2.classList.add("bk-btns", "btn-x-out2");
+  const xOutBtnImg2 = document.createElement("img");
+  xOutBtnImg2.src = "./assets/card-x.svg";
+  xOutBtnImg2.alt = "Close window button";
+  xOutBtn2.appendChild(xOutBtnImg2);
+  bookCardNavTopEdit.appendChild(xOutBtn2);
+  // bookCardContent.appendChild(bookCardNavTopEdit);
+  bookCard.appendChild(bookCardNavTopEdit);
 
-    const xOutBtn2 = document.createElement("button");
-    xOutBtn2.classList.add("bk-btns", "btn-x-out2");
-        const xOutBtnImg2 = document.createElement("img");
-        xOutBtnImg2.src = "./assets/card-x.svg";
-        xOutBtnImg2.alt = "Close window button";
-        xOutBtn2.appendChild(xOutBtnImg2);
-    bookCardNavTopEdit.appendChild(xOutBtn2);
-// bookCardContent.appendChild(bookCardNavTopEdit);
-bookCard.appendChild(bookCardNavTopEdit);
+  const editBookForm = document.createElement("form");
+  editBookForm.classList.add("edit-book-form");
 
-const editBookForm = document.createElement("form");
-    editBookForm.classList.add("edit-book-form");
+  const editTitleLabel = document.createElement("label");
+  editTitleLabel.htmlFor = `edit-title${card.id}`;
+  editTitleLabel.innerText = "Title";
+  editBookForm.appendChild(editTitleLabel);
 
-    const editTitleLabel = document.createElement("label");
-    editTitleLabel.htmlFor = `edit-title${card.id}`;
-    editTitleLabel.innerText = "Title";
-    editBookForm.appendChild(editTitleLabel);
+  const editTitleInput = document.createElement("input");
+  editTitleInput.type = "text";
+  editTitleInput.classList.add("edit-title");
+  editTitleInput.id = `edit-title${card.id}`;
+  editTitleInput.value = `${card.title}`;
+  editBookForm.appendChild(editTitleInput);
 
-    const editTitleInput = document.createElement("input");
-    editTitleInput.type = "text";
-    editTitleInput.classList.add("edit-title");
-    editTitleInput.id = `edit-title${card.id}`;
-    editTitleInput.value = `${card.title}`;
-    editBookForm.appendChild(editTitleInput);
+  const editAuthorLabel = document.createElement("label");
+  editAuthorLabel.htmlFor = `edit-author${card.id}`;
+  editAuthorLabel.innerText = "Author";
+  editBookForm.appendChild(editAuthorLabel);
 
-    const editAuthorLabel = document.createElement("label");
-    editAuthorLabel.htmlFor = `edit-author${card.id}`;
-    editAuthorLabel.innerText = "Author";
-    editBookForm.appendChild(editAuthorLabel);
+  const editAuthorInput = document.createElement("input");
+  editAuthorInput.type = "text";
+  editAuthorInput.classList.add("edit-author");
+  editAuthorInput.id = `edit-author${card.id}`;
+  editAuthorInput.value = `${card.author}`;
+  editBookForm.appendChild(editAuthorInput);
 
-    const editAuthorInput = document.createElement("input");
-    editAuthorInput.type = "text";
-    editAuthorInput.classList.add("edit-author");
-    editAuthorInput.id = `edit-author${card.id}`;
-    editAuthorInput.value = `${card.author}`;
-    editBookForm.appendChild(editAuthorInput);
+  // const flexDiv1 = document.createElement("flex-div");
+  //     const editTypeFicInput = document.createElement("input");
+  //     editTypeFicInput.type = "radio";
+  //     editTypeFicInput.classList.add("edit-type");
+  //     editTypeFicInput.id = `edit-fiction${card.id}`;
+  //     editTypeFicInput.name = "edit-type"
+  //     editTypeFicInput.checked = `${card.type}`;
+  //     editTypeFicInput.value = "Fiction";
+  //     // editBookForm.appendChild(editTypeFicInput);
+  //     flexDiv1.appendChild(editTypeFicInput);
 
-    const editPageLabel = document.createElement("label");
-    editPageLabel.htmlFor = `edit-page${card.id}`;
-    editPageLabel.innerText = "Pages";
-    editBookForm.appendChild(editPageLabel);
+  //     const editTypeFicLabel = document.createElement("label");
+  //     // editTypeFicLabel.classList.add("label-radio");
+  //     editTypeFicLabel.htmlFor = `edit-type${card.id}`;
+  //     editTypeFicLabel.innerText = "Fiction";
+  //     // editBookForm.appendChild(editTypeFicLabel);
+  //     flexDiv1.appendChild(editTypeFicLabel);
 
-    const editPageInput = document.createElement("input");
-    editPageInput.type = "number";
-    editPageInput.classList.add("edit-page");
-    editPageInput.id = `edit-page${card.id}`;
-    editPageInput.value = `${card.pages}`;
-    editBookForm.appendChild(editPageInput);
+  //     const editTypeNonInput = document.createElement("input");
+  //     editTypeNonInput.type = "radio";
+  //     editTypeNonInput.classList.add("edit-type");
+  //     editTypeNonInput.id = `edit-non-fiction${card.id}`;
+  //     editTypeNonInput.name = "edit-type";
+  //     editTypeNonInput.checked = `${card.type}`;
+  //     editTypeNonInput.value = "Non-fiction";
+  //     // editBookForm.appendChild(editTypeNonInput);
+  //     flexDiv1.appendChild(editTypeNonInput);
 
-    const flexDiv = document.createElement("flex-div");
+  //     const editTypeNonLabel = document.createElement("label");
+  //     editTypeNonLabel.classList.add("label-radio");
+  //     editTypeNonLabel.htmlFor = `edit-type${card.id}`;
+  //     editTypeNonLabel.innerText = "Non-fiction";
+  //     // editBookForm.appendChild(editTypeNonLabel);
 
-      const deleteBookBtn = document.createElement("button");
-      deleteBookBtn.type = "button";
-      deleteBookBtn.classList.add("menu-btn", "other-btn");
-      deleteBookBtn.id = "delete-book";
-      // deleteBookBtn.id = `delete-book${card.id}`;
-      deleteBookBtn.innerText = "Delete Book";
-      // editBookForm.appendChild(deleteBookBtn);
-      flexDiv.appendChild(deleteBookBtn);
+  //   flexDiv1.appendChild(editTypeNonLabel);
 
-      const updateBookBtn = document.createElement("button");
-      updateBookBtn.type = "button";
-      updateBookBtn.classList.add("menu-btn", "other-btn");
-      updateBookBtn.id = "update-book";
-      updateBookBtn.innerText = "Update Book";
-      // editBookForm.appendChild(updateBookBtn);
-      flexDiv.appendChild(updateBookBtn);
+  //   editBookForm.appendChild(flexDiv1);
 
-      editBookForm.appendChild(flexDiv);
+        // Create a div with a class of flex-div
+        const flexDiv1 = document.createElement("div");
+        flexDiv1.classList.add("flex-div1");
 
-// bookCardContent.appendChild(editBookForm);
-bookCard.appendChild(editBookForm);
+        // Create the first radio input for "Fiction"
+        const editTypeFicInput = document.createElement("input");
+        editTypeFicInput.type = "radio";
+        editTypeFicInput.classList.add("edit-type");
+        editTypeFicInput.id = `edit-fiction${card.id}`;
+        editTypeFicInput.name = "edit-type";
+        editTypeFicInput.checked = card.type === "Fiction"; // Set checked to true if card.type is "Fiction"
+        editTypeFicInput.value = "Fiction";
+        flexDiv1.appendChild(editTypeFicInput);
 
-// ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
+        // Create the label for the first radio input
+        const editTypeFicLabel = document.createElement("label");
+        editTypeFicLabel.classList.add("label-radio");
+        editTypeFicLabel.htmlFor = `edit-fiction${card.id}`;
+        editTypeFicLabel.innerText = "Fiction";
+        flexDiv1.appendChild(editTypeFicLabel);
 
-const bookCardCover = document.createElement("book-card-cover");
-    const bkCoverImg = document.createElement("img");
-    bkDetails.classList.add("bk-cover");
-    bkCoverImg.src = `${card.imgsrc}`;
-    bookCardCover.appendChild(bkCoverImg);
-// bookCardContent.appendChild(bookCardCover);
-bookCard.appendChild(bookCardCover);
+        // Create the second radio input for "Non-fiction"
+        const editTypeNonInput = document.createElement("input");
+        editTypeNonInput.type = "radio";
+        editTypeNonInput.classList.add("edit-type");
+        editTypeNonInput.id = `edit-non-fiction${card.id}`;
+        editTypeNonInput.name = "edit-type";
+        editTypeNonInput.checked = card.type === "Non-fiction"; // Set checked to true if card.type is "Non-fiction"
+        editTypeNonInput.value = "Non-fiction";
+        flexDiv1.appendChild(editTypeNonInput);
 
-const bookCardNavBot = document.createElement("book-card-nav-bot");
+        // Create the label for the second radio input
+        const editTypeNonLabel = document.createElement("label");
+        editTypeNonLabel.classList.add("label-radio");
+        editTypeNonLabel.htmlFor = `edit-non-fiction${card.id}`;
+        editTypeNonLabel.innerText = "Non-fiction";
+        flexDiv1.appendChild(editTypeNonLabel);
 
-    const readBtn = document.createElement("button");
-    readBtn.classList.add("bk-btns", "btn-read");
-        const readBtnImg1 = document.createElement("img");
-        readBtnImg1.classList.add("tog-not-read");
-        readBtnImg1.src = "./assets/card-not-read.svg";
-        readBtnImg1.alt = "Read button";
-        readBtn.appendChild(readBtnImg1);
-        const readBtnImg2 = document.createElement("img");
-        readBtnImg2.classList.add("tog-read");
-        readBtnImg2.src = "./assets/card-read.svg";
-        readBtnImg2.alt = "Read button";
-        readBtn.appendChild(readBtnImg2);
-    bookCardNavBot.appendChild(readBtn);
+        // Append the div to the form
+        editBookForm.appendChild(flexDiv1);
 
-    const infoBtn = document.createElement("button");
-        infoBtn.classList.add("bk-btns", "btn-info");
-        const infoBtnImg = document.createElement("img");
-        infoBtnImg.src = "./assets/card-info.svg";
-        infoBtnImg.alt = "Book info button";
-        infoBtn.appendChild(infoBtnImg);
-    bookCardNavBot.appendChild(infoBtn);
+  const editPageLabel = document.createElement("label");
+  editPageLabel.htmlFor = `edit-page${card.id}`;
+  editPageLabel.innerText = "Pages";
+  editBookForm.appendChild(editPageLabel);
 
-    const faveBtn = document.createElement("button");
-    faveBtn.classList.add("bk-btns", "btn-fave");
-        const faveBtnImg1 = document.createElement("img");
-        faveBtnImg1.classList.add("tog-not-fave");
-        faveBtnImg1.src = "./assets/card-not-fave.svg";
-        faveBtnImg1.alt = "Favorite button";
-        faveBtn.appendChild(faveBtnImg1);
+  const editPageInput = document.createElement("input");
+  editPageInput.type = "number";
+  editPageInput.classList.add("edit-page");
+  editPageInput.id = `edit-page${card.id}`;
+  editPageInput.value = `${card.pages}`;
+  editBookForm.appendChild(editPageInput);
 
-        const faveBtnImg2 = document.createElement("img");
-        faveBtnImg2.classList.add("tog-fave");
-        faveBtnImg2.src = "./assets/card-fave.svg";
-        faveBtnImg2.alt = "Favorite button";
-        faveBtn.appendChild(faveBtnImg2);
-    bookCardNavBot.appendChild(faveBtn);
+  const flexDiv2 = document.createElement("div");
+  flexDiv2.classList.add("flex-div2");
 
-// bookCardContent.appendChild(bookCardNavBot);
-bookCard.appendChild(bookCardNavBot);
+  const deleteBookBtn = document.createElement("button");
+  deleteBookBtn.type = "button";
+  deleteBookBtn.classList.add("menu-btn", "other-btn");
+  deleteBookBtn.id = "delete-book";
+  // deleteBookBtn.id = `delete-book${card.id}`;
+  deleteBookBtn.innerText = "Delete Book";
+  // editBookForm.appendChild(deleteBookBtn);
+  flexDiv2.appendChild(deleteBookBtn);
 
-// bookCard.appendChild(bookCardContent);
+  const updateBookBtn = document.createElement("button");
+  updateBookBtn.type = "button";
+  updateBookBtn.classList.add("menu-btn", "other-btn");
+  updateBookBtn.id = "update-book";
+  updateBookBtn.innerText = "Update Book";
+  // editBookForm.appendChild(updateBookBtn);
+  flexDiv2.appendChild(updateBookBtn);
 
-return bookCard;
+  editBookForm.appendChild(flexDiv2);
+
+  // bookCardContent.appendChild(editBookForm);
+  bookCard.appendChild(editBookForm);
+
+  // ***bookCardNavTop and bookCardInfo, above... vs bookCardCover and bookCardNavBot, below...
+
+  const bookCardCover = document.createElement("book-card-cover");
+  const bkCoverImg = document.createElement("img");
+  bkDetails.classList.add("bk-cover");
+  bkCoverImg.src = `${card.imgsrc}`;
+  bookCardCover.appendChild(bkCoverImg);
+  // bookCardContent.appendChild(bookCardCover);
+  bookCard.appendChild(bookCardCover);
+
+  const bookCardNavBot = document.createElement("book-card-nav-bot");
+
+  const readBtn = document.createElement("button");
+  readBtn.classList.add("bk-btns", "btn-read");
+  const readBtnImg1 = document.createElement("img");
+  readBtnImg1.classList.add("tog-not-read");
+  readBtnImg1.src = "./assets/card-not-read.svg";
+  readBtnImg1.alt = "Read button";
+  readBtn.appendChild(readBtnImg1);
+  const readBtnImg2 = document.createElement("img");
+  readBtnImg2.classList.add("tog-read");
+  readBtnImg2.src = "./assets/card-read.svg";
+  readBtnImg2.alt = "Read button";
+  readBtn.appendChild(readBtnImg2);
+  bookCardNavBot.appendChild(readBtn);
+
+  const infoBtn = document.createElement("button");
+  infoBtn.classList.add("bk-btns", "btn-info");
+  const infoBtnImg = document.createElement("img");
+  infoBtnImg.src = "./assets/card-info.svg";
+  infoBtnImg.alt = "Book info button";
+  infoBtn.appendChild(infoBtnImg);
+  bookCardNavBot.appendChild(infoBtn);
+
+  const faveBtn = document.createElement("button");
+  faveBtn.classList.add("bk-btns", "btn-fave");
+  const faveBtnImg1 = document.createElement("img");
+  faveBtnImg1.classList.add("tog-not-fave");
+  faveBtnImg1.src = "./assets/card-not-fave.svg";
+  faveBtnImg1.alt = "Favorite button";
+  faveBtn.appendChild(faveBtnImg1);
+
+  const faveBtnImg2 = document.createElement("img");
+  faveBtnImg2.classList.add("tog-fave");
+  faveBtnImg2.src = "./assets/card-fave.svg";
+  faveBtnImg2.alt = "Favorite button";
+  faveBtn.appendChild(faveBtnImg2);
+  bookCardNavBot.appendChild(faveBtn);
+
+  // bookCardContent.appendChild(bookCardNavBot);
+  bookCard.appendChild(bookCardNavBot);
+
+  // bookCard.appendChild(bookCardContent);
+
+  return bookCard;
 }
 
 // THEN RENDER BOOK CARDS IN MAIN-CONTENT-CONTAINER
@@ -271,6 +350,8 @@ function renderCards() {
       const btnXOut2 = bookCard.querySelector(".btn-x-out2");
 
       const btnDeleteBook = bookCard.querySelector("#delete-book");
+
+      const btnUpdateBook = bookCard.querySelector("#update-book");
       // console.log(deleteBtn);
 
       // I previously had these as none in CSS, but the initial button click failed, putting them here ended that singular lag and now it works without fail.
@@ -329,18 +410,99 @@ function renderCards() {
       function deleteFromLibrary() {
 
         console.log(card.id); // This works
-        let testArray = myLibrary.filter((item) => item.id !== card.id);
+        let holderLibrary = myLibrary.filter((item) => item.id !== card.id);
 
       let removeElement = document.querySelector(`#${card.id}`);
       if (removeElement) {
         removeElement.remove();
       }
     
-        console.log(testArray);
+        console.log(holderLibrary);
 
       }
 // ******************************************** 
+      btnUpdateBook.addEventListener("click", updateBookInLibrary);
 
+
+
+      // function updateBookInLibrary() {
+      //   console.log(card.id); // This works
+      //   let editTitle = document.getElementById(`edit-title${card.id}`);
+      //   let editAuthor = document.getElementById(`edit-author${card.id}`);
+      //   let editPage = document.getElementById(`edit-page${card.id}`);
+      //   // let myLibraryTitle = myLibrary.map((item))
+      //   console.log(editTitle.value); //THIS WORKS!!!
+      //   console.log(editAuthor.value); //THIS WORKS!!!
+      //   console.log(editPage.value); //THIS WORKS!!!
+
+      //   let bookId = card.id;
+
+      //   const bookInfoFinder = myLibrary.find((book) => book.id === bookId);
+
+      //     if (bookInfoFinder.title !== editTitle.value) {
+      //       // console.log(`Title: ${bookInfoFinder.title}`);
+      //       // console.log(`Author: ${bookInfoFinder.author}`);
+      //       // console.log(`Pages: ${bookInfoFinder.pages}`);
+
+      //       console.log("Not the same.");
+      //     } else {
+      //       // console.log(`Book with ID ${bookId} not found.`);
+      //         console.log(`Nothing changed.`);
+      //     }
+
+      // }
+
+
+// BOOKS NOW UPDATE...code works
+function updateBookInLibrary() {
+  console.log(card.id); // This works
+  let editTitle = document.getElementById(`edit-title${card.id}`);
+  let editAuthor = document.getElementById(`edit-author${card.id}`);
+
+  let editFictionType = document.getElementById(`edit-fiction${card.id}`)
+  let editNonFictionType = document.getElementById(`edit-non-fiction${card.id}`);
+  
+  let editPage = document.getElementById(`edit-page${card.id}`);
+
+  console.log(editTitle.value); // This works
+  console.log(editAuthor.value); // This works
+  console.log(editPage.value); // This works
+
+  let bookId = card.id;
+
+  // Find the book in myLibrary with the matching ID
+  const bookInfoFinder = myLibrary.find((book) => book.id === bookId);
+
+  // Check if the book is found
+  if (bookInfoFinder) {
+    // Update the properties if they are different
+    if (bookInfoFinder.title !== editTitle.value) {
+      bookInfoFinder.title = editTitle.value;
+      console.log(`Title updated to: ${bookInfoFinder.title}`);
+    }
+
+    if (bookInfoFinder.author !== editAuthor.value) {
+      bookInfoFinder.author = editAuthor.value;
+      console.log(`Author updated to: ${bookInfoFinder.author}`);
+    }
+
+    // if
+
+
+    if (bookInfoFinder.pages !== editPage.value) {
+      bookInfoFinder.pages = editPage.value;
+      console.log(`Pages updated to: ${bookInfoFinder.pages}`);
+    }
+
+    console.log("Book information updated.");
+  } else {
+    console.log(`Book with ID ${bookId} not found.`);
+  }
+  renderCards();
+}
+
+
+      // console.log(myLibrary);
 
       btnRead.addEventListener("click", function () {
         toggleRead(togNotRead, togRead, btnRead);

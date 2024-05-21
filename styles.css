@@ -224,14 +224,22 @@ button {
 }
 
 .edit-page {
-    margin-bottom: 1rem;
+    /* margin-bottom: .5rem; */
 }
 
-flex-div {
+.flex-div1 {
     display: flex;
-    gap: .5rem;
-
+    align-items: center;
+    justify-content: center;
+    gap:.5rem;
     margin: auto;
+}
+
+.flex-div2 {
+    display: flex;
+    gap: .75rem;
+
+    margin: -1.25rem auto .75rem auto;
     padding:1rem
 }
 
@@ -427,7 +435,8 @@ book-card-nav-bot .bk-btns {
 
 .edit-book-form label {
     text-align: right;
-    padding-left: .5rem;
+    padding-left: .25rem;
+    padding-top: .45rem;
 }
 
 footer {
