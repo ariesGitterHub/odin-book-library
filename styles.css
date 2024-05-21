@@ -219,7 +219,7 @@ button {
     border-radius: 1rem;
     font-size: .825rem; 
         font-weight: 600;
-    margin: 0 .25rem 1.75rem .25rem;
+    margin: 0 .25rem 1rem .25rem;
 
 
 }
@@ -230,10 +230,10 @@ button {
 
 .flex-div1 {
     display: flex;
-    align-items: center;
+
     justify-content: center;
     gap: .5rem;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .flex-div2 {
@@ -423,7 +423,7 @@ book-card-nav-bot .bk-btns {
     padding: .5rem;
 }
 
-.edit-book-form input[type="text"], .edit-book-form input[type="number"]  {
+.edit-book-form input[type="text"], .edit-book-form input[type="number"] {
     height: 1.5rem;
     width: 213px;
     border: 3px solid var(--white);
@@ -435,11 +435,23 @@ book-card-nav-bot .bk-btns {
     /* padding-left: .5rem; */
 }
 
+.edit-book-form input[type="radio"] {
+    margin-bottom: 1rem;
+}
+
 .edit-book-form label {
     text-align: right;
-    padding-left: .25rem;
-    padding-top: .45rem;
+    padding-left: .2rem;
+    /* padding-top: .25rem; */
 }
+
+.edit-book-form label[type="radio"] {
+    text-align: right;
+    padding-left: 0;
+    padding-right: .2rem;
+    /* padding-top: .25rem; */
+}
+
 
 footer {
     display: flex;
