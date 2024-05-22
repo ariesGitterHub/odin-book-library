@@ -67,14 +67,14 @@ function createCard(card) {
 
   const bookCardNavTop = document.createElement("book-card-nav-top");
   const editBtn = document.createElement("button");
-  editBtn.classList.add("bk-btns", "btn-edit");
+  editBtn.classList.add("book-card-round-btns", "btn-edit");
   const editBtnImg = document.createElement("img");
   editBtnImg.src = "./assets/card-edit.svg";
   editBtnImg.alt = "Edit button";
   editBtn.appendChild(editBtnImg);
   bookCardNavTop.appendChild(editBtn);
   const xOutBtn = document.createElement("button");
-  xOutBtn.classList.add("bk-btns", "btn-x-out");
+  xOutBtn.classList.add("book-card-round-btns", "btn-x-out");
   const xOutBtnImg = document.createElement("img");
   xOutBtnImg.src = "./assets/card-x.svg";
   xOutBtnImg.alt = "Close window button";
@@ -103,7 +103,7 @@ function createCard(card) {
   const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
 
   const xOutBtn2 = document.createElement("button");
-  xOutBtn2.classList.add("bk-btns", "btn-x-out2");
+  xOutBtn2.classList.add("book-card-round-btns", "btn-x-out2");
   const xOutBtnImg2 = document.createElement("img");
   xOutBtnImg2.src = "./assets/card-x.svg";
   xOutBtnImg2.alt = "Close window button";
@@ -116,6 +116,7 @@ function createCard(card) {
   editBookForm.classList.add("edit-book-form");
 
   const editTitleLabel = document.createElement("label");
+  editTitleLabel.classList.add("non-radio-edit-label");
   editTitleLabel.htmlFor = `edit-title${card.id}`;
   editTitleLabel.innerText = "Title";
   editBookForm.appendChild(editTitleLabel);
@@ -128,6 +129,7 @@ function createCard(card) {
   editBookForm.appendChild(editTitleInput);
 
   const editAuthorLabel = document.createElement("label");
+  editAuthorLabel.classList.add("non-radio-edit-label");
   editAuthorLabel.htmlFor = `edit-author${card.id}`;
   editAuthorLabel.innerText = "Author";
   editBookForm.appendChild(editAuthorLabel);
@@ -194,6 +196,7 @@ function createCard(card) {
         // Create the label for the first radio input
         const editTypeFicLabel = document.createElement("label");
         // editTypeFicLabel.classList.add("label-radio");
+        editTypeFicLabel.classList.add("radio-edit-label");
         editTypeFicLabel.htmlFor = `edit-fiction${card.id}`;
         editTypeFicLabel.innerText = "Fiction";
         flexDiv1.appendChild(editTypeFicLabel);
@@ -211,6 +214,7 @@ function createCard(card) {
         // Create the label for the second radio input
         const editTypeNonLabel = document.createElement("label");
         // editTypeNonLabel.classList.add("label-radio");
+        editTypeNonLabel.classList.add("radio-edit-label");
         editTypeNonLabel.htmlFor = `edit-non-fiction${card.id}`;
         editTypeNonLabel.innerText = "Non-fiction";
         flexDiv1.appendChild(editTypeNonLabel);
@@ -219,13 +223,14 @@ function createCard(card) {
         editBookForm.appendChild(flexDiv1);
 
   const editPageLabel = document.createElement("label");
+  editPageLabel.classList.add("non-radio-edit-label");
   editPageLabel.htmlFor = `edit-page${card.id}`;
   editPageLabel.innerText = "Pages";
   editBookForm.appendChild(editPageLabel);
 
   const editPageInput = document.createElement("input");
   editPageInput.type = "number";
-  editPageInput.classList.add("edit-page");
+  editPageInput.classList.add("edit-page"); //Unused class? DELETE?
   editPageInput.id = `edit-page${card.id}`;
   editPageInput.value = `${card.pages}`;
   editBookForm.appendChild(editPageInput);
@@ -268,7 +273,7 @@ function createCard(card) {
   const bookCardNavBot = document.createElement("book-card-nav-bot");
 
   const readBtn = document.createElement("button");
-  readBtn.classList.add("bk-btns", "btn-read");
+  readBtn.classList.add("book-card-round-btns", "btn-read");
   const readBtnImg1 = document.createElement("img");
   readBtnImg1.classList.add("tog-not-read");
   readBtnImg1.src = "./assets/card-not-read.svg";
@@ -282,7 +287,7 @@ function createCard(card) {
   bookCardNavBot.appendChild(readBtn);
 
   const infoBtn = document.createElement("button");
-  infoBtn.classList.add("bk-btns", "btn-info");
+  infoBtn.classList.add("book-card-round-btns", "btn-info");
   const infoBtnImg = document.createElement("img");
   infoBtnImg.src = "./assets/card-info.svg";
   infoBtnImg.alt = "Book info button";
@@ -290,7 +295,7 @@ function createCard(card) {
   bookCardNavBot.appendChild(infoBtn);
 
   const faveBtn = document.createElement("button");
-  faveBtn.classList.add("bk-btns", "btn-fave");
+  faveBtn.classList.add("book-card-round-btns", "btn-fave");
   const faveBtnImg1 = document.createElement("img");
   faveBtnImg1.classList.add("tog-not-fave");
   faveBtnImg1.src = "./assets/card-not-fave.svg";

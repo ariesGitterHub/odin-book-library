@@ -3,6 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap');
 
 
+/* ***** TABLE OF CONTENTS ***** */
+/* ROOT/BODY                     */
+/* HEADER                        */
+/* DIALOG-MODALS                 */
+/* MAIN-CONTENT-CONTAINER        */
+/* --> Book-card                 */
+/* --> Edit-book-form            */
+/* FOOTER                        */
+/* BUTTONS                       */
+/* RADIOS                        */
+
+
+/* ROOT/BODY                     */
+
 :root {
     /* --life-jacket: #f26627; */
     --life-jacket: #994c29;
@@ -14,9 +28,13 @@
     --dk-sea: #1f3848;
     --dark: #292D32;
 
-    --cover-info-size: 280px;
-    --form-width: 300px;
-    --book-card-width: 250px;
+    --border-radius: 2rem;
+    --border-px: 2px;
+    --cover-info-size: 275px;
+    --fieldset-width: 290px;
+    --fieldset-input-width: 273px;
+    --book-card-width: 290px;
+    --edit-form-input-width: 250px;
 }
 
 body {
@@ -37,119 +55,8 @@ body {
     margin: auto;
 }
 
-dialog {
-    /* height: 100vh;
-    width: 100vw; */
-    height: auto;
-    width: auto;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    background: var(--dark);
-    color: var(--white);
-      bottom: 0;
-    border: .15rem solid var(--dark);
-    border-radius: 1rem;
-    /* display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; */
-}
 
-#add-book-dialog {
-
-}
-
-form {
-    display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-}
-
-.btn-x-out-modal {
-    align-self: center;
-    /* margin-top: .25rem; */
-}
-
-fieldset {
-    width: var(--form-width);
-    background: var(--dark);
-    border-color: var(--white);
-    border-radius: 1rem;
-    display: flex;
-        justify-content: space-around;
-        align-items: center;
-    font-size: 1rem;;
-    margin: .25rem;
-    text-align: center;
-}
-
-fieldset:hover, fieldset:focus {
-    border-color: var(--candle);
-}
-
-form-header {
-    height: 4rem;
-    width: var(--form-width);
-    border: none;
-    color: var(--white);
-    display: grid;
-        grid-template-columns: .5fr 2.5fr .5fr;
-        place-content: space-evenly;
-        place-items: center;
-    margin: 0 0 .75rem 0;
-    padding: 0;
-}
-
-form-header h3 {
-    /* background: var(--sea); */
-    font-size: 1.5rem;
-    line-height: 2.25;
-}
-
-form-header img {
-    height: 2.5rem;
-}
-
-form-footer {
-    margin-top: .25rem;
-}
-
-fieldset legend {
-    font-weight: 600;
-    text-align: left;
-}
-
-input[type="text"], input[type="number"]  {
-    height: 1.5rem;
-    width: var(--book-card-width);
-    border: 3px solid var(--white);
-    border-radius: 1rem;
-    font-family: "Teachers", sans-serif;
-    font-size: 1rem;
-    outline: none;
-    padding-left: .5rem;
-}
-
-/* input[type="text"]:focus, input[type="number"]:focus  {
-    border: 3px solid var(--candle);
-} */
-
-input[type="radio"] {
-
-}
-
-.label-radio {
-    padding: 0 .2rem 0 .2rem;
-
-}
-
-label {
-    font-size: 1rem;    
-    margin-bottom: .15rem;
-}
+/* HEADER                        */
 
 header {
     margin: .5rem;
@@ -191,69 +98,122 @@ button-ctrl-container {
         place-items: center;
     margin: auto;
 }
-button {
-    cursor: pointer;
-}
 
-.menu-btn {
-    height: 3.15rem;
-    width: 3.15rem;
-    background-color: var(--life-jacket);
-    border: .15rem solid var(--white);
-    border-radius: 100%;
-    color: var(--white);
-    margin: .1rem;
-}
 
-.menu-btn img{
-    height: 1.8rem;
-}
+/* DIALOG-MODALS                 */
 
-.menu-btn:hover {
-    background: var(--dk-sea);
-}
-
-.other-btn {
-    height: 2.75rem;
+dialog {
+    /* height: 100vh;
+    width: 100vw; */
+    height: auto;
     width: auto;
-    border-radius: 1rem;
-    font-size: .825rem; 
-        font-weight: 600;
-    margin: 0 .25rem 1rem .25rem;
-
-
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: var(--dark);
+    color: var(--white);
+      bottom: 0;
+    border: var(--border-radius) solid var(--dark);
+    border-radius: var(--border-radius);
+    /* display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; */
 }
 
-.edit-page {
-    /* margin-bottom: .5rem; */
+#add-book-dialog {
+/* ??? */
 }
 
-.flex-div1 {
+form {
     display: flex;
-
-    justify-content: center;
-    gap: .5rem;
-    /* margin: auto; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 }
 
-.flex-div2 {
-    display: flex;
-    gap: .75rem;
-
-    margin: auto;
-    /* padding:1rem; */
+form-header {
+    height: 4rem;
+    width: var(--fieldset-width);
+    border: none;
+    color: var(--white);
+    display: grid;
+        grid-template-columns: .5fr 2.5fr .5fr;
+        place-content: space-evenly;
+        place-items: center;
+    margin: 0 0 .75rem 0;
+    padding: 0;
 }
 
+form-header h3 {
+    /* background: var(--sea); */
+    font-size: 1.5rem;
+    line-height: 2.25;
+}
 
-
-#add-book-enter-btn {
+form-header img {
     height: 2.5rem;
-    /* width: auto;
-    border-radius: 1rem;
-    font-size: 1rem; */
-    /* font-weight: 600; */
-    margin-top: .05rem;
 }
+
+fieldset {
+    width: var(--fieldset-width);
+    background: var(--dark);
+    border-color: var(--white);
+    border-radius: var(--border-radius);
+    display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    font-size: 1rem;;
+    margin: .25rem;
+    /* text-align: center; */
+}
+
+fieldset:hover {
+    border-color: var(--candle);
+}
+
+fieldset legend {
+    font-weight: 600;
+    text-align: left;
+}
+
+fieldset label {
+    font-size: 1rem;    
+    margin-bottom: .15rem;
+}
+
+fieldset input[type="text"], fieldset input[type="number"]  {
+    height: 1.5rem;
+    width: var(--fieldset-input-width);
+    border: var(--border-px) solid var(--white);
+    border-radius: var(--border-radius);
+    font-family: "Teachers", sans-serif;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 0.23rem;
+    padding-left: .5rem;
+}
+
+fieldset input[type="text"]:hover, fieldset input[type="number"]:hover  {
+    border: var(--border-px) solid var(--candle);
+}
+
+fieldset input[type="text"]:focus, fieldset input[type="number"]:focus  {
+    background:     var(--sea);
+}
+
+
+/* .label-radio {
+    padding: 0 .2rem 0 .2rem;
+} */
+
+form-footer {
+    margin-top: .25rem;
+}
+
+
+/* MAIN-CONTENT-CONTAINER        */
 
 main-content-container {
     display: flex;
@@ -265,13 +225,15 @@ main-content-container {
     /* padding: 1rem; */
 }
 
+/* --> Book-card                 */
+
 book-card {
     height: 350px;
     width: var(--book-card-width);
     border: .15rem solid var(--white);
     /* border-color: var(--white); */
     /* border:none; */
-    border-radius: 1rem;
+    border-radius: var(--border-radius);
     color: var(--white);
     display: block;
         grid-template-areas:
@@ -369,89 +331,79 @@ book-card-nav-top-edit {
         align-items: center;
 }
 
-.bk-btns {
-    height: 2.5rem;
-    width: 2.5rem;
-    background: var(--life-jacket);
-    border: .15rem solid var(--white);
-    border-radius: 50%;
-    display: flex;
-        justify-content: center;
-        align-items: center;
-}
-
-.bk-btns img {
-    height: 1.5rem;
-}
-
-book-card-nav-top .bk-btns, book-card-nav-top-edit .bk-btns {
-    margin: 1rem 1rem 0 1rem;
-}
-
-book-card-nav-bot .bk-btns {
-    margin-bottom: 1rem;
-}
-
-.btn-info:hover, .btn-edit:hover, .btn-x-out:hover, .btn-x-out2:hover {
-    background: var(--dk-sea);
-}
-
-/* .tog-not-read {
-    display: flex;
-}
-
-.tog-read {
-    display: none;
-}
-
-.tog-not-fave {
-    display: flex;
-}
-
-.tog-fave {
-    display: none;
-} */
+/* --> Edit-book-form            */
 
 .edit-book-form {
     grid-area: edit-book-form;
     height: var(--cover-info-size);
     /* height: 326px; */
     display: none;
-        justify-content: center;
-        align-items: start;
+        justify-content: space-evenly;
+        align-items: center;
     margin: 0;
     padding: .5rem;
 }
 
 .edit-book-form input[type="text"], .edit-book-form input[type="number"] {
     height: 1.5rem;
-    width: 213px;
-    border: 3px solid var(--white);
-    border-radius: 1rem;
+    width: var(--edit-form-input-width);
+    border: var(--border-px) solid var(--white);
+    border-radius: var(--border-radius);
     font-family: "Teachers", sans-serif;
     font-size: 1rem;
     outline: none;
     margin-bottom: 1rem;
-    /* padding-left: .5rem; */
+    padding-left: .5rem;
 }
 
-.edit-book-form input[type="radio"] {
+.edit-book-form input[type="text"]:hover, .edit-book-form input[type="number"]:hover  {
+    border: var(--border-px) solid var(--candle);
+}
+
+.edit-book-form input[type="text"]:focus, .edit-book-form input[type="number"]:focus  {
+    background:     var(--sea);
+}
+
+/* .edit-book-form input[type="radio"] {
     margin-bottom: 1rem;
+} */
+
+.non-radio-edit-label {
+    align-self: start;
+    padding: .25rem 0 .25rem .5rem;
 }
 
-.edit-book-form label {
-    text-align: right;
-    padding-left: .2rem;
-    /* padding-top: .25rem; */
+.radio-edit-label {
+    align-self: start;
+    padding-right: 1rem;
 }
 
-.edit-book-form label[type="radio"] {
-    text-align: right;
-    padding-left: 0;
-    padding-right: .2rem;
-    /* padding-top: .25rem; */
+/* .edit-book-form label[type="radio"] {
+
+} */
+
+
+/* .edit-page {
+    margin-bottom: .5rem;
+} */
+
+.flex-div1 {
+    display: flex;
+
+justify-content: space-evenly;
+
+ }
+
+.flex-div2 {
+    display: flex;
+    gap: 1rem;
+justify-content: space-between;
+    /* margin: auto; */
+
 }
 
+
+/* FOOTER                        */
 
 footer {
     display: flex;
@@ -466,6 +418,142 @@ footer p {
     font-size: 1rem;
     text-align: center;
 }
+
+
+/* BUTTONS                       */
+
+button {
+
+    background: var(--life-jacket);
+    border: .15rem solid var(--white);
+    border-radius: var(--border-radius);
+    color: var(--white);
+
+    cursor: pointer;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+     /* margin: .1rem;     */
+}
+   
+
+
+
+button:hover {
+    background: var(--dk-sea);
+}
+
+button:active {
+    background: var(--sea);
+}
+
+.menu-btn {
+    height: 3.15rem;
+    width: 3.15rem;
+
+}
+
+.menu-btn img{
+    height: 1.8rem;
+}
+
+/* .menu-btn:hover {
+    background: var(--dk-sea);
+} */
+
+/* .menu-btn:active {
+    background: var(--sea);
+} */
+
+.other-btn {
+    height: 2.75rem;
+    width: auto;
+    border-radius: var(--border-radius);
+    font-size: .825rem; 
+        font-weight: 600;
+    margin: 0 .25rem 1rem .25rem;
+}
+
+/* .btn-x-out-modal {
+    align-self: center;
+} */
+
+#add-book-enter-btn {
+    height: 2.5rem;
+    /* width: auto;
+    border-radius: var(--border-radius);
+    font-size: 1rem; */
+    /* font-weight: 600; */
+    margin-top: .05rem;
+}
+
+.book-card-round-btns {
+    height: 2.5rem;
+    width: 2.5rem;
+    /* background: var(--life-jacket);
+    border: .15rem solid var(--white);
+    border-radius: var(--border-radius); */
+    /* display: flex;
+        justify-content: center;
+        align-items: center; */
+}
+
+.book-card-round-btns img {
+    height: 1.5rem;
+}
+
+book-card-nav-top .book-card-round-btns, book-card-nav-top-edit .book-card-round-btns {
+    margin: 1rem 1rem 0 1rem;
+}
+
+/* book-card-nav-bot .book-card-round-btns {
+    margin-bottom: 1rem;
+} */
+
+/* .btn-info:hover, .btn-edit:hover, .btn-x-out:hover, .btn-x-out2:hover {
+    background: var(--dk-sea);
+} */
+
+/* RADIOS                        */
+
+input:where([type="radio"]){
+    -webkit-appearance : none;
+    appearance         : none;
+    
+    height             : 22px;
+    width              : 22px;
+
+    margin             : calc(0.75em - 11px) 0.25rem 0 0;
+    vertical-align     : top;
+    border             : var(--border-px) solid var(--white);
+    border-radius      : var(--border-radius);
+    background         : var(--white) no-repeat center center;
+}
+
+input[type="radio"]{
+  border-radius : var(--border-radius);
+}
+
+input:where([type="radio"]):where(:active:not(:disabled), :hover){
+  border-color : var(--candle);
+  outline      : none;      
+}
+
+input:where([type="radio"]):where(:active:not(:disabled), :focus){
+  border-color : var(--sea);
+  outline      : none;      
+}
+
+/* input:where([type="radio"]):disabled{
+  background : red;
+} */
+
+input[type="radio"]:checked{
+  background: var(--life-jacket);
+}
+
+
+/* MEDIA QUERIES                 */
 
 /* @media (width >= 1080px) {
 body {
