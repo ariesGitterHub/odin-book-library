@@ -698,3 +698,39 @@ renderCards();
 }
 
 console.log(myLibrary);
+
+// const alphabetical = myLibrary.sort((a, b) => {
+//   if (a.title > b.title) {
+//     return 1;
+//   } else {
+//     return -1;
+//   }
+// })
+
+// console.log(alphabetical);
+
+
+// STOPPED HERE FOR DAY...........................................
+
+function alphabetizeMyLibrary() {
+  const alphabetical = myLibrary.sort((a, b) => {
+    // Function to remove the, a , an from titles
+    const removeLeadingArticle = (title) => {
+      const articles = ["the", "a", "an"];
+      const words = title.split(/\s+/);
+      if (articles.includes(words[0].toLowerCase())) {
+        return words.slice(1).join(" ");
+      }
+      return title;
+    };
+
+    // Removes articles / compare titles
+    const titleA = removeLeadingArticle(a.title);
+    const titleB = removeLeadingArticle(b.title);
+    return titleA.localeCompare(titleB);
+  });
+console.log(alphabetical);
+}
+
+alphabetizeMyLibrary(); 
+

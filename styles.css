@@ -27,6 +27,7 @@
     /* --dk-sea: #325d79; */
     --dk-sea: #1f3848;
     --dark: #292D32;
+    --dark-80: #292D3280;
 
     --border-radius: 2rem;
     --border-px: 2px;
@@ -38,18 +39,14 @@
 }
 
 body {
-    /* height: 100vh;
-    width: 100vw; */
     background: var(--dk-sea);
     border: none;
     color: none;
     display: flex;
         flex-direction: column;
-        /* align-items: center; */
         justify-content: center;
     font-family: "Teachers", sans-serif;
     font-optical-sizing: auto;
-    /* font-size: 1.25rem; */
     font-weight: 400;
     font-style: normal;
     margin: auto;
@@ -59,38 +56,21 @@ body {
 /* HEADER                        */
 
 header {
-    /* position: sticky; */
     background: var(--life-jacket);
     border-bottom: var(--border-px) solid var(--white);
     display: block;
-    /* margin: .5rem; */
-    /* padding: .5rem; */
     margin-bottom: 3rem;
     padding: 1.5rem;
 }
-
-/* .sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100px;
-    width: 100vw;
-
-    background: var(--life-jacket);
-    border-top: var(--border-px) solid var(--white);
-    border-bottom: var(--border-px) solid var(--white);
-    margin: auto;
-    z-index: 9;
-} */
 
 .sticky {
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    height: 100px;
+    height: 75px;
     width: 100vw;
-    max-width: 100%; /* Ensure the header doesn't overflow viewport width */
+    max-width: 100%;
     background: var(--life-jacket);
     border-top: var(--border-px) solid var(--white);
     border-bottom: var(--border-px) solid var(--white);
@@ -98,7 +78,6 @@ header {
 }
 
 title-container {
-    /* height: 1rem; */
     width: auto;
 }
 
@@ -106,7 +85,6 @@ img-and-txt {
     display: flex;
         justify-content: center;
         align-items: center;
-    /* margin-bottom: .5rem; */
 }
 
 title-container img {
@@ -124,7 +102,6 @@ title-container h1 {
 
 button-ctrl-container {
     max-width: 800px;
-    /* align-self: center; */
     display: grid;
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         place-content: center;
@@ -137,8 +114,6 @@ button-ctrl-container {
 /* DIALOG-MODALS                 */
 
 dialog {
-    /* height: 100vh;
-    width: 100vw; */
     height: auto;
     width: auto;
     position: fixed;
@@ -149,18 +124,10 @@ dialog {
     background: var(--dark);
     border-color: var(--dark);
     color: var(--white);
-
-    /* border: var(--border-radius) solid var(--dark); */
-    /* border-radius: var(--border-radius); */
-    /* display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; */
 }
 
-#add-book-dialog {
-/* ??? */
-}
+/* #add-book-dialog {
+} */
 
 form {
     display: flex;
@@ -183,7 +150,6 @@ form-header {
 }
 
 form-header h3 {
-    /* background: var(--sea); */
     font-size: 1.5rem;
     line-height: 2.25;
 }
@@ -202,7 +168,6 @@ fieldset {
         align-items: center;
     font-size: 1rem;;
     margin: .25rem;
-    /* text-align: center; */
 }
 
 fieldset:hover {
@@ -236,7 +201,7 @@ fieldset input[type="text"]:hover, fieldset input[type="number"]:hover  {
 }
 
 fieldset input[type="text"]:focus, fieldset input[type="number"]:focus  {
-    background:     var(--sea);
+    background: var(--sea);
 }
 
 
@@ -294,7 +259,7 @@ display: none;
 } */
 
 book-card:hover{
-    background: var(--dark);
+    background: var(--dark-80);
 }
 
 /* book-card-content {
