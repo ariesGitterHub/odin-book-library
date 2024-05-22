@@ -29,7 +29,7 @@ const book1 = new Book("b0", "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, tru
 
 const book2 = new Book("b1", "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
 
-const book3 = new Book("b2", "'Generic Book Cover' Test", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
+const book3 = new Book("b2", "This is just 'Generic Book Cover' Test (it works!)", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
 
 const book4 = new Book("b3", "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
 
@@ -42,6 +42,8 @@ const book7 = new Book("b6", "Dune", "Frank Herbert", "Fiction", 563, true, true
 
 const book8 = new Book("b7", "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg");
 
+const book9 = new Book("b8", "A Confederacy of Dunces", "John Kennedy Toole", "Fiction", 405, true, true, "./assets/book-aConfederacyOfDunces.jpg");
+
 addInitialBookToLibrary(book1);
 addInitialBookToLibrary(book2);
 addInitialBookToLibrary(book3);
@@ -50,6 +52,7 @@ addInitialBookToLibrary(book5);
 addInitialBookToLibrary(book6);
 addInitialBookToLibrary(book7);
 addInitialBookToLibrary(book8);
+addInitialBookToLibrary(book9);
 
 console.log(myLibrary);
 
@@ -815,6 +818,7 @@ const addBookDialog = document.querySelector("#add-book-dialog");
 
 const menuBtnAdd = document.querySelector("#menu-btn-add");
   menuBtnAdd.addEventListener("click", function() {
+  clearModalFormData();
   addBookDialog.showModal();
 
 })
@@ -837,7 +841,8 @@ function closeModal() {
     });
     clearModalFormData();
     addBookDialog.close();
-    location.reload();
+    // location.reload();
+    renderCards(); // IS THIS STOPPING THE DELETION OF TEXT IN THE EDIT-FORM?
   });
 }
 closeModal();
@@ -924,10 +929,14 @@ function addFormBookToLibrary() {
 
   console.log(myLibrary);
 
-  renderCards();
+
   addBookDialog.close();
-  clearModalFormData();
-  location.reload();
+  renderCards();
+
+  // clearModalFormData();
+  // location.reload();
+
+    // closeModal();
 }
 
 // function showEditForm() {

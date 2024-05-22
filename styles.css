@@ -146,9 +146,11 @@ dialog {
     left: 0;
     right: 0;
     top: 0;
+    bottom: 0; 
     background: var(--dark);
+    border-color: var(--dark);
     color: var(--white);
-      bottom: 0;
+
     /* border: var(--border-radius) solid var(--dark); */
     /* border-radius: var(--border-radius); */
     /* display: flex;
