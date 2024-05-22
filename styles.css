@@ -396,8 +396,9 @@ justify-content: space-evenly;
 
 .flex-div2 {
     display: flex;
-    gap: 1rem;
+    /* gap: 1.75rem; */
 justify-content: space-between;
+
     /* margin: auto; */
 
 }
@@ -466,10 +467,10 @@ button:active {
 } */
 
 .other-btn {
-    height: 2.75rem;
-    width: auto;
+    height: 2.5rem;
+    width: 5.75rem;
     border-radius: var(--border-radius);
-    font-size: .825rem; 
+    font-size: 1rem; 
         font-weight: 600;
     margin: 0 .25rem 1rem .25rem;
 }
@@ -480,11 +481,12 @@ button:active {
 
 #add-book-enter-btn {
     height: 2.5rem;
+    width: 7rem;
     /* width: auto;
     border-radius: var(--border-radius);
     font-size: 1rem; */
     /* font-weight: 600; */
-    margin-top: .05rem;
+    margin-top: .5rem;
 }
 
 .book-card-round-btns {
@@ -505,6 +507,11 @@ button:active {
 book-card-nav-top .book-card-round-btns, book-card-nav-top-edit .book-card-round-btns {
     margin: 1rem 1rem 0 1rem;
 }
+
+book-card-nav-top-edit .other-btn {
+    margin: 1rem 0 0 1rem;
+}
+
 
 /* book-card-nav-bot .book-card-round-btns {
     margin-bottom: 1rem;

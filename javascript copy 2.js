@@ -102,51 +102,15 @@ function createCard(card) {
   // SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
   const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
 
-          const flexDiv2 = document.createElement("div");
-          flexDiv2.classList.add("flex-div2");
-
-          const deleteBookBtn = document.createElement("button");
-          deleteBookBtn.type = "button";
-          deleteBookBtn.classList.add("other-btn");
-          deleteBookBtn.id = "delete-book";
-          // deleteBookBtn.id = `delete-book${card.id}`;
-          deleteBookBtn.innerText = "Delete";
-          // editBookForm.appendChild(deleteBookBtn);
-          flexDiv2.appendChild(deleteBookBtn);
-
-          const updateBookBtn = document.createElement("button");
-          updateBookBtn.type = "button";
-          updateBookBtn.classList.add("other-btn");
-          updateBookBtn.id = "update-book";
-          updateBookBtn.innerText = "Update";
-          // editBookForm.appendChild(updateBookBtn);
-          flexDiv2.appendChild(updateBookBtn);
-
-
-            const xOutBtn2 = document.createElement("button");
-            xOutBtn2.classList.add("book-card-round-btns", "btn-x-out2");
-            const xOutBtnImg2 = document.createElement("img");
-            xOutBtnImg2.src = "./assets/card-x.svg";
-            xOutBtnImg2.alt = "Close window button";
-            xOutBtn2.appendChild(xOutBtnImg2);
-            flexDiv2.appendChild(xOutBtn2);
-
-            // bookCardContent.appendChild(bookCardNavTopEdit);
-            // bookCard.appendChild(bookCardNavTopEdit);
-
-
-          bookCardNavTopEdit.appendChild(flexDiv2);
-           bookCard.appendChild(bookCardNavTopEdit);
-
-  // const xOutBtn2 = document.createElement("button");
-  // xOutBtn2.classList.add("book-card-round-btns", "btn-x-out2");
-  // const xOutBtnImg2 = document.createElement("img");
-  // xOutBtnImg2.src = "./assets/card-x.svg";
-  // xOutBtnImg2.alt = "Close window button";
-  // xOutBtn2.appendChild(xOutBtnImg2);
-  // bookCardNavTopEdit.appendChild(xOutBtn2);
-  // // bookCardContent.appendChild(bookCardNavTopEdit);
-  // bookCard.appendChild(bookCardNavTopEdit);
+  const xOutBtn2 = document.createElement("button");
+  xOutBtn2.classList.add("book-card-round-btns", "btn-x-out2");
+  const xOutBtnImg2 = document.createElement("img");
+  xOutBtnImg2.src = "./assets/card-x.svg";
+  xOutBtnImg2.alt = "Close window button";
+  xOutBtn2.appendChild(xOutBtnImg2);
+  bookCardNavTopEdit.appendChild(xOutBtn2);
+  // bookCardContent.appendChild(bookCardNavTopEdit);
+  bookCard.appendChild(bookCardNavTopEdit);
 
   const editBookForm = document.createElement("form");
   editBookForm.classList.add("edit-book-form");
@@ -271,27 +235,27 @@ function createCard(card) {
   editPageInput.value = `${card.pages}`;
   editBookForm.appendChild(editPageInput);
 
-  // const flexDiv2 = document.createElement("div");
-  // flexDiv2.classList.add("flex-div2");
+  const flexDiv2 = document.createElement("div");
+  flexDiv2.classList.add("flex-div2");
 
-  // const deleteBookBtn = document.createElement("button");
-  // deleteBookBtn.type = "button";
-  // deleteBookBtn.classList.add("other-btn");
-  // deleteBookBtn.id = "delete-book";
-  // // deleteBookBtn.id = `delete-book${card.id}`;
-  // deleteBookBtn.innerText = "Delete";
-  // // editBookForm.appendChild(deleteBookBtn);
-  // flexDiv2.appendChild(deleteBookBtn);
+  const deleteBookBtn = document.createElement("button");
+  deleteBookBtn.type = "button";
+  deleteBookBtn.classList.add("menu-btn", "other-btn");
+  deleteBookBtn.id = "delete-book";
+  // deleteBookBtn.id = `delete-book${card.id}`;
+  deleteBookBtn.innerText = "Delete Book";
+  // editBookForm.appendChild(deleteBookBtn);
+  flexDiv2.appendChild(deleteBookBtn);
 
-  // const updateBookBtn = document.createElement("button");
-  // updateBookBtn.type = "button";
-  // updateBookBtn.classList.add("other-btn");
-  // updateBookBtn.id = "update-book";
-  // updateBookBtn.innerText = "Update";
-  // // editBookForm.appendChild(updateBookBtn);
-  // flexDiv2.appendChild(updateBookBtn);
+  const updateBookBtn = document.createElement("button");
+  updateBookBtn.type = "button";
+  updateBookBtn.classList.add("menu-btn", "other-btn");
+  updateBookBtn.id = "update-book";
+  updateBookBtn.innerText = "Update Book";
+  // editBookForm.appendChild(updateBookBtn);
+  flexDiv2.appendChild(updateBookBtn);
 
-  // editBookForm.appendChild(flexDiv2);
+  editBookForm.appendChild(flexDiv2);
 
   // bookCardContent.appendChild(editBookForm);
   bookCard.appendChild(editBookForm);
