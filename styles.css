@@ -59,9 +59,44 @@ body {
 /* HEADER                        */
 
 header {
-    margin: .5rem;
-    padding: .5rem;
+    /* position: sticky; */
+    background: var(--life-jacket);
+    border-bottom: var(--border-px) solid var(--white);
+    display: block;
+    /* margin: .5rem; */
+    /* padding: .5rem; */
+    margin-bottom: 3rem;
+    padding: 1.5rem;
 }
+
+/* .sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    width: 100vw;
+
+    background: var(--life-jacket);
+    border-top: var(--border-px) solid var(--white);
+    border-bottom: var(--border-px) solid var(--white);
+    margin: auto;
+    z-index: 9;
+} */
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100px;
+    width: 100vw;
+    max-width: 100%; /* Ensure the header doesn't overflow viewport width */
+    background: var(--life-jacket);
+    border-top: var(--border-px) solid var(--white);
+    border-bottom: var(--border-px) solid var(--white);
+    z-index: 9;
+}
+
 
 title-container {
     height: 1rem;
@@ -81,7 +116,7 @@ title-container img {
 
 title-container h1 {
     align-self: center;
-    color: var(--candle);
+    color: var(--white);
     font-family: "Platypi", 'Times New Roman', Times, serif;
     font-size: 2rem;
     font-weight: 500;

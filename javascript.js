@@ -53,6 +53,34 @@ addInitialBookToLibrary(book8);
 
 console.log(myLibrary);
 
+// STICKY HEADER ON SCROLL
+
+const buttonCtrlContainer = document.querySelector("button-ctrl-container");
+
+// Get the offset position of the header, READ MORE ABOUT THIS TOO...
+const sticky = buttonCtrlContainer.offsetTop;
+
+// Function toggles .sticky based on scroll position
+function toggleSticky() {
+  // Cache the scroll position? What?
+  const scrollPosition = window.scrollY;
+  
+  // This toggles the .sticky based on scroll position
+  buttonCtrlContainer.classList.toggle("sticky", scrollPosition > sticky);
+}
+
+// Debounce function to improve performance, STUDY UP ON THIS MORE...
+function debounce(func, delay) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+  timer = setTimeout(func, delay);
+  };
+}
+
+// Add event listener for scroll event with debouncing
+window.addEventListener("scroll", debounce(toggleSticky, 10));
+
 // DYNAMICALLY CREATE BOOK CARDS 
 
 function createCard(card) {
