@@ -7,6 +7,10 @@
 /* ROOT/BODY                     */
 /* HEADER                        */
 /* DIALOG-MODALS                 */
+/* --> Add-book-modal            */
+/* --> Stats-modal               */
+/* --> Sort-modal                */
+/* --> Sort-modal                */
 /* MAIN-CONTENT-CONTAINER        */
 /* --> Book-card (cover & info)  */
 /* --> Edit-book-form            */
@@ -205,13 +209,49 @@ fieldset input[type="text"]:focus, fieldset input[type="number"]:focus  {
     background: var(--sea);
 }
 
-
 /* .label-radio {
     padding: 0 .2rem 0 .2rem;
 } */
 
 form-footer {
     margin-top: .25rem;
+}
+
+.alt-form {
+    display: grid;
+        justify-content: center;
+        align-items: center;
+}
+
+stat-book-div {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+stat-book-div img {
+    height: 2.5rem;
+    padding-right: .5rem;
+}
+
+stat-book-div ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    list-style: none;
+    padding-bottom: 1rem;
+}
+
+stat-book-div li {
+    font-size: 1.5rem;
+}
+
+strong {
+    color: var(--candle);
+}
+
+#fic-total, #non-fic-total, #pages-read-total, #pages-not-read-total {
+    color: var(--sea);
 }
 
 

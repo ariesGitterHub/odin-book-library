@@ -768,8 +768,6 @@ console.log(myLibrary);
 // console.log(alphabetical);
 
 
-// STOPPED HERE FOR DAY...........................................
-
 // function alphabetizeMyLibrary() {
 //   const alphabetical = myLibrary.sort((a, b) => {
 //     // Function to remove the, a , an from titles
@@ -792,3 +790,73 @@ console.log(myLibrary);
 
 // alphabetizeMyLibrary(); 
 
+const bookTotal = document.querySelector("#book-total");
+
+const ficTotal = document.querySelector("#fic-total");
+const nonFicTotal = document.querySelector("#non-fic-total");
+
+const readTotal = document.querySelector("#read-total");
+const pagesReadTotal = document.querySelector("#pages-read-total");
+
+const notReadTotal = document.querySelector("#not-read-total");
+const pagesNotReadTotal = document.querySelector("#pages-not-read-total");
+
+const faveTotal = document.querySelector("#fave-total");
+
+function tallyBookStats() {
+  bookTotal.innerText = myLibrary.length;
+
+  const ficVal = "Fiction";
+  const ficNum = myLibrary.reduce((count, item) => {
+    if (item.type === ficVal) {
+      count++;
+    }
+    return count;
+  }, 0);
+  ficTotal.innerText = ficNum;
+
+  const nonFicVal = "Non-fiction";
+  const nonFicNum = myLibrary.reduce((count, item) => {
+    if (item.type === nonFicVal) {
+      count++;
+    }
+    return count;
+  }, 0);
+  nonFicTotal.innerText = nonFicNum;
+
+  const readVal = true;
+  const readNum = myLibrary.reduce((count, item) => {
+    if (item.read === readVal) {
+      count++;
+    }
+    return count;
+  }, 0);
+  readTotal.innerText = readNum;
+
+  // read pages here
+    pagesReadTotal.innerText = "EGGS";
+
+  const notReadVal = false;
+  const notReadNum = myLibrary.reduce((count, item) => {
+    if (item.read === notReadVal) {
+      count++;
+    }
+    return count;
+  }, 0);
+  notReadTotal.innerText = notReadNum;
+
+  // not read pages here
+
+  pagesNotReadTotal.innerText = "EGGS";
+
+  const faveVal = true;
+  const faveNum = myLibrary.reduce((count, item) => {
+    if (item.fave === faveVal) {
+      count++;
+    }
+    return count;
+  }, 0);
+  faveTotal.innerText = faveNum;
+}
+
+tallyBookStats()
