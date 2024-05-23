@@ -834,7 +834,11 @@ function tallyBookStats() {
   readTotal.innerText = readNum;
 
   // read pages here
-    pagesReadTotal.innerText = "EGGS";
+  // const pageHolder = [];
+  // const pagesReadNum = myLibrary.filter((item) => item.pages)
+   
+
+  //   pagesReadTotal.innerText = (redNum * X);
 
   const notReadVal = false;
   const notReadNum = myLibrary.reduce((count, item) => {
