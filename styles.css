@@ -218,7 +218,9 @@ form-footer {
 }
 
 stat-helper-div form-header {
-    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 stat-book-div {
