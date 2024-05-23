@@ -838,7 +838,7 @@ function tallyBookStats() {
   // const pagesReadNum = myLibrary.filter((item) => item.pages)
    
 
-  //   pagesReadTotal.innerText = (redNum * X);
+    pagesReadTotal.innerText = 1;
 
   const notReadVal = false;
   const notReadNum = myLibrary.reduce((count, item) => {
@@ -851,7 +851,7 @@ function tallyBookStats() {
 
   // not read pages here
 
-  pagesNotReadTotal.innerText = "EGGS";
+  pagesNotReadTotal.innerText = 1;
 
   const faveVal = true;
   const faveNum = myLibrary.reduce((count, item) => {

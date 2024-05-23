@@ -217,19 +217,23 @@ form-footer {
     margin-top: .25rem;
 }
 
-.alt-form {
+#stats-dialog {
     display: grid;
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+}
+
+#stats-dialog form-header {
+    margin-bottom: -10rem;
 }
 
 stat-book-div {
     display: flex;
-    justify-content: start;
+    /* justify-content: center; */
     align-items: center;
 }
 stat-book-div img {
     height: 2.5rem;
+    /* margin: 1rem; */
     padding-right: .5rem;
 }
 
@@ -239,11 +243,13 @@ stat-book-div ul {
     justify-content: center;
     align-items: start;
     list-style: none;
-    padding-bottom: 1rem;
+    margin-top: -2.5rem;
+
 }
 
 stat-book-div li {
     font-size: 1.25rem;
+    padding-left: .5rem;
 }
 
 strong {
