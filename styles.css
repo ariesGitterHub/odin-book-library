@@ -121,8 +121,8 @@ dialog {
     right: 0;
     top: 0;
     bottom: 0; 
-    background: var(--dark);
-    border-color: var(--dark);
+    background: var(--dk-sea);
+    border: var(--border-px) solid var(--white);
     color: var(--white);
 }
 
@@ -160,7 +160,7 @@ form-header img {
 
 fieldset {
     width: var(--fieldset-width);
-    background: var(--dark);
+    background: var(--dk-sea);
     border-color: var(--white);
     border-radius: var(--border-radius);
     display: flex;
@@ -171,6 +171,7 @@ fieldset {
 }
 
 fieldset:hover {
+    background: var(--dark-80);
     border-color: var(--candle);
 }
 
@@ -362,7 +363,7 @@ book-card-nav-top-edit {
 }
 
 .edit-book-form input[type="text"]:focus, .edit-book-form input[type="number"]:focus  {
-    background:     var(--sea);
+    background: var(--sea);
 }
 
 /* .edit-book-form input[type="radio"] {
@@ -438,9 +439,6 @@ button {
      /* margin: .1rem;     */
 }
    
-
-
-
 button:hover {
     background: var(--dk-sea);
 }
@@ -452,7 +450,6 @@ button:active {
 .menu-btn {
     height: 3.15rem;
     width: 3.15rem;
-
 }
 
 .menu-btn img{
@@ -466,29 +463,6 @@ button:active {
 /* .menu-btn:active {
     background: var(--sea);
 } */
-
-.other-btn {
-    height: 2.5rem;
-    width: 5.75rem;
-    border-radius: var(--border-radius);
-    font-size: 1rem; 
-        font-weight: 600;
-    margin: 0 .25rem 1rem .25rem;
-}
-
-/* .btn-x-out-modal {
-    align-self: center;
-} */
-
-#add-book-enter-btn {
-    height: 2.5rem;
-    width: 7rem;
-    /* width: auto;
-    border-radius: var(--border-radius);
-    font-size: 1rem; */
-    /* font-weight: 600; */
-    margin-top: .5rem;
-}
 
 .book-card-round-btns {
     height: 2.5rem;
@@ -513,7 +487,6 @@ book-card-nav-top-edit .other-btn {
     margin: 1rem 0 0 1rem;
 }
 
-
 /* book-card-nav-bot .book-card-round-btns {
     margin-bottom: 1rem;
 } */
@@ -521,6 +494,33 @@ book-card-nav-top-edit .other-btn {
 /* .btn-info:hover, .btn-edit:hover, .btn-x-out:hover, .btn-x-out2:hover {
     background: var(--dk-sea);
 } */
+
+.other-btn {
+    height: 2.5rem;
+    width: 5.75rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem; 
+        font-weight: 600;
+    margin: 0 .25rem 1rem .25rem;
+}
+
+/* .other-btn:hover {
+    background: var(--white);
+} */
+
+/* .btn-x-out-modal {
+    align-self: center;
+} */
+
+#add-book-enter-btn {
+    height: 2.5rem;
+    width: 7rem;
+    /* width: auto;
+    border-radius: var(--border-radius);
+    font-size: 1rem; */
+    /* font-weight: 600; */
+    margin-top: .5rem;
+}
 
 /* RADIOS                        */
 

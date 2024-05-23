@@ -601,8 +601,34 @@ const menuBtnAdd = document.querySelector("#menu-btn-add");
   menuBtnAdd.addEventListener("click", function() {
   clearModalFormData();
   addBookDialog.showModal();
-
 })
+
+// NEW MENU BTNS
+
+const statsDialog = document.querySelector("#stats-dialog");
+
+const menuBtnStats = document.querySelector("#menu-btn-stats");
+menuBtnStats.addEventListener("click", function () {
+  clearModalFormData();
+  statsDialog.showModal();
+});
+
+const sortDialog = document.querySelector("#sort-dialog");
+
+const menuBtnSort = document.querySelector("#menu-btn-sort");
+menuBtnSort.addEventListener("click", function () {
+  clearModalFormData();
+  sortDialog.showModal();
+});
+
+const searchDialog = document.querySelector("#search-dialog");
+
+const menuBtnSearch = document.querySelector("#menu-btn-search");
+menuBtnSearch.addEventListener("click", function () {
+  clearModalFormData();
+  searchDialog.showModal();
+});
+
 
 function clearModalFormData() {
   const inputs = document.querySelectorAll("input");
