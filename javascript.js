@@ -5,6 +5,27 @@ const mainContentContainer = document.querySelector("main-content-container");
 
 let myLibrary = [];
 
+function alphabetizeLibrary() {
+  const alphabetical = myLibrary.sort((a, b) => {
+    // Function to remove the, a , an from titles
+    const removeLeadingArticle = (title) => {
+      const articles = ["the", "a", "an"];
+      const words = title.split(/\s+/);
+      if (articles.includes(words[0].toLowerCase())) {
+        return words.slice(1).join(" ");
+      }
+      return title;
+    };
+
+    // Removes articles / compare titles
+    const titleA = removeLeadingArticle(a.title);
+    const titleB = removeLeadingArticle(b.title);
+    return titleA.localeCompare(titleB);
+  });
+//  console.log("Alphabetical is " + alphabetical);
+
+}
+alphabetizeLibrary();
 
 // NEW BOOKS CONSTRUCTOR 
 
@@ -23,6 +44,7 @@ class Book {
 
 function addInitialBookToLibrary(book) {
   myLibrary.push(book);
+  alphabetizeLibrary();
 }
 
 
@@ -619,10 +641,20 @@ function addFormBookToLibrary() {
   const radioFiction = document.querySelector("#radio-fiction");
   const radioNonFiction = document.querySelector("#radio-non-fiction");
     let valueFicNonFic = null;
+
+// This block of  code stopped working properly and was not adding "Fiction" or "Non-fiction"
+
+    // if (radioFiction.checked) {
+    //   valueFicNonFic = "radioFiction.value";
+    // } else if (radioNonFiction.checked) {
+    //   valueFicNonFic = radioNonFiction.value;
+    // }
+// Below is my work around...
+
     if (radioFiction.checked) {
-      valueFicNonFic = radioFiction.value;
+      valueFicNonFic = "Fiction";
     } else if (radioNonFiction.checked) {
-      valueFicNonFic = radioNonFiction.value;
+      valueFicNonFic = "Non-fiction";
     }
 
   const inputPages = document.querySelector("#input-pages").value;
@@ -656,7 +688,7 @@ function addFormBookToLibrary() {
     const titleCheck = document.querySelector("input[name='book-title']");
     const authorCheck = document.querySelector("input[name='book-author']");
     const ficNonFicCheck = document.querySelector("input[name='book-type']:checked");
-
+ 
     const pageCheck = document.querySelector("input[name='book-pages']");
 
     const readStatusCheck = document.querySelector("input[name='read-status']:checked");
@@ -688,7 +720,7 @@ function addFormBookToLibrary() {
   }
 
 console.log(myLibrary);
-
+alphabetizeLibrary();
 addBookDialog.close();
 renderCards();
 
@@ -712,25 +744,25 @@ console.log(myLibrary);
 
 // STOPPED HERE FOR DAY...........................................
 
-function alphabetizeMyLibrary() {
-  const alphabetical = myLibrary.sort((a, b) => {
-    // Function to remove the, a , an from titles
-    const removeLeadingArticle = (title) => {
-      const articles = ["the", "a", "an"];
-      const words = title.split(/\s+/);
-      if (articles.includes(words[0].toLowerCase())) {
-        return words.slice(1).join(" ");
-      }
-      return title;
-    };
+// function alphabetizeMyLibrary() {
+//   const alphabetical = myLibrary.sort((a, b) => {
+//     // Function to remove the, a , an from titles
+//     const removeLeadingArticle = (title) => {
+//       const articles = ["the", "a", "an"];
+//       const words = title.split(/\s+/);
+//       if (articles.includes(words[0].toLowerCase())) {
+//         return words.slice(1).join(" ");
+//       }
+//       return title;
+//     };
 
-    // Removes articles / compare titles
-    const titleA = removeLeadingArticle(a.title);
-    const titleB = removeLeadingArticle(b.title);
-    return titleA.localeCompare(titleB);
-  });
-console.log(alphabetical);
-}
+//     // Removes articles / compare titles
+//     const titleA = removeLeadingArticle(a.title);
+//     const titleB = removeLeadingArticle(b.title);
+//     return titleA.localeCompare(titleB);
+//   });
+// console.log(alphabetical);
+// }
 
-alphabetizeMyLibrary(); 
+// alphabetizeMyLibrary(); 
 
