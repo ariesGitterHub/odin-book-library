@@ -833,12 +833,30 @@ function tallyBookStats() {
   }, 0);
   readTotal.innerText = readNum;
 
-  // read pages here
-  // const pageHolder = [];
-  // const pagesReadNum = myLibrary.filter((item) => item.pages)
-   
+  // read pages and not read pages here
 
-    pagesReadTotal.innerText = 1;
+  const readPageHolder = [];
+  const notReadPageHolder = [];
+
+  myLibrary.forEach(function (book) {
+    if (book.read === true) {
+      readPageHolder.push(book.pages);
+    } else if (book.read === false) {
+      notReadPageHolder.push(book.pages);
+    }
+  });
+
+  console.log("Pages of read books:", readPageHolder);
+  console.log("Pages of unread books:", notReadPageHolder);
+
+  const pagesReadTally = readPageHolder.reduce((a, b) => a + b, 0);
+  console.log(pagesReadTally);
+
+  const pagesNotReadTally = notReadPageHolder.reduce((a, b) => a + b, 0);
+  console.log(pagesNotReadTally);
+
+  pagesReadTotal.innerText = pagesReadTally;
+  pagesNotReadTotal.innerText = pagesNotReadTally;
 
   const notReadVal = false;
   const notReadNum = myLibrary.reduce((count, item) => {
@@ -848,10 +866,6 @@ function tallyBookStats() {
     return count;
   }, 0);
   notReadTotal.innerText = notReadNum;
-
-  // not read pages here
-
-  pagesNotReadTotal.innerText = 1;
 
   const faveVal = true;
   const faveNum = myLibrary.reduce((count, item) => {

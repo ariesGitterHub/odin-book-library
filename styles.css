@@ -251,6 +251,7 @@ strong {
 
 #fic-total, #non-fic-total, #pages-read-total, #pages-not-read-total {
     color: var(--sea);
+    font-size: 1.25rem;
 }
 
 
