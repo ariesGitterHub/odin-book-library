@@ -615,11 +615,11 @@ menuBtnStats.addEventListener("click", function () {
 
 const sortDialog = document.querySelector("#sort-dialog");
 
-const menuBtnSort = document.querySelector("#menu-btn-sort");
-menuBtnSort.addEventListener("click", function () {
-  clearModalFormData();
-  sortDialog.showModal();
-});
+// const menuBtnSort = document.querySelector("#menu-btn-sort");
+// menuBtnSort.addEventListener("click", function () {
+//   clearModalFormData();
+//   sortDialog.showModal();
+// });
 
 const searchDialog = document.querySelector("#search-dialog");
 

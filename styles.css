@@ -217,7 +217,9 @@ form-footer {
     margin-top: .25rem;
 }
 
-
+stat-helper-div form-header {
+    align-self: auto;
+}
 
 stat-book-div {
     display: flex;
