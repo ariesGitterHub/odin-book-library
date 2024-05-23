@@ -54,7 +54,7 @@ const book1 = new Book("b0", "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, tru
 
 const book2 = new Book("b1", "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
 
-const book3 = new Book("b2", "This is just 'Generic Book Cover' Test (it works!)", "Rollo Tomassi", "Non-fiction", 1138, false, false, "./assets/book-icon.svg");
+const book3 = new Book("b2", "This is just 'Generic Book Cover' Test (it works!)", "Rollo Tomassi", "Non-fiction", 169, false, false, "./assets/book-icon.svg");
 
 const book4 = new Book("b3", "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
 
