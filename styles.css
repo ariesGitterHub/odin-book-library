@@ -217,23 +217,15 @@ form-footer {
     margin-top: .25rem;
 }
 
-#stats-dialog {
-    display: grid;
-    justify-content: center;
-}
 
-#stats-dialog form-header {
-    margin-bottom: -10rem;
-}
 
 stat-book-div {
     display: flex;
-    /* justify-content: center; */
+    justify-content: start;
     align-items: center;
 }
 stat-book-div img {
     height: 2.5rem;
-    /* margin: 1rem; */
     padding-right: .5rem;
 }
 
@@ -243,17 +235,18 @@ stat-book-div ul {
     justify-content: center;
     align-items: start;
     list-style: none;
-    margin-top: -2.5rem;
-
+    /* padding-bottom: 1rem; */
 }
 
 stat-book-div li {
     font-size: 1.25rem;
     padding-left: .5rem;
+    padding-top: 0;
 }
 
 strong {
     color: var(--candle);
+    font-size: 1.5rem;
 }
 
 #fic-total, #non-fic-total, #pages-read-total, #pages-not-read-total {

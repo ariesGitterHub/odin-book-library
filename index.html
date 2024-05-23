@@ -88,64 +88,66 @@
         </form>
     </dialog>
     <dialog id="stats-dialog">
-            <form-header>
-                <img src="./assets/btn-stats-icon2.svg" alt="Decorative plus bar chart icon">
-                <h3>Book Statistics</h3>
-                <button class="book-card-round-btns btn-x-out btn-x-out-modal">
-                <img src="./assets/card-x.svg" alt="Close window button">
-                </button> 
-            </form-header>
-            <br>
-            <!-- <form class="alt-form"></form> -->
-            <stat-book-div>
-                <img src="./assets/title-bookshelf-icon.svg" alt="">
-                <h3>MyReadList book total: 
-                    <strong id="book-total"></strong>
-                </h3>
-             </stat-book-div>
-            <stat-book-div>
-                <ul>
-                    <li>Works of fiction: 
-                        <strong id="fic-total"></strong>
-                    </li>
-                    <li>Works of non-fiction: 
-                        <strong id="non-fic-total"></strong>
-                    </li>
-                </ul>   
-            </stat-book-div>
-            <stat-book-div>
-                <img src="./assets/stats-read-icon.svg" alt="">
-                <h3>Books read: 
-                    <strong id="read-total"></strong>
-                </h3>
-             </stat-book-div>
-            <stat-book-div>
-                <ul>
-                    <li>Number of pages read: 
-                        <strong id="pages-read-total"></strong>
-                    </li>
-                </ul>   
-            </stat-book-div>
-            <stat-book-div>
-                <img src="./assets/stats-not-read-icon.svg" alt="">
-                <h3>Books not read: 
-                    <strong id="not-read-total"></strong>
-                </h3>
-             </stat-book-div>
-            <stat-book-div>
-                <ul>
-                    <li>Number of pages not read: 
-                        <strong id="pages-not-read-total"></strong>
-                    </li>
-                </ul>   
-            </stat-book-div>
-            <stat-book-div>
-                <img src="./assets/stats-fave-icon.svg" alt="">
-                <h3>Favorite books: 
-                    <strong id="fave-total"></strong>
-                </h3>
-             </stat-book-div>
-        <!-- </form> -->
+        <form>
+            <stat-helper-div>
+                <form-header>
+                    <img src="./assets/btn-stats-icon2.svg" alt="Decorative plus bar chart icon">
+                    <h3>Book Statistics</h3>
+                    <button class="book-card-round-btns btn-x-out btn-x-out-modal">
+                    <img src="./assets/card-x.svg" alt="Close window button">
+                    </button> 
+                </form-header>
+                <br>
+                <stat-book-div>
+                    <img src="./assets/title-bookshelf-icon.svg" alt="">
+                    <h3>MyReadList book total: 
+                        <strong id="book-total"></strong>
+                    </h3>
+                </stat-book-div>
+                <stat-book-div>
+                    <ul>
+                        <li>Works of fiction: 
+                            <strong id="fic-total"></strong>
+                        </li>
+                        <li>Works of non-fiction: 
+                            <strong id="non-fic-total"></strong>
+                        </li>
+                    </ul>   
+                </stat-book-div>
+                <stat-book-div>
+                    <img src="./assets/stats-read-icon.svg" alt="">
+                    <h3>Books read: 
+                        <strong id="read-total"></strong>
+                    </h3>
+                </stat-book-div>
+                <stat-book-div>
+                    <ul>
+                        <li>Number of pages read: 
+                            <strong id="pages-read-total"></strong>
+                        </li>
+                    </ul>   
+                </stat-book-div>
+                <stat-book-div>
+                    <img src="./assets/stats-not-read-icon.svg" alt="">
+                    <h3>Books not read: 
+                        <strong id="not-read-total"></strong>
+                    </h3>
+                </stat-book-div>
+                <stat-book-div>
+                    <ul>
+                        <li>Number of pages not read: 
+                            <strong id="pages-not-read-total"></strong>
+                        </li>
+                    </ul>   
+                </stat-book-div>
+                <stat-book-div>
+                    <img src="./assets/stats-fave-icon.svg" alt="">
+                    <h3>Favorite books: 
+                        <strong id="fave-total"></strong>
+                    </h3>
+                </stat-book-div>
+            </stat-helper-div>    
+        </form>           
     </dialog>
     <dialog id="sort-dialog">
         <form method="dialog">
