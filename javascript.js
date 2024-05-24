@@ -749,7 +749,7 @@ console.log(myLibrary);
 alphabetizeLibrary();
 addBookDialog.close();
 renderCards();
-
+tallyBookStats();
 // clearModalFormData();
 // location.reload();
 // closeModal();
@@ -835,28 +835,28 @@ function tallyBookStats() {
 
   // read pages and not read pages here
 
-  const readPageHolder = [];
-  const notReadPageHolder = [];
+  // const readPageHolder = [];
+  // const notReadPageHolder = [];
 
-  myLibrary.forEach(function (book) {
-    if (book.read === true) {
-      readPageHolder.push(book.pages);
-    } else if (book.read === false) {
-      notReadPageHolder.push(book.pages);
-    }
-  });
+  // myLibrary.forEach(function (book) {
+  //   if (book.read === true) {
+  //     readPageHolder.push(book.pages);
+  //   } else if (book.read === false) {
+  //     notReadPageHolder.push(book.pages);
+  //   }
+  // });
 
-  console.log("Pages of read books:", readPageHolder);
-  console.log("Pages of unread books:", notReadPageHolder);
+  // console.log("Pages of read books:", readPageHolder);
+  // console.log("Pages of unread books:", notReadPageHolder);
 
-  const pagesReadTally = readPageHolder.reduce((a, b) => a + b, 0);
-  console.log(pagesReadTally);
+  // const pagesReadTally = readPageHolder.reduce((a, b) => a + b, 0);
+  // console.log(pagesReadTally);
 
-  const pagesNotReadTally = notReadPageHolder.reduce((a, b) => a + b, 0);
-  console.log(pagesNotReadTally);
+  // const pagesNotReadTally = notReadPageHolder.reduce((a, b) => a + b, 0);
+  // console.log(pagesNotReadTally);
 
-  pagesReadTotal.innerText = pagesReadTally;
-  pagesNotReadTotal.innerText = pagesNotReadTally;
+  // pagesReadTotal.innerText = pagesReadTally;
+  // pagesNotReadTotal.innerText = pagesNotReadTally;
 
   const notReadVal = false;
   const notReadNum = myLibrary.reduce((count, item) => {
@@ -892,7 +892,7 @@ function searchForBooks() {
     book.title.toLowerCase().includes(searchTerm)
   );
 
-  // Display search results, needs a error msg if nothing is found via search...also needs to display a bookcard...
+  // Display search results, needs a error msg if nothing is found via search...also needs to display a book
   filteredBooks.forEach((book) => {
     const p = document.createElement("p");
     p.textContent = book.title;
