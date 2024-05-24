@@ -238,7 +238,7 @@ stat-book-div {
 }
 stat-book-div img {
     height: 2.5rem;
-    padding-right: .5rem;
+    padding-right: 1.25rem;
 }
 
 stat-book-div ul {
@@ -252,7 +252,7 @@ stat-book-div ul {
 
 stat-book-div li {
     font-size: 1.25rem;
-    padding-left: .5rem;
+    padding-left: 1.25rem;
     padding-top: 0;
 }
 
