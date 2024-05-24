@@ -217,12 +217,12 @@ form-footer {
     margin-top: .25rem;
 }
 
-stat-helper-div form-header {
+/* stat-helper-div form-header {
     align-self: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
 stat-book-div {
     display: flex;
@@ -257,6 +257,14 @@ strong {
 #fic-total, #non-fic-total, #pages-read-total, #pages-not-read-total {
     color: var(--sea);
     font-size: 1.25rem;
+}
+
+note-well {
+    text-align: center;
+}
+
+search-results {
+    font-size: 3rem;
 }
 
 
@@ -557,7 +565,7 @@ book-card-nav-top-edit .other-btn {
     align-self: center;
 } */
 
-#add-book-enter-btn {
+#add-book-enter-btn, #search-enter-btn {
     height: 2.5rem;
     width: 7rem;
     /* width: auto;

@@ -878,3 +878,27 @@ function tallyBookStats() {
 }
 
 tallyBookStats()
+
+// JUST WIRING A BASIC SEARCH FUNCTION OF MYLIBRARY...NEEDS WORK
+function searchForBooks() {
+  const searchTerm = document.querySelector("#search-term").value.toLowerCase();
+  const searchResults = document.querySelector("search-results");
+
+  // Clear previous search results
+  searchResults.innerText = "";
+
+  // Filter books that match the search term
+  const filteredBooks = myLibrary.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm)
+  );
+
+  // Display search results, needs a error msg if nothing is found via search...also needs to display a bookcard...
+  filteredBooks.forEach((book) => {
+    const p = document.createElement("p");
+    p.textContent = book.title;
+    searchResults.appendChild(p);
+  });
+}
+
+// Event listener for search input
+document.querySelector("#search-enter-btn").addEventListener("click", searchForBooks);

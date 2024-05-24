@@ -92,7 +92,7 @@
             <stat-helper-div>
                 <form-header>
                     <img src="./assets/btn-stats-icon2.svg" alt="Decorative plus bar chart icon">
-                    <h3>Book Stats</h3>
+                    <h3>Book Statistics</h3>
                     <button class="book-card-round-btns btn-x-out btn-x-out-modal">
                     <img src="./assets/card-x.svg" alt="Close window button">
                     </button> 
@@ -172,7 +172,7 @@
         </form>
     </dialog> -->
     <dialog id="search-dialog">
-        <form method="dialog">
+        <form>
             <form-header>
                 <img src="./assets/btn-search-icon2.svg" alt="Decorative plus sign icon for adding a book">
                 <h3>Search Books</h3>
@@ -182,15 +182,17 @@
             </form-header>
             <br>
             <fieldset>
-                <legend>Stuff</legend>
-                <label for="input-title"></label>
-                <input type="text" id="input-title" name="book-title" placeholder="Book's title..." autofocus>
+                <legend>Search by title, author, or type</legend>
+                <label for="search-books"></label>
+                <input type="text" id="search-term"  placeholder="Search..." autofocus>
             </fieldset>
 
             <form-footer>
                 <button type="button"
-                class="other-btn" id="add-book-enter-btn">XXX</button>
+                class="other-btn" id="search-enter-btn">Enter</button>
             </form-footer>
+            <note-well>THIS APP HAS NO BACKEND SUPPORT YET SO THIS FUNCTION IS SUPER-DUPER LIMITED</note-well>
+            <search-results></search-results>
         </form>
     </dialog>
     <main-content-container>
