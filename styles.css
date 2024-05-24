@@ -217,12 +217,19 @@ form-footer {
     margin-top: .25rem;
 }
 
-/* stat-helper-div form-header {
-    align-self: center;
+stat-helper-div form-header {
+    /* align-self: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-} */
+    justify-content: space-between; */
+
+
+    display: grid;
+        grid-template-columns: .5fr 10fr .5fr;
+        place-content: space-evenly;
+        place-items: center;
+
+}
 
 stat-book-div {
     display: flex;
@@ -264,7 +271,8 @@ note-well {
 }
 
 search-results {
-    font-size: 3rem;
+    text-align: center;
+    font-size: 2rem;
 }
 
 
