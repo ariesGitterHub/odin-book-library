@@ -7,7 +7,7 @@ let myLibrary = [];
 
 function alphabetizeLibrary() {
   const alphabetical = myLibrary.sort((a, b) => {
-    // Function to remove the, a , an from titles
+    // Function to remove the, a, and an from titles
     const removeLeadingArticle = (title) => {
       const articles = ["the", "a", "an"];
       const words = title.split(/\s+/);
@@ -17,15 +17,15 @@ function alphabetizeLibrary() {
       return title;
     };
 
-    // Removes articles / compare titles
+    // Removes articles, compares titles
     const titleA = removeLeadingArticle(a.title);
     const titleB = removeLeadingArticle(b.title);
     return titleA.localeCompare(titleB);
   });
-//  console.log("Alphabetical is " + alphabetical);
 
 }
 alphabetizeLibrary();
+
 
 // NEW BOOKS CONSTRUCTOR 
 
@@ -48,57 +48,42 @@ function addInitialBookToLibrary(book) {
 }
 
 
-// HARDCODED INITIAL BOOKS
+// HARDCODED INITIAL BOOKS, ADD AS NEEDED
 
-const book1 = new Book("b0", "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true,  true, "./assets/book-theHobbit.jpg");
 
-const book2 = new Book("b1", "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg");
+const initialBooks = [
+  new Book("b0", "The Hobbit", "J.R.R. Tolkien", "Fiction", 256, true, true, "./assets/book-theHobbit.jpg"),
+  new Book("b1", "The Greatest Knight", "Thomas Asbridge", "Non-fiction", 464, true, true, "./assets/book-theGreatestKnight.jpg"),
+  new Book("b2", "Generic Book Cover Test (it works!)", "Rollo Tomassi", "Non-fiction", 169, false, false, "./assets/book-icon.svg"),
+  new Book("b3", "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg"),
+  new Book("b4", "Universal Principles of Design", "William Lidwell, Kritina Holden, Jill Butler", "Non-fiction", 216, true, false, "./assets/book-universalPrinciplesOfDesign.jpg"),
+  new Book("b5", "The Plantagenets", "Dan Jones", "Non-fiction", 560, true, false, "./assets/book-thePlantagenets.jpg"),
+  new Book("b6", "Dune", "Frank Herbert", "Fiction", 563, true, true, "./assets/book-dune.jpg"),
+  new Book("b7", "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg"),
+  new Book("b8", "A Confederacy of Dunces", "John Kennedy Toole", "Fiction", 405, true, true, "./assets/book-aConfederacyOfDunces.jpg"),
+  new Book("b9", "Anatomy for Artists", "Barrington Barber", "Non-fiction", 304, true, true, "./assets/book-anatomyForArtists.jpg")
+];
 
-const book3 = new Book("b2", "Generic Book Cover Test (it works!)", "Rollo Tomassi", "Non-fiction", 169, false, false, "./assets/book-icon.svg");
-
-const book4 = new Book("b3", "Dictionary of Heraldry", "Joseph Foster", "Non-fiction", 256, true, true, "./assets/book-dictionaryOfHeraldry.jpg");
-
-const book5 = new Book("b4", "Universal Principles of Design", "William Lidwell, Kritina Holden, Jill Butler", "Non-fiction", 216, true, false, "./assets/book-universalPrinciplesOfDesign.jpg");
-
-const book6 = new Book("b5", "The Plantagenets", "Dan Jones", "Non-fiction", 560, true, false, "./assets/book-thePlantagenets.jpg");
-
-const book7 = new Book("b6", "Dune", "Frank Herbert", "Fiction", 563, true, true, "./assets/book-dune.jpg"
-);
-
-const book8 = new Book("b7", "Fritz Leiber's Fafhrd and the Gray Mouser", "Howard Chaykin, Mike Mignola, Al Williamson", "Fiction", 320, true, true, "./assets/book-fafhrdAndTheGrayMouser.jpg");
-
-const book9 = new Book("b8", "A Confederacy of Dunces", "John Kennedy Toole", "Fiction", 405, true, true, "./assets/book-aConfederacyOfDunces.jpg");
-
-addInitialBookToLibrary(book1);
-addInitialBookToLibrary(book2);
-addInitialBookToLibrary(book3);
-addInitialBookToLibrary(book4);
-addInitialBookToLibrary(book5);
-addInitialBookToLibrary(book6);
-addInitialBookToLibrary(book7);
-addInitialBookToLibrary(book8);
-addInitialBookToLibrary(book9);
-
-console.log(myLibrary);
+initialBooks.forEach(addInitialBookToLibrary);
 
 
 // STICKY HEADER ON SCROLL
 
 const buttonCtrlContainer = document.querySelector("button-ctrl-container");
 
-// Get the offset position of the header, READ MORE ABOUT THIS TOO...
+// Get the offset position of the header, READ MORE ABOUT THIS
 const sticky = buttonCtrlContainer.offsetTop;
 
 // Function toggles .sticky based on scroll position
 function toggleSticky() {
-  // Cache the scroll position? What?
+  // Cache the scroll position...interesting
   const scrollPosition = window.scrollY;
   
   // This toggles the .sticky based on scroll position
   buttonCtrlContainer.classList.toggle("sticky", scrollPosition > sticky);
 }
 
-// Debounce function to improve performance, STUDY UP ON THIS MORE...
+// Debounce function to improve performance, STUDY UP ON THIS MORE
 function debounce(func, delay) {
   let timer;
   return function() {
@@ -112,6 +97,7 @@ window.addEventListener("scroll", debounce(toggleSticky, 10));
 
 
 // DYNAMICALLY CREATE BOOK CARDS 
+// Indented for easier coding and readability
 
 function createCard(card) {
   const bookCard = document.createElement("book-card");
@@ -152,7 +138,7 @@ function createCard(card) {
 
   bookCard.appendChild(bookCardInfo);
 
-  // SPECIAL EDIT BOOK FORM MODAL, NOT DISPLAYED UNTIL EDIT BTN CLICKED
+  // SPECIAL EDIT BOOK-CARD FORM, NOT DISPLAYED UNTIL EDIT BTN CLICKED
     const bookCardNavTopEdit = document.createElement("book-card-nav-top-edit");
       const flexDiv2 = document.createElement("div");
         flexDiv2.classList.add("flex-div2");
@@ -211,11 +197,10 @@ function createCard(card) {
         editTypeFicInput.classList.add("edit-type");
         editTypeFicInput.id = `edit-fiction${card.id}`;
         editTypeFicInput.name = "edit-type";
-        editTypeFicInput.checked = card.type === "Fiction"; // Set checked to true if card.type is "Fiction"
+        editTypeFicInput.checked = card.type === "Fiction"; // Sets checked to true if card.type is "Fiction"
         editTypeFicInput.value = "Fiction";
       flexDiv1.appendChild(editTypeFicInput);
         const editTypeFicLabel = document.createElement("label");
-        // editTypeFicLabel.classList.add("label-radio");
         editTypeFicLabel.classList.add("radio-edit-label");
         editTypeFicLabel.htmlFor = `edit-fiction${card.id}`;
         editTypeFicLabel.innerText = "Fiction";
@@ -225,11 +210,10 @@ function createCard(card) {
         editTypeNonInput.classList.add("edit-type");
         editTypeNonInput.id = `edit-non-fiction${card.id}`;
         editTypeNonInput.name = "edit-type";
-        editTypeNonInput.checked = card.type === "Non-fiction"; // Set checked to true if card.type is "Non-fiction"
+        editTypeNonInput.checked = card.type === "Non-fiction"; // Sets checked to true if card.type is "Non-fiction"
         editTypeNonInput.value = "Non-fiction";
       flexDiv1.appendChild(editTypeNonInput);
         const editTypeNonLabel = document.createElement("label");
-        // editTypeNonLabel.classList.add("label-radio");
         editTypeNonLabel.classList.add("radio-edit-label");
         editTypeNonLabel.htmlFor = `edit-non-fiction${card.id}`;
         editTypeNonLabel.innerText = "Non-fiction";
@@ -243,13 +227,12 @@ function createCard(card) {
     editBookForm.appendChild(editPageLabel);
       const editPageInput = document.createElement("input");
       editPageInput.type = "number";
-      editPageInput.classList.add("edit-page"); //Unused class? DELETE?
       editPageInput.id = `edit-page${card.id}`;
       editPageInput.value = `${card.pages}`;
     editBookForm.appendChild(editPageInput);
 
   bookCard.appendChild(editBookForm);
-// END OF SPECIAL EDIT BOOK FORM MODAL
+// END OF SPECIAL EDIT BOOK-CARD FORM
 
     const bookCardCover = document.createElement("book-card-cover");
       const bkCoverImg = document.createElement("img");
@@ -301,7 +284,7 @@ function createCard(card) {
 }
 
 
-// THEN RENDER BOOK CARDS IN MAIN-CONTENT-CONTAINER
+// RENDER BOOK CARDS IN MAIN-CONTENT-CONTAINER
 
 function renderCards() {
   mainContentContainer.innerHTML = "";
@@ -315,7 +298,7 @@ function renderCards() {
     bookCards.forEach(function (bookCard, id) {
       const card = myLibrary[id];
 
-      const bookCard2 = bookCard.querySelector("book-card"); // FIX THIS? REMOVE?
+      const bookCard2 = bookCard.querySelector("book-card"); 
 
       const btnInfo = bookCard.querySelector(".btn-info");
       const btnXOut = bookCard.querySelector(".btn-x-out");
@@ -338,255 +321,241 @@ function renderCards() {
       const btnUpdateBook = bookCard.querySelector("#update-book");
 
 
-// ADD EVENT LISTENERS FOR BOOK-CARD
+  // ADD EVENT LISTENERS FOR BOOK-CARD
 
-btnEdit.addEventListener("click", function () {
-  showEdit(
-    bookCardCover,
-    bookCardNavBot,
-    bookCardInfo,
-    bookCardNavTop,
-    editBook,
-    bookCardNavTopEdit
-  );
-});
+  btnEdit.addEventListener("click", function () {
+    showEdit(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    );
+  });
 
-btnInfo.addEventListener("click", function () {
-  showInfo(
-    bookCardCover,
-    bookCardNavBot,
-    bookCardInfo,
-    bookCardNavTop,
-    editBook,
-    bookCardNavTopEdit
-  );
-});
+  btnInfo.addEventListener("click", function () {
+    showInfo(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    );
+  });
 
-btnXOut.addEventListener("click", function () {
-  showCover(
-    bookCardCover,
-    bookCardNavBot,
-    bookCardInfo,
-    bookCardNavTop,
-    editBook,
-    bookCardNavTopEdit
-  );
-});
+  btnXOut.addEventListener("click", function () {
+    showCover(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    );
+  });
 
-btnXOut2.addEventListener("click", function () {
-  showCover(
-    bookCardCover,
-    bookCardNavBot,
-    bookCardInfo,
-    bookCardNavTop,
-    editBook,
-    bookCardNavTopEdit
-  );
-});
+  btnXOut2.addEventListener("click", function () {
+    showCover(
+      bookCardCover,
+      bookCardNavBot,
+      bookCardInfo,
+      bookCardNavTop,
+      editBook,
+      bookCardNavTopEdit
+    );
+  });
 
-btnDeleteBook.addEventListener("click",  deleteFromLibrary);
+  btnDeleteBook.addEventListener("click",  deleteFromLibrary);
 
-function deleteFromLibrary() {
-  // console.log(card.id);
-  myLibrary = myLibrary.filter((item) => item.id !== card.id);
+  function deleteFromLibrary() {
+    // console.log(card.id);
+    myLibrary = myLibrary.filter((item) => item.id !== card.id);
 
-  let removeElement = document.querySelector(`#${card.id}`);
-  if (removeElement) {
-    removeElement.remove();
+    let removeElement = document.querySelector(`#${card.id}`);
+    if (removeElement) {
+      removeElement.remove();
+    }
+    console.log(myLibrary);
+    updateBookInLibrary();
   }
-}
 
-// console.log(`YYY${myLibrary}`);
+  btnUpdateBook.addEventListener("click", updateBookInLibrary);
 
-btnUpdateBook.addEventListener("click", updateBookInLibrary);
+  function updateBookInLibrary() {
+    // console.log(card.id);
+    let editTitle = document.getElementById(`edit-title${card.id}`);
+    let editAuthor = document.getElementById(`edit-author${card.id}`);
 
+    let editFictionType = document.getElementById(`edit-fiction${card.id}`)
+    let editNonFictionType = document.getElementById(`edit-non-fiction${card.id}`);
+    
+    let editPage = document.getElementById(`edit-page${card.id}`);
 
-// BOOKS NOW UPDATE...code works
-function updateBookInLibrary() {
-  console.log(card.id); // This works
-  let editTitle = document.getElementById(`edit-title${card.id}`);
-  let editAuthor = document.getElementById(`edit-author${card.id}`);
+    let bookId = card.id;
 
-  let editFictionType = document.getElementById(`edit-fiction${card.id}`)
-  let editNonFictionType = document.getElementById(`edit-non-fiction${card.id}`);
+    // Find the book in myLibrary with the matching ID
+    const bookInfoFinder = myLibrary.find((book) => book.id === bookId);
+
+    // Check if the book is found
+    if (bookInfoFinder) {
+      // Update the properties if they are different
+      if (bookInfoFinder.title !== editTitle.value) {
+        bookInfoFinder.title = editTitle.value;
+        // console.log(`Title updated to: ${bookInfoFinder.title}`);
+      }
+
+      if (bookInfoFinder.author !== editAuthor.value) {
+        bookInfoFinder.author = editAuthor.value;
+        // console.log(`Author updated to: ${bookInfoFinder.author}`);
+      }
+
+      if (bookInfoFinder.type !== editFictionType.value) {
+        bookInfoFinder.type = editFictionType.value;
+        // console.log(`Type updated to: ${bookInfoFinder.type}`);
+      } else if (bookInfoFinder.type !== editNonFictionType.value) {
+        bookInfoFinder.type = editNonFictionType.value;
+      }
+
+      if (bookInfoFinder.pages !== editPage.value) {
+        bookInfoFinder.pages = editPage.value;
+        // console.log(`Pages updated to: ${bookInfoFinder.pages}`);
+      }
+
+      // console.log("Book information updated.");
+    } else {
+      console.log(`Book with ID ${bookId} not found.`);
+    }
+    tallyBookStats()
+    renderCards();
+  }
+
+  btnRead.addEventListener("click", function () {
+    toggleRead(togNotRead, togRead, btnRead);
+  });
+
+  btnFave.addEventListener("click", function () {
+    toggleFave(togNotFave, togFave, btnFave);
+  });
+  });
+
+  function showCover(
+    // hides info
+    // hides edit
+    bookCardCover,
+    bookCardNavBot,
+    bookCardInfo,
+    bookCardNavTop,
+    editBook,
+    bookCardNavTopEdit
+  ) {
+    bookCardCover.style.display = "flex";
+    bookCardNavBot.style.display = "flex";
+    bookCardInfo.style.display = "none";
+    bookCardNavTop.style.display = "none";
+    editBook.style.display = "none";
+    bookCardNavTopEdit.style.display = "none";
+  }
+
+  function showInfo(
+    // hides cover
+    // hides edit
+    bookCardCover,
+    bookCardNavBot,
+    bookCardInfo,
+    bookCardNavTop,
+    editBook,
+    bookCardNavTopEdit
+  ) {
+    bookCardCover.style.display = "none";
+    bookCardNavBot.style.display = "none";
+    bookCardInfo.style.display = "flex";
+    bookCardNavTop.style.display = "flex";
+    editBook.style.display = "none";
+    bookCardNavTopEdit.style.display = "none";
+  }
+
+  function showEdit(
+    // hides cover
+    // hides info
+    bookCardCover,
+    bookCardNavBot,
+    bookCardInfo,
+    bookCardNavTop,
+    editBook,
+    bookCardNavTopEdit
+  ) {
+    bookCardCover.style.display = "none";
+    bookCardNavBot.style.display = "none";
+    bookCardInfo.style.display = "none";
+    bookCardNavTop.style.display = "none";
+    editBook.style.display = "flex";
+    bookCardNavTopEdit.style.display = "flex";
+  }
+
+  function toggleRead(togNotRead, togRead, btnRead) {
+    if (togRead.style.display === "none") {
+      togNotRead.style.display = "none";
+      togRead.style.display = "flex";
+      btnRead.style.background = "var(--dk-sea)";
+    } else {
+      togNotRead.style.display = "flex";
+      togRead.style.display = "none";
+      btnRead.style.background = "var(--life-jacket)";
+    }
+  }
+
+  function toggleFave(togNotFave, togFave, btnFave) {
+    if (togFave.style.display === "none") {
+      togNotFave.style.display = "none";
+      togFave.style.display = "flex";
+      btnFave.style.background = "var(--dk-sea)";
+    } else {
+      togNotFave.style.display = "flex";
+      togFave.style.display = "none";
+      btnFave.style.background = "var(--life-jacket)";
+    }
+  }
+
+  function setInitReadFaveState(card) {
+    const cardContainer = document.getElementById(card.id);
+    // Hitting cardContainer spreads it around...remember this!
+
+    const btnRead = cardContainer.querySelector(".btn-read");
+    const togNotRead = cardContainer.querySelector(".tog-not-read");
+    const togRead = cardContainer.querySelector(".tog-read");
+    const btnFave = cardContainer.querySelector(".btn-fave");
+    const togNotFave = cardContainer.querySelector(".tog-not-fave");
+    const togFave = cardContainer.querySelector(".tog-fave");
+
+    // INITIAL READ STATE
+    if (card.read === true) {
+      togNotRead.style.display = "none";
+      togRead.style.display = "flex";
+      btnRead.style.background = "var(--dk-sea)";
+    } else if (card.read === false) {
+      togNotRead.style.display = "flex";
+      togRead.style.display = "none";
+      btnRead.style.background = "var(--life-jacket)";
+    }
+
+    // INITIAL FAVE STATE
+    if (card.fave === true) {
+      togNotFave.style.display = "none";
+      togFave.style.display = "flex";
+      btnFave.style.background = "var(--dk-sea)";
+    } else if (card.fave === false) {
+      togNotFave.style.display = "flex";
+      togFave.style.display = "none";
+      btnFave.style.background = "var(--life-jacket)";
+    }
+
+  }
   
-  let editPage = document.getElementById(`edit-page${card.id}`);
-
-  console.log(editTitle.value); // This works
-  console.log(editAuthor.value); // This works
-  console.log(editPage.value); // This works
-
-  let bookId = card.id;
-
-  // Find the book in myLibrary with the matching ID
-  const bookInfoFinder = myLibrary.find((book) => book.id === bookId);
-
-  // Check if the book is found
-  if (bookInfoFinder) {
-    // Update the properties if they are different
-    if (bookInfoFinder.title !== editTitle.value) {
-      bookInfoFinder.title = editTitle.value;
-      console.log(`Title updated to: ${bookInfoFinder.title}`);
-    }
-
-    if (bookInfoFinder.author !== editAuthor.value) {
-      bookInfoFinder.author = editAuthor.value;
-      console.log(`Author updated to: ${bookInfoFinder.author}`);
-    }
-
-    if (bookInfoFinder.type !== editFictionType.value) {
-      bookInfoFinder.type = editFictionType.value;
-      console.log(`Type updated to: ${bookInfoFinder.type}`);
-    } else if (bookInfoFinder.type !== editNonFictionType.value) {
-      bookInfoFinder.type = editNonFictionType.value;
-    }
-
-//ABOVE WORKS
-
-    if (bookInfoFinder.pages !== editPage.value) {
-      bookInfoFinder.pages = editPage.value;
-      console.log(`Pages updated to: ${bookInfoFinder.pages}`);
-    }
-
-    console.log("Book information updated.");
-  } else {
-    console.log(`Book with ID ${bookId} not found.`);
-  }
-  renderCards();
-}
-
-// console.log(myLibrary);
-
-btnRead.addEventListener("click", function () {
-  toggleRead(togNotRead, togRead, btnRead);
-});
-
-btnFave.addEventListener("click", function () {
-  toggleFave(togNotFave, togFave, btnFave);
-});
-});
-
-function showCover(
-  // hides info
-  // hides edit
-  bookCardCover,
-  bookCardNavBot,
-  bookCardInfo,
-  bookCardNavTop,
-  editBook,
-  bookCardNavTopEdit
-) {
-  bookCardCover.style.display = "flex";
-  bookCardNavBot.style.display = "flex";
-  bookCardInfo.style.display = "none";
-  bookCardNavTop.style.display = "none";
-  editBook.style.display = "none";
-  bookCardNavTopEdit.style.display = "none";
-}
-
-function showInfo(
-  // hides cover
-  // hides edit
-  bookCardCover,
-  bookCardNavBot,
-  bookCardInfo,
-  bookCardNavTop,
-  editBook,
-  bookCardNavTopEdit
-) {
-  bookCardCover.style.display = "none";
-  bookCardNavBot.style.display = "none";
-  bookCardInfo.style.display = "flex";
-  bookCardNavTop.style.display = "flex";
-  editBook.style.display = "none";
-  bookCardNavTopEdit.style.display = "none";
-}
-
-function showEdit(
-  // hides cover
-  // hides info
-  // bookCard2,
-  bookCardCover,
-  bookCardNavBot,
-  bookCardInfo,
-  bookCardNavTop,
-  editBook,
-  bookCardNavTopEdit
-) {
-  // bookCard2.style.border = ".15rem solid var(--candle)";
-  bookCardCover.style.display = "none";
-  bookCardNavBot.style.display = "none";
-  bookCardInfo.style.display = "none";
-  bookCardNavTop.style.display = "none";
-  editBook.style.display = "flex";
-  // editBook.style.background = "var(--candle)";
-  bookCardNavTopEdit.style.display = "flex";
-}
-
-function toggleRead(togNotRead, togRead, btnRead) {
-  if (togRead.style.display === "none") {
-    togNotRead.style.display = "none";
-    togRead.style.display = "flex";
-    btnRead.style.background = "var(--dk-sea)";
-  } else {
-    togNotRead.style.display = "flex";
-    togRead.style.display = "none";
-    btnRead.style.background = "var(--life-jacket)";
-  }
-}
-
-function toggleFave(togNotFave, togFave, btnFave) {
-  if (togFave.style.display === "none") {
-    togNotFave.style.display = "none";
-    togFave.style.display = "flex";
-    btnFave.style.background = "var(--dk-sea)";
-  } else {
-    togNotFave.style.display = "flex";
-    togFave.style.display = "none";
-    btnFave.style.background = "var(--life-jacket)";
-  }
-}
-
-function setInitReadFaveState(card) {
-  const cardContainer = document.getElementById(card.id);
-  // Hitting cardContainer spreads it around...remember this!
-
-  // const ficNonBorderColor = cardContainer.querySelector(".fic-non-border-color");
-
-  const btnRead = cardContainer.querySelector(".btn-read");
-  const togNotRead = cardContainer.querySelector(".tog-not-read");
-  const togRead = cardContainer.querySelector(".tog-read");
-  const btnFave = cardContainer.querySelector(".btn-fave");
-  const togNotFave = cardContainer.querySelector(".tog-not-fave");
-  const togFave = cardContainer.querySelector(".tog-fave");
-
-  // INITIAL READ STATE
-  if (card.read === true) {
-    togNotRead.style.display = "none";
-    togRead.style.display = "flex";
-    btnRead.style.background = "var(--dk-sea)";
-  } else if (card.read === false) {
-    togNotRead.style.display = "flex";
-    togRead.style.display = "none";
-    btnRead.style.background = "var(--life-jacket)";
-  }
-
-  // INITIAL FAVE STATE
-  if (card.fave === true) {
-    togNotFave.style.display = "none";
-    togFave.style.display = "flex";
-    btnFave.style.background = "var(--dk-sea)";
-  } else if (card.fave === false) {
-    togNotFave.style.display = "flex";
-    togFave.style.display = "none";
-    btnFave.style.background = "var(--life-jacket)";
-  }
-
-
-}
-myLibrary.forEach(function (card) {
-  setInitReadFaveState(card);
-});
+  myLibrary.forEach(function (card) {
+    setInitReadFaveState(card);
+  });
 
 }
 
@@ -613,13 +582,7 @@ menuBtnStats.addEventListener("click", function () {
   statsDialog.showModal();
 });
 
-const sortDialog = document.querySelector("#sort-dialog");
-
-// const menuBtnSort = document.querySelector("#menu-btn-sort");
-// menuBtnSort.addEventListener("click", function () {
-//   clearModalFormData();
-//   sortDialog.showModal();
-// });
+// const sortDialog = document.querySelector("#sort-dialog");
 
 const searchDialog = document.querySelector("#search-dialog");
 
@@ -628,7 +591,6 @@ menuBtnSearch.addEventListener("click", function () {
   clearModalFormData();
   searchDialog.showModal();
 });
-
 
 function clearModalFormData() {
   const inputs = document.querySelectorAll("input");
@@ -648,8 +610,10 @@ function closeModal() {
     });
     clearModalFormData();
     addBookDialog.close();
+    statsDialog.close();
+    searchDialog.close();
     // location.reload();
-    renderCards(); // IS THIS STOPPING THE DELETION OF TEXT IN THE EDIT-FORM?
+    // renderCards(); // IS THIS STOPPING THE DELETION OF TEXT IN THE EDIT-FORM?
   });
 }
 
@@ -748,47 +712,10 @@ function addFormBookToLibrary() {
 console.log(myLibrary);
 alphabetizeLibrary();
 addBookDialog.close();
+
 renderCards();
 tallyBookStats();
-// clearModalFormData();
-// location.reload();
-// closeModal();
 }
-
-console.log(myLibrary);
-
-// const alphabetical = myLibrary.sort((a, b) => {
-//   if (a.title > b.title) {
-//     return 1;
-//   } else {
-//     return -1;
-//   }
-// })
-
-// console.log(alphabetical);
-
-
-// function alphabetizeMyLibrary() {
-//   const alphabetical = myLibrary.sort((a, b) => {
-//     // Function to remove the, a , an from titles
-//     const removeLeadingArticle = (title) => {
-//       const articles = ["the", "a", "an"];
-//       const words = title.split(/\s+/);
-//       if (articles.includes(words[0].toLowerCase())) {
-//         return words.slice(1).join(" ");
-//       }
-//       return title;
-//     };
-
-//     // Removes articles / compare titles
-//     const titleA = removeLeadingArticle(a.title);
-//     const titleB = removeLeadingArticle(b.title);
-//     return titleA.localeCompare(titleB);
-//   });
-// console.log(alphabetical);
-// }
-
-// alphabetizeMyLibrary(); 
 
 const bookTotal = document.querySelector("#book-total");
 
@@ -833,7 +760,8 @@ function tallyBookStats() {
   }, 0);
   readTotal.innerText = readNum;
 
-  // read pages and not read pages here
+
+  // read pages and not-read pages here; TODO: keep this code as a reminder to add if I tackle this code at a later date, needs to be fixed so that it works when adding books
 
   // const readPageHolder = [];
   // const notReadPageHolder = [];
@@ -879,7 +807,7 @@ function tallyBookStats() {
 
 tallyBookStats()
 
-// JUST WIRING A BASIC SEARCH FUNCTION OF MYLIBRARY...NEEDS WORK
+// JUST WIRING A BASIC SEARCH FUNCTION OF MYLIBRARY... TODO: NEEDS WORK
 function searchForBooks() {
   const searchTerm = document.querySelector("#search-term").value.toLowerCase();
   const searchResults = document.querySelector("search-results");
@@ -888,17 +816,30 @@ function searchForBooks() {
   searchResults.innerText = "";
 
   // Filter books that match the search term
-  const filteredBooks = myLibrary.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm)
-  );
-
-  // Display search results, needs a error msg if nothing is found via search...also needs to display a book
-  filteredBooks.forEach((book) => {
-    const p = document.createElement("p");
-    p.textContent = book.title;
-    searchResults.appendChild(p);
+  const filteredBooks = myLibrary.filter((book) => {
+    return (
+      book.title.toLowerCase().includes(searchTerm) ||
+      book.author.toLowerCase().includes(searchTerm) 
+      // ||
+      // book.type.toLowerCase().includes(searchTerm)
+    );
   });
+
+  if (filteredBooks.length === 0) {
+    const p = document.createElement("p");
+    p.textContent = "Item not found."; // Show message if no items found
+    searchResults.appendChild(p);
+  } else {
+    filteredBooks.forEach((book) => {
+      const p = document.createElement("p");
+      p.textContent = book.title || book.author 
+      // || book.type;
+      searchResults.appendChild(p);
+    });
+  }
 }
 
 // Event listener for search input
 document.querySelector("#search-enter-btn").addEventListener("click", searchForBooks);
+
+console.log(myLibrary);

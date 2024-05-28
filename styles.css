@@ -17,6 +17,7 @@
 /* FOOTER                        */
 /* BUTTONS                       */
 /* RADIOS                        */
+/* ***** TABLE OF CONTENTS ***** */
 
 
 /* ROOT/BODY                     */
@@ -130,9 +131,6 @@ dialog {
     color: var(--white);
 }
 
-/* #add-book-dialog {
-} */
-
 form {
     display: flex;
         flex-direction: column;
@@ -209,22 +207,9 @@ fieldset input[type="text"]:focus, fieldset input[type="number"]:focus  {
     background: var(--sea);
 }
 
-/* .label-radio {
-    padding: 0 .2rem 0 .2rem;
-} */
-
 form-footer {
     margin-top: .25rem;
 }
-
-/* stat-helper-div form-header {
-
-    display: grid;
-        grid-template-columns: .5fr 10fr .5fr;
-        place-content: space-evenly;
-        place-items: center;
-
-} */
 
 #stats-dialog fieldset {
     display: flex;
@@ -249,7 +234,6 @@ stat-book-div ul {
     justify-content: center;
     align-items: start;
     list-style: none;
-    /* padding-bottom: 1rem; */
 }
 
 stat-book-div li {
@@ -287,7 +271,6 @@ main-content-container {
         align-items: center;
         gap: 1rem;
     margin: 0;
-    /* padding: 1rem; */
 }
 
 /* --> Book-card (cover & info)  */
@@ -296,39 +279,23 @@ book-card {
     height: 350px;
     width: var(--book-card-width);
     border: .15rem solid var(--white);
-    /* border-color: var(--white); */
-    /* border:none; */
     border-radius: var(--border-radius);
     color: var(--white);
     display: block;
         grid-template-areas:
         "book-card-nav-top"
         "book-card-info"
-        /* "book-card-content" */
         "book-card-cover"
         "book-card-nav-bot"
         "book-card-nav-top-edit"
         "edit-book-form";
-    /* margin: 1rem 1rem 0 1rem; */
     margin: .25rem;
-      overflow: hidden;
+    overflow: hidden;
 }
-
-/* #b1 {
-display: none;
-} */
-
-/* .fic-non-border-color {
-    border-color: red;
-} */
 
 book-card:hover{
     background: var(--dark-80);
 }
-
-/* book-card-content {
-    grid-area: book-card-content;
-} */
 
 book-card-cover {
     grid-area: book-card-cover;
@@ -376,7 +343,6 @@ book-card-nav-top, book-card-nav-bot, book-card-nav-top-edit {
 
 book-card-nav-top {
     grid-area: book-card-nav-top;
-    /* align-self: start; */
     display: none;
         justify-content: space-between;
 }
@@ -390,7 +356,6 @@ book-card-nav-bot {
 
 book-card-nav-top-edit {
     grid-area: book-card-nav-top-edit;
-    /* align-self: start; */
     display: none;
         justify-content: end;
         align-items: center;
@@ -401,7 +366,6 @@ book-card-nav-top-edit {
 .edit-book-form {
     grid-area: edit-book-form;
     height: var(--cover-info-size);
-    /* height: 326px; */
     display: none;
         justify-content: space-evenly;
         align-items: center;
@@ -429,10 +393,6 @@ book-card-nav-top-edit {
     background: var(--sea);
 }
 
-/* .edit-book-form input[type="radio"] {
-    margin-bottom: 1rem;
-} */
-
 .non-radio-edit-label {
     align-self: start;
     padding: .25rem 0 .25rem .5rem;
@@ -443,29 +403,15 @@ book-card-nav-top-edit {
     padding-right: 1rem;
 }
 
-/* .edit-book-form label[type="radio"] {
-
-} */
-
-
-/* .edit-page {
-    margin-bottom: .5rem;
-} */
-
 .flex-div1 {
     display: flex;
-
-justify-content: space-evenly;
+        justify-content: space-evenly;
 
  }
 
 .flex-div2 {
     display: flex;
-    /* gap: 1.75rem; */
-justify-content: space-between;
-
-    /* margin: auto; */
-
+        justify-content: space-between;
 }
 
 
@@ -499,7 +445,6 @@ button {
     display: flex;
         justify-content: center;
         align-items: center;
-     /* margin: .1rem;     */
 }
    
 button:hover {
@@ -519,23 +464,9 @@ button:active {
     height: 1.8rem;
 }
 
-/* .menu-btn:hover {
-    background: var(--dk-sea);
-} */
-
-/* .menu-btn:active {
-    background: var(--sea);
-} */
-
 .book-card-round-btns {
     height: 2.5rem;
     width: 2.5rem;
-    /* background: var(--life-jacket);
-    border: .15rem solid var(--white);
-    border-radius: var(--border-radius); */
-    /* display: flex;
-        justify-content: center;
-        align-items: center; */
 }
 
 .book-card-round-btns img {
@@ -550,14 +481,6 @@ book-card-nav-top-edit .other-btn {
     margin: 1rem 0 0 1rem;
 }
 
-/* book-card-nav-bot .book-card-round-btns {
-    margin-bottom: 1rem;
-} */
-
-/* .btn-info:hover, .btn-edit:hover, .btn-x-out:hover, .btn-x-out2:hover {
-    background: var(--dk-sea);
-} */
-
 .other-btn {
     height: 2.5rem;
     width: 5.75rem;
@@ -567,68 +490,41 @@ book-card-nav-top-edit .other-btn {
     margin: 0 .25rem 1rem .25rem;
 }
 
-/* .other-btn:hover {
-    background: var(--white);
-} */
-
-/* .btn-x-out-modal {
-    align-self: center;
-} */
-
 #add-book-enter-btn, #search-enter-btn {
     height: 2.5rem;
     width: 7rem;
-    /* width: auto;
-    border-radius: var(--border-radius);
-    font-size: 1rem; */
-    /* font-weight: 600; */
     margin-top: .5rem;
 }
+
 
 /* RADIOS                        */
 
 input:where([type="radio"]){
-    -webkit-appearance : none;
-    appearance         : none;
-    
-    height             : 22px;
-    width              : 22px;
-
-    margin             : calc(0.75em - 11px) 0.25rem 0 0;
-    vertical-align     : top;
-    border             : var(--border-px) solid var(--white);
-    border-radius      : var(--border-radius);
-    background         : var(--white) no-repeat center center;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 22px;
+    width: 22px;
+    background: var(--white) no-repeat center center;  
+    border: var(--border-px) solid var(--white);
+    border-radius: var(--border-radius);  
+    margin: calc(0.75em - 11px) 0.25rem 0 0;
+    vertical-align: top; 
 }
 
 input[type="radio"]{
-  border-radius : var(--border-radius);
+    border-radius: var(--border-radius);
 }
 
 input:where([type="radio"]):where(:active:not(:disabled), :hover){
-  border-color : var(--candle);
-  outline      : none;      
+    border-color: var(--candle);
+    outline: none;      
 }
 
 input:where([type="radio"]):where(:active:not(:disabled), :focus){
-  border-color : var(--sea);
-  outline      : none;      
+  border-color: var(--sea);
+  outline: none;      
 }
-
-/* input:where([type="radio"]):disabled{
-  background : red;
-} */
 
 input[type="radio"]:checked{
   background: var(--life-jacket);
 }
-
-
-/* MEDIA QUERIES                 */
-
-/* @media (width >= 1080px) {
-body {
-width: 65vw;
-
-}
-} */
