@@ -395,7 +395,7 @@ function renderCards() {
 
     let bookId = card.id;
 
-    // Find the book in myLibrary with the matching ID
+    // Finds the book in myLibrary with the matching ID
     const bookInfoFinder = myLibrary.find((book) => book.id === bookId);
 
     // Check if the book is found
@@ -550,13 +550,11 @@ function renderCards() {
       togFave.style.display = "none";
       btnFave.style.background = "var(--life-jacket)";
     }
-
   }
   
   myLibrary.forEach(function (card) {
     setInitReadFaveState(card);
   });
-
 }
 
 renderCards();
@@ -613,7 +611,7 @@ function closeModal() {
     statsDialog.close();
     searchDialog.close();
     // location.reload();
-    // renderCards(); // IS THIS STOPPING THE DELETION OF TEXT IN THE EDIT-FORM?
+    // renderCards(); // WAS THIS STOPPING THE DELETION OF TEXT IN THE EDIT-FORM?
   });
 }
 

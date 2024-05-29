@@ -17,6 +17,7 @@
 /* FOOTER                        */
 /* BUTTONS                       */
 /* RADIOS                        */
+/* MEDIA QUERIES                 */
 /* ***** TABLE OF CONTENTS ***** */
 
 
@@ -64,8 +65,8 @@ header {
     background: var(--life-jacket);
     border-bottom: var(--border-px) solid var(--white);
     display: block;
-    margin-bottom: 3rem;
-    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0 0 1.25rem 0;
 }
 
 .sticky {
@@ -79,6 +80,11 @@ header {
     background: var(--life-jacket);
     border-top: var(--border-px) solid var(--white);
     border-bottom: var(--border-px) solid var(--white);
+    /* CSS below was placed in a media query */
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 110px; */
     z-index: 9;
 }
 
@@ -106,7 +112,7 @@ title-container h1 {
 }
 
 button-ctrl-container {
-    max-width: 800px;
+    max-width: 500px;
     display: grid;
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         place-content: center;
@@ -527,4 +533,43 @@ input:where([type="radio"]):where(:active:not(:disabled), :focus){
 
 input[type="radio"]:checked{
   background: var(--life-jacket);
+}
+
+
+/* MEDIA QUERIES                 */
+
+@media (min-width: 650px) {
+
+header {
+    padding: 0 0 2.5rem 0;
+}
+
+title-container img {
+    height: 4rem;
+}
+
+title-container h1 {
+    align-self: center;
+    color: var(--white);
+    font-family: "Platypi", 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-weight: 500;
+    padding-left: .25rem;
+}
+
+.sticky {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 110px;
+}
+
+.menu-btn {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.menu-btn img{
+    height: 2rem;
+}
 }
